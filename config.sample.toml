@@ -1,0 +1,33 @@
+[server]
+address = ":5354"
+domain = "dns.toys"
+
+[timezones]
+enabled = true
+
+# Path to the geo location file from geonames.org
+# Directory: http://download.geonames.org/export/dump/
+geo_filepath = "cities15000.txt"
+
+[fx]
+enabled = true
+
+# Fixer.io API key.
+api_key = ""
+
+# Frequency to refresh the api.exchangerate.host currency conversion data.
+refresh_interval = "6h"
+
+[myip]
+enabled = true
+
+[weather]
+enabled = true
+
+# Max forecast entries to store.
+max_entries = 3
+
+cache_ttl = "1h"
+
+# Useragent for the yr.no API
+useragent = "github.com/knadh/dns.toys"
