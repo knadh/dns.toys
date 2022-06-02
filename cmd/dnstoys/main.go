@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/knadh/dns.toys/internal/fx"
@@ -53,6 +56,39 @@ func initConfig() {
 	}
 
 	ko.Load(posflag.Provider(f, ".", ko), nil)
+}
+
+func snapshot(h *handlers) {
+	interruptSignal := make(chan os.Signal)
+	signal.Notify(interruptSignal,
+		syscall.SIGTERM,
+		syscall.SIGHUP,
+		syscall.SIGQUIT,
+		syscall.SIGINT,
+		syscall.SIGUNUSED, // SIGUNUSED, can be used to avoid shutting down the app.
+	)
+
+	for {
+		select {
+		case i := <-interruptSignal:
+			lo.Printf("received SIGNAL: `%s`", i.String())
+
+			if ko.Bool("weather.enabled") && ko.Bool("weather.snapshot_enabled") {
+				b, err := h.weather.Dump()
+				if err != nil {
+					log.Printf("error generating weather snapshot: %v", err)
+				}
+
+				if err := ioutil.WriteFile(ko.MustString("weather.snapshot_file"), b, 0644); err != nil {
+					log.Printf("error writing weather snapshot: %v", err)
+				}
+			}
+
+			if i != syscall.SIGUNUSED {
+				os.Exit(0)
+			}
+		}
+	}
 }
 
 func main() {
@@ -134,6 +170,9 @@ func main() {
 
 	dns.HandleFunc("help.", h.handleHelp)
 	dns.HandleFunc(".", handle(h.handleDefault))
+
+	// Start the snapshot listener.
+	go snapshot(h)
 
 	// Start the server.
 	server := &dns.Server{Addr: ko.MustString("server.address"), Net: "udp"}

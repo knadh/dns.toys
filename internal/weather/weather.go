@@ -1,7 +1,9 @@
 package weather
 
 import (
+	"bytes"
 	"compress/gzip"
+	"encoding/gob"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -137,6 +139,19 @@ func (w *Weather) Query(q string) ([]string, error) {
 	}
 
 	return out, nil
+}
+
+// Dump produces a gob dump of the cached data.
+func (w *Weather) Dump() ([]byte, error) {
+	buf := &bytes.Buffer{}
+
+	w.mut.RLock()
+	defer w.mut.RUnlock()
+	if err := gob.NewEncoder(buf).Encode(w.data); err != nil {
+		return nil, err
+	}
+
+	return buf.Bytes(), nil
 }
 
 func (w *Weather) get(l geo.Location) (entry, error) {

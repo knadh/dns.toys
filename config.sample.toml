@@ -2,6 +2,7 @@
 address = ":5354"
 domain = "dns.toys"
 
+
 [timezones]
 enabled = true
 
@@ -9,25 +10,34 @@ enabled = true
 # Directory: http://download.geonames.org/export/dump/
 geo_filepath = "cities15000.txt"
 
+
 [fx]
-enabled = true
+enabled = false
 
 # Fixer.io API key.
 api_key = ""
 
-# Frequency to refresh the api.exchangerate.host currency conversion data.
+# Frequency to refresh the currency conversion data from the API.
 refresh_interval = "6h"
+
+snapshot_enabled = true
+snapshot_file = "fx.dump"
+
 
 [myip]
 enabled = true
 
+
 [weather]
 enabled = true
 
-# Max forecast entries to store.
+# Max forecast days to store.
 max_entries = 3
 
 cache_ttl = "1h"
 
 # Useragent for the yr.no API
 useragent = "github.com/knadh/dns.toys"
+
+snapshot_enabled = true
+snapshot_file = "weather.dump"
