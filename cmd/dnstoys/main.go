@@ -60,10 +60,11 @@ func main() {
 
 	var (
 		h = &handlers{
-			help:   makeHelp(),
 			domain: ko.MustString("server.domain"),
 		}
 		ge *geo.Geo
+
+		help = [][]string{}
 	)
 
 	// Timezone service.
@@ -85,6 +86,8 @@ func main() {
 	if ko.Bool("timezones.enabled") {
 		h.tz = timezones.New(timezones.Opt{}, ge)
 		dns.HandleFunc("time.", handle(h.handleTime))
+
+		help = append(help, []string{"get time for a city or country code", "dig mumbai.time @%s"})
 	}
 
 	// FX currency conversion.
@@ -94,11 +97,15 @@ func main() {
 			RefreshInterval: ko.MustDuration("fx.refresh_interval"),
 		})
 		dns.HandleFunc("fx.", handle(h.handleFX))
+
+		help = append(help, []string{"convert currency rates (25USD-EUR.fx, 99.5JPY-INR.fx)", "dig 25USD-EUR.fx @%s"})
 	}
 
 	// IP echo.
 	if ko.Bool("myip.enabled") {
 		dns.HandleFunc("myip.", handle(h.handleMyIP))
+
+		help = append(help, []string{"get your host's requesting IP.", "dig myip @%s"})
 	}
 
 	// Weather.
@@ -111,10 +118,21 @@ func main() {
 		}, ge)
 
 		dns.HandleFunc("weather.", handle(h.handleWeather))
+
+		help = append(help, []string{"get weather forestcast for a city.", "dig berlin.weather @%s"})
 	}
 
-	// Help service.
-	dns.HandleFunc("help.", handle(h.handleHelp))
+	// Prepare the static help response for the `help` query.
+	for _, l := range help {
+		r, err := dns.NewRR(fmt.Sprintf("help. 1 TXT \"%s\" \"%s\"", l[0], fmt.Sprintf(l[1], h.domain)))
+		if err != nil {
+			lo.Fatalf("error preparing: %v", err)
+		}
+
+		h.help = append(h.help, r)
+	}
+
+	dns.HandleFunc("help.", h.handleHelp)
 	dns.HandleFunc(".", handle(h.handleDefault))
 
 	// Start the server.

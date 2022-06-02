@@ -19,7 +19,7 @@ type handlers struct {
 	fx      *fx.FX
 
 	domain string
-	help   []string
+	help   []dns.RR
 }
 
 var reClean = regexp.MustCompile("[^a-z/]")
@@ -137,33 +137,16 @@ func (h *handlers) handleWeather(m *dns.Msg, w dns.ResponseWriter) ([]string, er
 	return out, nil
 }
 
-func (h *handlers) handleHelp(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	return h.help, nil
+func (h *handlers) handleHelp(w dns.ResponseWriter, r *dns.Msg) {
+	m := &dns.Msg{}
+	m.SetReply(r)
+	m.Compress = false
+	m.Answer = h.help
+	w.WriteMsg(m)
 }
 
 func (h *handlers) handleDefault(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
 	return nil, fmt.Errorf(`unknown query. Try dig help @%s`, h.domain)
-}
-
-func makeHelp() []string {
-	var (
-		domain = ko.String("server.domain")
-		help   = [][]string{}
-		out    = []string{}
-	)
-
-	if ko.Bool("timezones.enabled") {
-		help = append(help, []string{"get time for a city or country code (london.time, in.time ...)", "dig london.time @%s"})
-	}
-	if ko.Bool("fx.enabled") {
-		help = append(help, []string{"convert currency rates (25USD-EUR.fx, 99.5JPY-INR.fx)", "dig 25USD-EUR.fx @%s"})
-	}
-
-	for _, h := range help {
-		out = append(out, fmt.Sprintf("help. TXT \"%s\" \"%s\"", h[0], fmt.Sprintf(h[1], domain)))
-	}
-
-	return out
 }
 
 // respErr applies a response error to the incoming query.
