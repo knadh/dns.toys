@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
@@ -18,13 +19,13 @@ type handlers struct {
 	fx      *fx.FX
 
 	domain string
-	help   []dns.RR
+	help   []string
 }
 
 var reClean = regexp.MustCompile("[^a-z/]")
 
 // handle wraps all query query handlers with general query handling.
-func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error)) func(w dns.ResponseWriter, r *dns.Msg) {
+func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]string, error)) func(w dns.ResponseWriter, r *dns.Msg) {
 	return func(w dns.ResponseWriter, r *dns.Msg) {
 		m := &dns.Msg{}
 		m.SetReply(r)
@@ -41,7 +42,19 @@ func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error)) func(w 
 			if err != nil {
 				respErr(err, m)
 			} else {
-				m.Answer = res
+				out := make([]dns.RR, 0, len(res))
+				for _, l := range res {
+					r, err := dns.NewRR(l)
+					if err != nil {
+						log.Printf("error preparing response: %v", err)
+						respErr(err, m)
+						return
+					}
+
+					out = append(out, r)
+				}
+
+				m.Answer = out
 			}
 		}
 
@@ -50,8 +63,8 @@ func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error)) func(w 
 	}
 }
 
-func (h *handlers) handleTime(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
-	var out []dns.RR
+func (h *handlers) handleTime(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
+	var out []string
 	for _, q := range m.Question {
 		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 			continue
@@ -69,8 +82,8 @@ func (h *handlers) handleTime(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error
 	return out, nil
 }
 
-func (h *handlers) handleFX(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
-	var out []dns.RR
+func (h *handlers) handleFX(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
+	var out []string
 	for _, q := range m.Question {
 		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 			continue
@@ -87,8 +100,8 @@ func (h *handlers) handleFX(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) 
 	return out, nil
 }
 
-func (h *handlers) handleMyIP(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
-	var out []dns.RR
+func (h *handlers) handleMyIP(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
+	var out []string
 	for _, q := range m.Question {
 		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 			continue
@@ -99,19 +112,14 @@ func (h *handlers) handleMyIP(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error
 			return nil, errors.New("unable to detect IP.")
 		}
 
-		r, err := dns.NewRR(fmt.Sprintf("myip. TXT %s", a[0]))
-		if err != nil {
-			return nil, err
-		}
-
-		return []dns.RR{r}, nil
+		return []string{fmt.Sprintf("myip. TXT %s", a[0])}, nil
 	}
 
 	return out, nil
 }
 
-func (h *handlers) handleWeather(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
-	var out []dns.RR
+func (h *handlers) handleWeather(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
+	var out []string
 	for _, q := range m.Question {
 		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 			continue
@@ -129,19 +137,19 @@ func (h *handlers) handleWeather(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, er
 	return out, nil
 }
 
-func (h *handlers) handleHelp(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
+func (h *handlers) handleHelp(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
 	return h.help, nil
 }
 
-func (h *handlers) handleDefault(m *dns.Msg, w dns.ResponseWriter) ([]dns.RR, error) {
+func (h *handlers) handleDefault(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
 	return nil, fmt.Errorf(`unknown query. Try dig help @%s`, h.domain)
 }
 
-func makeHelp() []dns.RR {
+func makeHelp() []string {
 	var (
 		domain = ko.String("server.domain")
 		help   = [][]string{}
-		out    = []dns.RR{}
+		out    = []string{}
 	)
 
 	if ko.Bool("timezones.enabled") {
@@ -152,12 +160,7 @@ func makeHelp() []dns.RR {
 	}
 
 	for _, h := range help {
-		r, err := dns.NewRR(fmt.Sprintf("help. TXT \"%s\" \"%s\"", h[0], fmt.Sprintf(h[1], domain)))
-		if err != nil {
-			lo.Fatalf("error preparing help responses.")
-		}
-
-		out = append(out, r)
+		out = append(out, fmt.Sprintf("help. TXT \"%s\" \"%s\"", h[0], fmt.Sprintf(h[1], domain)))
 	}
 
 	return out

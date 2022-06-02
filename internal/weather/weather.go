@@ -13,10 +13,9 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
-	"github.com/miekg/dns"
 )
 
-const apiURL = "https://api.met.no/weatherapi/locationforecast/2.0/compactx?lat=%0.5f&lon=%0.5f"
+const apiURL = "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=%0.5f&lon=%0.5f"
 
 // Weather fetches weather forecasts for a given geo location.
 type Weather struct {
@@ -108,13 +107,13 @@ func New(o Opt, g *geo.Geo) *Weather {
 }
 
 // Query queries the weather for a given location.
-func (w *Weather) Query(q string) ([]dns.RR, error) {
+func (w *Weather) Query(q string) ([]string, error) {
 	locs := w.geo.Query(q)
 	if locs == nil {
 		return nil, errors.New("unknown city.")
 	}
 
-	out := make([]dns.RR, 0, len(locs)*3)
+	out := make([]string, 0, len(locs)*3)
 	for n, l := range locs {
 		data, err := w.get(l)
 		if err != nil {
@@ -127,12 +126,8 @@ func (w *Weather) Query(q string) ([]dns.RR, error) {
 		}
 
 		for _, f := range data.Forecasts {
-			r, err := dns.NewRR(fmt.Sprintf("%s 1 TXT \"%s (%s)\" \"%0.2fC (%0.2fF)\" \"%0.2f%% hu.\" \"%s\" \"%s\"",
-				q, l.Name, l.Country, f.TempC, f.TempF, f.Humidity, f.Forecast1H, f.Time.In(zone).Format("15:04, Mon")))
-			if err != nil {
-				return nil, err
-			}
-
+			r := fmt.Sprintf("%s 1 TXT \"%s (%s)\" \"%0.2fC (%0.2fF)\" \"%0.2f%% hu.\" \"%s\" \"%s\"",
+				q, l.Name, l.Country, f.TempC, f.TempF, f.Humidity, f.Forecast1H, f.Time.In(zone).Format("15:04, Mon"))
 			out = append(out, r)
 		}
 

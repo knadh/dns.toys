@@ -13,8 +13,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/miekg/dns"
 )
 
 const apiURL = "https://api.apilayer.com/exchangerates_data/latest?base=USD"
@@ -73,7 +71,7 @@ func New(o Opt) *FX {
 
 // Query handles a currency rate conversion query.
 // 100USD-INR.FX
-func (fx *FX) Query(q string) ([]dns.RR, error) {
+func (fx *FX) Query(q string) ([]string, error) {
 	res := reParse.FindStringSubmatch(strings.ToUpper(q))
 	if len(res) != 4 {
 		return nil, errors.New("invalid fx query.")
@@ -108,12 +106,9 @@ func (fx *FX) Query(q string) ([]dns.RR, error) {
 	// Convert.
 	conv := (baseRate / fromRate) / (baseRate / toRate) * val
 
-	out, err := dns.NewRR(fmt.Sprintf("%s TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date))
-	if err != nil {
-		return nil, err
-	}
+	r := fmt.Sprintf("%s TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date)
 
-	return []dns.RR{out}, nil
+	return []string{r}, nil
 }
 
 func (fx *FX) load(url string) (data, error) {
