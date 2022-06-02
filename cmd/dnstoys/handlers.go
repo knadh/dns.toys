@@ -24,7 +24,7 @@ type handlers struct {
 
 var reClean = regexp.MustCompile("[^a-z/]")
 
-// handle wraps all query query handlers with general query handling.
+// handle wraps all query handlers with request and response processing.
 func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]string, error)) func(w dns.ResponseWriter, r *dns.Msg) {
 	return func(w dns.ResponseWriter, r *dns.Msg) {
 		m := &dns.Msg{}
@@ -42,12 +42,13 @@ func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]string, error)) func(w 
 			if err != nil {
 				respErr(err, m)
 			} else {
+				// Convert  string DNS responses to dns.RR.
 				out := make([]dns.RR, 0, len(res))
 				for _, l := range res {
 					r, err := dns.NewRR(l)
 					if err != nil {
 						log.Printf("error preparing response: %v", err)
-						respErr(err, m)
+						respErr(errors.New("error preparing response."), m)
 						return
 					}
 
@@ -146,7 +147,7 @@ func (h *handlers) handleHelp(w dns.ResponseWriter, r *dns.Msg) {
 }
 
 func (h *handlers) handleDefault(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	return nil, fmt.Errorf(`unknown query. Try dig help @%s`, h.domain)
+	return nil, fmt.Errorf(`unknown query. try: dig help @%s`, h.domain)
 }
 
 // respErr applies a response error to the incoming query.

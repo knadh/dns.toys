@@ -87,7 +87,7 @@ func main() {
 		h.tz = timezones.New(timezones.Opt{}, ge)
 		dns.HandleFunc("time.", handle(h.handleTime))
 
-		help = append(help, []string{"get time for a city or country code", "dig mumbai.time @%s"})
+		help = append(help, []string{"get time for a city", "dig mumbai.time @%s"})
 	}
 
 	// FX currency conversion.
