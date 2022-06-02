@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/knadh/dns.toys/internal/fx"
 	"github.com/knadh/dns.toys/internal/geo"
-	"github.com/knadh/dns.toys/internal/timezones"
-	"github.com/knadh/dns.toys/internal/weather"
+	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/timezones"
+	"github.com/knadh/dns.toys/internal/services/weather"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/toml"
 	"github.com/knadh/koanf/providers/file"
@@ -68,19 +68,31 @@ func snapshot(h *handlers) {
 		syscall.SIGUNUSED, // SIGUNUSED, can be used to avoid shutting down the app.
 	)
 
+	// On receiving an OS signal, iterate through services and
+	// dump their snapshots to the disk if available.
 	for {
 		select {
 		case i := <-interruptSignal:
 			lo.Printf("received SIGNAL: `%s`", i.String())
 
-			if ko.Bool("weather.enabled") && ko.Bool("weather.snapshot_enabled") {
-				b, err := h.weather.Dump()
-				if err != nil {
-					log.Printf("error generating weather snapshot: %v", err)
+			for name, s := range h.services {
+				if !ko.Bool(name+".enabled") || !ko.Bool(name+".snapshot_enabled") {
+					continue
 				}
 
-				if err := ioutil.WriteFile(ko.MustString("weather.snapshot_file"), b, 0644); err != nil {
-					log.Printf("error writing weather snapshot: %v", err)
+				b, err := s.Dump()
+				if err != nil {
+					lo.Printf("error generating %s snapshot: %v", name, err)
+				}
+
+				if b == nil {
+					continue
+				}
+
+				filePath := ko.MustString(name + ".snapshot_file")
+				lo.Printf("saving %s snapshot to %s", name, filePath)
+				if err := ioutil.WriteFile(filePath, b, 0644); err != nil {
+					lo.Printf("error writing weather snapshot: %v", err)
 				}
 			}
 
@@ -96,9 +108,11 @@ func main() {
 
 	var (
 		h = &handlers{
-			domain: ko.MustString("server.domain"),
+			services: make(map[string]Service),
+			domain:   ko.MustString("server.domain"),
 		}
-		ge *geo.Geo
+		ge  *geo.Geo
+		mux = dns.NewServeMux()
 
 		help = [][]string{}
 	)
@@ -114,46 +128,46 @@ func main() {
 		}
 		ge = g
 
-		log.Printf("%d geo location names loaded", g.Count())
-
+		lo.Printf("%d geo location names loaded", g.Count())
 	}
 
 	// Timezone service.
 	if ko.Bool("timezones.enabled") {
-		h.tz = timezones.New(timezones.Opt{}, ge)
-		dns.HandleFunc("time.", handle(h.handleTime))
+		tz := timezones.New(timezones.Opt{}, ge)
+		h.register("time", tz, mux)
 
 		help = append(help, []string{"get time for a city", "dig mumbai.time @%s"})
 	}
 
 	// FX currency conversion.
 	if ko.Bool("fx.enabled") {
-		h.fx = fx.New(fx.Opt{
+		f := fx.New(fx.Opt{
 			APIkey:          ko.MustString("fx.api_key"),
 			RefreshInterval: ko.MustDuration("fx.refresh_interval"),
 		})
-		dns.HandleFunc("fx.", handle(h.handleFX))
 
-		help = append(help, []string{"convert currency rates (25USD-EUR.fx, 99.5JPY-INR.fx)", "dig 25USD-EUR.fx @%s"})
+		h.register("time", f, mux)
+
+		help = append(help, []string{"convert currency rates", "dig 99USD-INR.fx @%s"})
 	}
 
 	// IP echo.
 	if ko.Bool("myip.enabled") {
-		dns.HandleFunc("myip.", handle(h.handleMyIP))
+		mux.HandleFunc("myip.", h.handleMyIP)
 
 		help = append(help, []string{"get your host's requesting IP.", "dig myip @%s"})
 	}
 
 	// Weather.
 	if ko.Bool("weather.enabled") {
-		h.weather = weather.New(weather.Opt{
+		w := weather.New(weather.Opt{
 			MaxEntries: ko.MustInt("weather.max_entries"),
 			CacheTTL:   ko.MustDuration("weather.cache_ttl"),
 			ReqTimeout: time.Second * 3,
 			UserAgent:  ko.MustString("server.domain"),
 		}, ge)
 
-		dns.HandleFunc("weather.", handle(h.handleWeather))
+		h.register("weather", w, mux)
 
 		help = append(help, []string{"get weather forestcast for a city.", "dig berlin.weather @%s"})
 	}
@@ -168,14 +182,18 @@ func main() {
 		h.help = append(h.help, r)
 	}
 
-	dns.HandleFunc("help.", h.handleHelp)
-	dns.HandleFunc(".", handle(h.handleDefault))
+	mux.HandleFunc("help.", h.handleHelp)
+	mux.HandleFunc(".", (h.handleDefault))
 
 	// Start the snapshot listener.
 	go snapshot(h)
 
 	// Start the server.
-	server := &dns.Server{Addr: ko.MustString("server.address"), Net: "udp"}
+	server := &dns.Server{
+		Addr:    ko.MustString("server.address"),
+		Net:     "udp",
+		Handler: mux,
+	}
 	lo.Println("listening on ", ko.String("server.address"))
 	if err := server.ListenAndServe(); err != nil {
 		lo.Fatalf("error starting server: %v", err)

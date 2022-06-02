@@ -2,6 +2,8 @@
 package fx
 
 import (
+	"bytes"
+	"encoding/gob"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -109,6 +111,19 @@ func (fx *FX) Query(q string) ([]string, error) {
 	r := fmt.Sprintf("%s TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date)
 
 	return []string{r}, nil
+}
+
+// Dump produces a gob dump of the cached data.
+func (fx *FX) Dump() ([]byte, error) {
+	buf := &bytes.Buffer{}
+
+	fx.mut.RLock()
+	defer fx.mut.RUnlock()
+	if err := gob.NewEncoder(buf).Encode(fx.data); err != nil {
+		return nil, err
+	}
+
+	return buf.Bytes(), nil
 }
 
 func (fx *FX) load(url string) (data, error) {

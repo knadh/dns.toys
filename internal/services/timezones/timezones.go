@@ -1,4 +1,4 @@
-// package timezones returns times for various zones and geographic locatons.
+// package timezones returns times for various geographic locatons.
 package timezones
 
 import (
@@ -9,6 +9,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 )
 
+// Timezones controller returns times for various geographic locations.
 type Timezones struct {
 	geo *geo.Geo
 }
@@ -45,4 +46,9 @@ func (t *Timezones) Query(q string) ([]string, error) {
 	}
 
 	return out, nil
+}
+
+// Dump produces a gob dump of the cached data.
+func (t *Timezones) Dump() ([]byte, error) {
+	return nil, nil
 }

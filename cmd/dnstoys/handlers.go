@@ -7,102 +7,86 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/knadh/dns.toys/internal/fx"
-	"github.com/knadh/dns.toys/internal/timezones"
-	"github.com/knadh/dns.toys/internal/weather"
 	"github.com/miekg/dns"
 )
 
-type handlers struct {
-	tz      *timezones.Timezones
-	weather *weather.Weather
-	fx      *fx.FX
+// Service represents a Service that responds to a particular kind
+// of DNS query.
+type Service interface {
+	Query(string) ([]string, error)
+	Dump() ([]byte, error)
+}
 
-	domain string
-	help   []dns.RR
+type handlers struct {
+	services map[string]Service
+	domain   string
+	help     []dns.RR
 }
 
 var reClean = regexp.MustCompile("[^a-z/]")
 
-// handle wraps all query handlers with request and response processing.
-func handle(cb func(m *dns.Msg, w dns.ResponseWriter) ([]string, error)) func(w dns.ResponseWriter, r *dns.Msg) {
-	return func(w dns.ResponseWriter, r *dns.Msg) {
+// register registers a Service for a given query suffix on the DNS server.
+// A Service responds to a DNS query via Query().
+func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
+	f := func(w dns.ResponseWriter, r *dns.Msg) {
 		m := &dns.Msg{}
 		m.SetReply(r)
 		m.Compress = false
 
-		if r.Opcode == dns.OpcodeQuery {
-			if len(m.Question) > 5 {
-				respErr(errors.New("too many queries."), m)
+		if r.Opcode != dns.OpcodeQuery {
+			w.WriteMsg(m)
+			return
+		}
+
+		if len(m.Question) > 5 {
+			respErr(errors.New("too many queries."), w, m)
+			return
+		}
+
+		// Execute the service on all the questions.
+		out := []dns.RR{}
+		for _, q := range m.Question {
+			if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
+				continue
+			}
+
+			// Call the service with the incoming query.
+			// Strip the service suffix from the query eg: mumbai.time.
+			ans, err := s.Query(cleanQuery(q.Name, "."+suffix+"."))
+			if err != nil {
+				respErr(err, w, m)
 				return
 			}
 
-			// Execute the handler.
-			res, err := cb(m, w)
+			// Convert string responses to dns.RR{}.
+			o, err := makeResp(ans)
 			if err != nil {
-				respErr(err, m)
-			} else {
-				// Convert  string DNS responses to dns.RR.
-				out := make([]dns.RR, 0, len(res))
-				for _, l := range res {
-					r, err := dns.NewRR(l)
-					if err != nil {
-						log.Printf("error preparing response: %v", err)
-						respErr(errors.New("error preparing response."), m)
-						return
-					}
-
-					out = append(out, r)
-				}
-
-				m.Answer = out
+				log.Printf("error preparing response: %v", err)
+				respErr(errors.New("error preparing response."), w, m)
+				return
 			}
+
+			out = append(out, o...)
 		}
 
 		// Write the response.
+		m.Answer = out
 		w.WriteMsg(m)
 	}
+
+	h.services["weather"] = s
+	mux.HandleFunc(suffix+".", f)
+	return f
 }
 
-func (h *handlers) handleTime(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	var out []string
-	for _, q := range m.Question {
-		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
-			continue
-		}
+// handleMyIP returns the client's IP address as a DNS response.
+// Although it is a service, it's not registered like a Service as it
+// uses w.RemoteAddr() instead of m.Question unlike a typical service.
+func (h *handlers) handleMyIP(w dns.ResponseWriter, r *dns.Msg) {
+	m := &dns.Msg{}
+	m.SetReply(r)
+	m.Compress = false
 
-		query := cleanQuery(q.Name, ".time.")
-		ans, err := h.tz.Query(query)
-		if err != nil {
-			return nil, err
-		}
-
-		out = append(out, ans...)
-	}
-
-	return out, nil
-}
-
-func (h *handlers) handleFX(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	var out []string
-	for _, q := range m.Question {
-		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
-			continue
-		}
-
-		ans, err := h.fx.Query(strings.TrimSuffix(q.Name, ".fx."))
-		if err != nil {
-			return nil, err
-		}
-
-		out = append(out, ans...)
-	}
-
-	return out, nil
-}
-
-func (h *handlers) handleMyIP(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	var out []string
 	for _, q := range m.Question {
 		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 			continue
@@ -110,32 +94,21 @@ func (h *handlers) handleMyIP(m *dns.Msg, w dns.ResponseWriter) ([]string, error
 
 		a := strings.Split(w.RemoteAddr().String(), ":")
 		if len(a) != 2 {
-			return nil, errors.New("unable to detect IP.")
+			respErr(errors.New("unable to detect IP."), w, m)
+			w.WriteMsg(m)
+			return
 		}
 
-		return []string{fmt.Sprintf("myip. TXT %s", a[0])}, nil
-	}
-
-	return out, nil
-}
-
-func (h *handlers) handleWeather(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	var out []string
-	for _, q := range m.Question {
-		if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
-			continue
-		}
-
-		query := cleanQuery(q.Name, ".weather.")
-		ans, err := h.weather.Query(query)
+		rr, err := dns.NewRR(fmt.Sprintf("myip. 1 TXT \"%s\"", a[0]))
 		if err != nil {
-			return nil, err
+			lo.Printf("error preparing myip response: %v", err)
+			return
 		}
 
-		out = append(out, ans...)
+		m.Answer = append(m.Answer, rr)
 	}
 
-	return out, nil
+	w.WriteMsg(m)
 }
 
 func (h *handlers) handleHelp(w dns.ResponseWriter, r *dns.Msg) {
@@ -146,12 +119,13 @@ func (h *handlers) handleHelp(w dns.ResponseWriter, r *dns.Msg) {
 	w.WriteMsg(m)
 }
 
-func (h *handlers) handleDefault(m *dns.Msg, w dns.ResponseWriter) ([]string, error) {
-	return nil, fmt.Errorf(`unknown query. try: dig help @%s`, h.domain)
+func (h *handlers) handleDefault(w dns.ResponseWriter, m *dns.Msg) {
+	respErr(fmt.Errorf(`unknown query. try: dig help @%s`, h.domain), w, m)
+	w.WriteMsg(m)
 }
 
-// respErr applies a response error to the incoming query.
-func respErr(err error, m *dns.Msg) {
+// respErr writes an error message to a DNS response.
+func respErr(err error, w dns.ResponseWriter, m *dns.Msg) {
 	r, err := dns.NewRR(fmt.Sprintf(". 1 IN TXT \"error: %s\"", err.Error()))
 	if err != nil {
 		lo.Println(err)
@@ -160,8 +134,27 @@ func respErr(err error, m *dns.Msg) {
 
 	m.Rcode = dns.RcodeServerFailure
 	m.Extra = []dns.RR{r}
+
+	w.WriteMsg(m)
 }
 
+// cleanQuery lowercases, removes all non-alpha chars, and trims the service suffix
+// from the given query string.
 func cleanQuery(q, trimSuffix string) string {
 	return reClean.ReplaceAllString(strings.ToLower(strings.TrimSuffix(q, trimSuffix)), "")
+}
+
+// makeResp converts a []string of DNS responses to []dns.RR.
+func makeResp(ans []string) ([]dns.RR, error) {
+	out := make([]dns.RR, 0, len(ans))
+	for _, a := range ans {
+		r, err := dns.NewRR(a)
+		if err != nil {
+			return nil, err
+		}
+
+		out = append(out, r)
+	}
+
+	return out, nil
 }
