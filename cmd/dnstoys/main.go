@@ -59,7 +59,7 @@ func initConfig() {
 	ko.Load(posflag.Provider(f, ".", ko), nil)
 }
 
-func snapshot(h *handlers) {
+func saveSnapshot(h *handlers) {
 	interruptSignal := make(chan os.Signal)
 	signal.Notify(interruptSignal,
 		syscall.SIGTERM,
@@ -104,6 +104,25 @@ func snapshot(h *handlers) {
 	}
 }
 
+func loadSnapshot(service string) []byte {
+	if !ko.Bool(service + ".snapshot_enabled") {
+		return nil
+	}
+
+	filePath := ko.MustString(service + ".snapshot_file")
+
+	b, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		if _, ok := err.(*os.PathError); ok {
+			return nil
+		}
+		lo.Printf("error reading snapshot file %s: %v", err)
+		return nil
+	}
+
+	return b
+}
+
 func main() {
 	initConfig()
 
@@ -146,6 +165,13 @@ func main() {
 			RefreshInterval: ko.MustDuration("fx.refresh_interval"),
 		})
 
+		// Load snapshot?
+		if b := loadSnapshot("fx"); b != nil {
+			if err := f.Load(b); err != nil {
+				lo.Printf("error reading weather snapshot: %v", err)
+			}
+		}
+
 		h.register("fx", f, mux)
 
 		help = append(help, []string{"convert currency rates", "dig 99USD-INR.fx @%s"})
@@ -166,6 +192,13 @@ func main() {
 			ReqTimeout: time.Second * 3,
 			UserAgent:  ko.MustString("server.domain"),
 		}, ge)
+
+		// Load snapshot?
+		if b := loadSnapshot("weather"); b != nil {
+			if err := w.Load(b); err != nil {
+				lo.Printf("error reading weather snapshot: %v", err)
+			}
+		}
 
 		h.register("weather", w, mux)
 
@@ -197,7 +230,7 @@ func main() {
 	mux.HandleFunc(".", (h.handleDefault))
 
 	// Start the snapshot listener.
-	go snapshot(h)
+	go saveSnapshot(h)
 
 	// Start the server.
 	server := &dns.Server{

@@ -157,6 +157,17 @@ func (w *Weather) Dump() ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+// Load loads a gob dump of cached data.
+func (w *Weather) Load(b []byte) error {
+	buf := bytes.NewBuffer(b)
+
+	w.mut.RLock()
+	defer w.mut.RUnlock()
+
+	err := gob.NewDecoder(buf).Decode(&w.data)
+	return err
+}
+
 func (w *Weather) get(l geo.Location) (entry, error) {
 	w.mut.RLock()
 	data, ok := w.data[l.ID]

@@ -74,7 +74,7 @@ func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w 
 		w.WriteMsg(m)
 	}
 
-	h.services["weather"] = s
+	h.services[suffix] = s
 	mux.HandleFunc(suffix+".", f)
 	return f
 }

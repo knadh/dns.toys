@@ -18,7 +18,7 @@ enabled = false
 refresh_interval = "6h"
 
 snapshot_enabled = true
-snapshot_file = "fx.dump"
+snapshot_file = "fx.snapshot"
 
 
 [myip]
@@ -37,7 +37,7 @@ cache_ttl = "1h"
 useragent = "github.com/knadh/dns.toys"
 
 snapshot_enabled = true
-snapshot_file = "weather.dump"
+snapshot_file = "weather.snapshot"
 
 
 [units]

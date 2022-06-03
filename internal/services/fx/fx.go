@@ -137,6 +137,17 @@ func (fx *FX) Dump() ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+// Load loads a gob dump of cached data.
+func (fx *FX) Load(b []byte) error {
+	buf := bytes.NewBuffer(b)
+
+	fx.mut.RLock()
+	defer fx.mut.RUnlock()
+
+	err := gob.NewDecoder(buf).Decode(&fx.data)
+	return err
+}
+
 func (fx *FX) load(url string) (data, error) {
 	client := http.Client{
 		Timeout: 6 * time.Second,
