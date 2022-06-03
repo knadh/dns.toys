@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 
@@ -110,6 +111,8 @@ func New(o Opt, g *geo.Geo) *Weather {
 
 // Query queries the weather for a given location.
 func (w *Weather) Query(q string) ([]string, error) {
+	q = strings.ToLower(q)
+
 	locs := w.geo.Query(q)
 	if locs == nil {
 		return nil, errors.New("unknown city.")

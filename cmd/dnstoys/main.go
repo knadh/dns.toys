@@ -147,7 +147,7 @@ func main() {
 			RefreshInterval: ko.MustDuration("fx.refresh_interval"),
 		})
 
-		h.register("time", f, mux)
+		h.register("fx", f, mux)
 
 		help = append(help, []string{"convert currency rates", "dig 99USD-INR.fx @%s"})
 	}

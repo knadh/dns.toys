@@ -4,6 +4,7 @@ package timezones
 import (
 	"errors"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
@@ -27,6 +28,8 @@ func New(o Opt, g *geo.Geo) *Timezones {
 // Query parses a given query string and returns the answer.
 // For the time package, the query is a location name.
 func (t *Timezones) Query(q string) ([]string, error) {
+	q = strings.ToLower(q)
+
 	locs := t.geo.Query(q)
 	if locs == nil {
 		return nil, errors.New("unknown city.")

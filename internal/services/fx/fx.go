@@ -19,7 +19,7 @@ import (
 
 const apiURL = "https://api.apilayer.com/exchangerates_data/latest?base=USD"
 
-var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})\\.FX")
+var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})")
 
 // FX represents the currency coversion (Foreign Exchange) package.
 type FX struct {
@@ -74,7 +74,9 @@ func New(o Opt) *FX {
 // Query handles a currency rate conversion query.
 // 100USD-INR.FX
 func (fx *FX) Query(q string) ([]string, error) {
-	res := reParse.FindStringSubmatch(strings.ToUpper(q))
+	q = strings.ToUpper(q)
+
+	res := reParse.FindStringSubmatch(q)
 	if len(res) != 4 {
 		return nil, errors.New("invalid fx query.")
 	}
