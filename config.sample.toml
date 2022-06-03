@@ -14,9 +14,6 @@ geo_filepath = "cities15000.txt"
 [fx]
 enabled = false
 
-# Fixer.io API key.
-api_key = ""
-
 # Frequency to refresh the currency conversion data from the API.
 refresh_interval = "6h"
 

@@ -17,7 +17,7 @@ import (
 	"time"
 )
 
-const apiURL = "https://api.apilayer.com/exchangerates_data/latest?base=USD"
+const apiURL = "https://api.exchangerate.host/latest"
 
 var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})")
 
@@ -36,7 +36,6 @@ type data struct {
 
 // Opt represents the config options for the FX converter.
 type Opt struct {
-	APIkey          string        `json:"api_key"`
 	RefreshInterval time.Duration `json:"refresh_interval"`
 }
 
@@ -53,10 +52,16 @@ func New(o Opt) *FX {
 			d, err := fx.load(apiURL)
 			if err != nil {
 				log.Printf("error loading fx rates API: %v", err)
+
+				// HTTP fetch failed. Retry again in a minute.
+				time.Sleep(time.Minute)
+				continue
 			}
 
 			if _, ok := d.Rates[d.Base]; !ok {
 				log.Printf("base currency %s not found in rates", d.Base)
+				time.Sleep(time.Minute * 5)
+				continue
 			}
 			log.Printf("%d fx currency pairs loaded", len(d.Rates))
 
@@ -72,8 +77,12 @@ func New(o Opt) *FX {
 }
 
 // Query handles a currency rate conversion query.
-// 100USD-INR.FX
+// Format: 100USD-INR.FX
 func (fx *FX) Query(q string) ([]string, error) {
+	if len(fx.data.Rates) == 0 {
+		return nil, errors.New("fx data unavailable. Please try later.")
+	}
+
 	q = strings.ToUpper(q)
 
 	res := reParse.FindStringSubmatch(q)
@@ -134,8 +143,6 @@ func (fx *FX) load(url string) (data, error) {
 	}
 
 	req, _ := http.NewRequest("GET", url, nil)
-	req.Header.Set("apiKey", fx.opt.APIkey)
-
 	resp, err := client.Do(req)
 	if err != nil {
 		return data{}, err

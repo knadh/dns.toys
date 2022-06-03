@@ -143,7 +143,6 @@ func main() {
 	// FX currency conversion.
 	if ko.Bool("fx.enabled") {
 		f := fx.New(fx.Opt{
-			APIkey:          ko.MustString("fx.api_key"),
 			RefreshInterval: ko.MustDuration("fx.refresh_interval"),
 		})
 
