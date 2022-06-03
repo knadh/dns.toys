@@ -12,6 +12,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/timezones"
+	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/weather"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/toml"
@@ -170,6 +171,17 @@ func main() {
 		h.register("weather", w, mux)
 
 		help = append(help, []string{"get weather forestcast for a city.", "dig berlin.weather @%s"})
+	}
+
+	// Units.
+	if ko.Bool("units.enabled") {
+		u, err := units.New()
+		if err != nil {
+			lo.Fatalf("error initializing units service: %v", err)
+		}
+		h.register("unit", u, mux)
+
+		help = append(help, []string{"convert between units.", "dig 42km-cm.unit @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

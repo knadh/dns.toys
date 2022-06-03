@@ -41,3 +41,7 @@ useragent = "github.com/knadh/dns.toys"
 
 snapshot_enabled = true
 snapshot_file = "weather.dump"
+
+
+[units]
+enabled = true

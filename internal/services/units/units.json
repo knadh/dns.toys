@@ -1,0 +1,394 @@
+{
+  "length": {
+    "base_symbol": "m",
+    "base_name": "Meter",
+    "units": [
+      {
+        "symbol": "m",
+        "name": "Meter",
+        "value": 1.0
+      },
+      {
+        "symbol": "km",
+        "name": "Kilometer",
+        "value": 0.001
+      },
+      {
+        "symbol": "cm",
+        "name": "Centimeter",
+        "value": 100.0
+      },
+      {
+        "symbol": "mm",
+        "name": "Millimeter",
+        "value": 1000.0
+      },
+      {
+        "symbol": "mi",
+        "name": "Mile",
+        "value": 0.000621371
+      },
+      {
+        "symbol": "yd",
+        "name": "Yard",
+        "value": 1.09361
+      },
+      {
+        "symbol": "ft",
+        "name": "Foot",
+        "value": 3.28084
+      },
+      {
+        "symbol": "in",
+        "name": "Inch",
+        "value": 39.3701
+      },
+      {
+        "symbol": "nmi",
+        "name": "Nautical mile",
+        "value": 0.000539957
+      }
+    ]
+  },
+  "mass": {
+    "base_symbol": "g",
+    "base_name": "Gram",
+    "units": [
+      {
+        "symbol": "g",
+        "name": "Gram",
+        "value": 1.0
+      },
+      {
+        "symbol": "t",
+        "name": "Metric ton",
+        "value": 1e-06
+      },
+      {
+        "symbol": "kg",
+        "name": "Kilogram",
+        "value": 0.001
+      },
+      {
+        "symbol": "mg",
+        "name": "Milligram",
+        "value": 1000.0
+      },
+      {
+        "symbol": "mug",
+        "name": "Microgram",
+        "value": 1000000.0
+      },
+      {
+        "symbol": "lt",
+        "name": "Long ton",
+        "value": 9.8421e-07
+      },
+      {
+        "symbol": "st",
+        "name": "Short ton",
+        "value": 1.1023e-06
+      },
+      {
+        "symbol": "sto",
+        "name": "Stone",
+        "value": 0.000157473
+      },
+      {
+        "symbol": "lb",
+        "name": "Pound",
+        "value": 0.00220462
+      },
+      {
+        "symbol": "oz",
+        "name": "Ounce",
+        "value": 0.035274
+      }
+    ]
+  },
+  "speed": {
+    "base_symbol": "m/s",
+    "base_name": "Meter/sec",
+    "units": [
+      {
+        "symbol": "m/s",
+        "name": "Meter/sec",
+        "value": 1.0
+      },
+      {
+        "symbol": "mph",
+        "name": "Mile/hour",
+        "value": 2.23694
+      },
+      {
+        "symbol": "ft/s",
+        "name": "Feet/sec",
+        "value": 3.28084
+      },
+      {
+        "symbol": "kmph",
+        "name": "Kilometer/hour",
+        "value": 3.6
+      },
+      {
+        "symbol": "kn",
+        "name": "knot",
+        "value": 1.94384
+      }
+    ]
+  },
+  "volume": {
+    "base_symbol": "m3",
+    "base_name": "Cubic meter",
+    "units": [
+      {
+        "symbol": "m3",
+        "name": "Cubic meter",
+        "value": 1.0
+      },
+      {
+        "symbol": "gal",
+        "name": "US gal",
+        "value": 264.172
+      },
+      {
+        "symbol": "pt",
+        "name": "US pint",
+        "value": 2113.38
+      },
+      {
+        "symbol": "oz",
+        "name": "US oz",
+        "value": 33814.0
+      },
+      {
+        "symbol": "tbsp",
+        "name": "US tbsp.",
+        "value": 67628.0
+      },
+      {
+        "symbol": "tsp",
+        "name": "US tsp.",
+        "value": 202884.0
+      },
+      {
+        "symbol": "l",
+        "name": "Liter",
+        "value": 1000.0
+      },
+      {
+        "symbol": "ml",
+        "name": "Milliliter",
+        "value": 1000000.0
+      },
+      {
+        "symbol": "igal",
+        "name": "Imperial gal",
+        "value": 219.969
+      },
+      {
+        "symbol": "ipt",
+        "name": "Imperial pint",
+        "value": 1759.75
+      },
+      {
+        "symbol": "ioz",
+        "name": "Imperial oz",
+        "value": 35195.1
+      },
+      {
+        "symbol": "itbsp",
+        "name": "Imperial tbsp.",
+        "value": 56312.1
+      },
+      {
+        "symbol": "itsp",
+        "name": "Imperial tsp.",
+        "value": 168936.0
+      },
+      {
+        "symbol": "ft3",
+        "name": "Cubic foot",
+        "value": 35.3147
+      },
+      {
+        "symbol": "In3",
+        "name": "cubic inch",
+        "value": 61023.7
+      }
+    ]
+  },
+  "area": {
+    "base_symbol": "sqm",
+    "base_name": "Square meter",
+    "units": [
+      {
+        "symbol": "sqm",
+        "name": "Square meter",
+        "value": 1.0
+      },
+      {
+        "symbol": "sqkm",
+        "name": "Square kilometer",
+        "value": 1e-06
+      },
+      {
+        "symbol": "ha",
+        "name": "Hectare",
+        "value": 0.0001
+      },
+      {
+        "symbol": "sqmi",
+        "name": "Square mile",
+        "value": 3.861e-07
+      },
+      {
+        "symbol": "ac",
+        "name": "Acre",
+        "value": 0.000247105
+      },
+      {
+        "symbol": "sqyd",
+        "name": "Square yard",
+        "value": 1.19599
+      },
+      {
+        "symbol": "sqft",
+        "name": "Square foot",
+        "value": 10.7639
+      },
+      {
+        "symbol": "sqin",
+        "name": "Square inch",
+        "value": 1550.0
+      },
+      {
+        "symbol": "ct",
+        "name": "Cent",
+        "value": 0.02471
+      }
+    ]
+  },
+  "time": {
+    "base_symbol": "s",
+    "base_name": "Second",
+    "units": [
+      {
+        "symbol": "s",
+        "name": "Second",
+        "value": 1.0
+      },
+      {
+        "symbol": "ns",
+        "name": "Nanosecond",
+        "value": 1000000000.0
+      },
+      {
+        "symbol": "mu",
+        "name": "Microsecond",
+        "value": 1000000.0
+      },
+      {
+        "symbol": "ms",
+        "name": "Millisecond",
+        "value": 1000.0
+      },
+      {
+        "symbol": "min",
+        "name": "Minute",
+        "value": 0.0166667
+      },
+      {
+        "symbol": "h",
+        "name": "Hour",
+        "value": 0.000277778
+      },
+      {
+        "symbol": "d",
+        "name": "Day",
+        "value": 1.1574e-05
+      },
+      {
+        "symbol": "w",
+        "name": "Week",
+        "value": 1.6534e-06
+      },
+      {
+        "symbol": "mo",
+        "name": "Month",
+        "value": 3.8027e-07
+      },
+      {
+        "symbol": "y",
+        "name": "Year",
+        "value": 3.1689e-08
+      }
+    ]
+  },
+  "digital": {
+    "base_symbol": "byte",
+    "base_name": "Byte",
+    "units": [
+      {
+        "symbol": "byte",
+        "name": "Byte",
+        "value": 1.0
+      },
+      {
+        "symbol": "b",
+        "name": "Bit",
+        "value": 8.0
+      },
+      {
+        "symbol": "Kb",
+        "name": "Kilobit",
+        "value": 0.008
+      },
+      {
+        "symbol": "KB",
+        "name": "Kilobyte",
+        "value": 0.001
+      },
+      {
+        "symbol": "Mb",
+        "name": "Megabit",
+        "value": 8e-06
+      },
+      {
+        "symbol": "MB",
+        "name": "Megabyte",
+        "value": 1e-06
+      },
+      {
+        "symbol": "Gb",
+        "name": "Gigabit",
+        "value": 8e-09
+      },
+      {
+        "symbol": "GB",
+        "name": "Gigabyte",
+        "value": 1e-09
+      },
+      {
+        "symbol": "Tb",
+        "name": "Terabit",
+        "value": 8e-12
+      },
+      {
+        "symbol": "TB",
+        "name": "Terabyte",
+        "value": 1e-12
+      },
+      {
+        "symbol": "Pb",
+        "name": "Petabit",
+        "value": 8e-15
+      },
+      {
+        "symbol": "PB",
+        "name": "Petabyte",
+        "value": 1e-15
+      }
+    ]
+  }
+}

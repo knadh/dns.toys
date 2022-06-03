@@ -23,7 +23,7 @@ type handlers struct {
 	help     []dns.RR
 }
 
-var reClean = regexp.MustCompile("[^a-z/]")
+var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.]")
 
 // register registers a Service for a given query suffix on the DNS server.
 // A Service responds to a DNS query via Query().
@@ -138,10 +138,10 @@ func respErr(err error, w dns.ResponseWriter, m *dns.Msg) {
 	w.WriteMsg(m)
 }
 
-// cleanQuery lowercases, removes all non-alpha chars, and trims the service suffix
+// cleanQuery removes all non-alpha chars, and trims the service suffix
 // from the given query string.
 func cleanQuery(q, trimSuffix string) string {
-	return reClean.ReplaceAllString(strings.ToLower(strings.TrimSuffix(q, trimSuffix)), "")
+	return reClean.ReplaceAllString(strings.TrimSuffix(q, trimSuffix), "")
 }
 
 // makeResp converts a []string of DNS responses to []dns.RR.
