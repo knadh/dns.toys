@@ -16,19 +16,15 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
+	"golang.org/x/time/rate"
 )
 
-const apiURL = "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=%0.5f&lon=%0.5f"
+const (
+	apiURL = "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=%0.5f&lon=%0.5f"
 
-// Weather fetches weather forecasts for a given geo location.
-type Weather struct {
-	data map[string]entry
-	mut  sync.RWMutex
-
-	opt    Opt
-	geo    *geo.Geo
-	client *http.Client
-}
+	// Max requests/sec allowed by the API.
+	apiRateLimit = 15
+)
 
 type entry struct {
 	Forecasts []forecast
@@ -85,26 +81,50 @@ type apiData struct {
 
 // Opt contains config options for Weather.
 type Opt struct {
-	MaxEntries int
+	ForecastInterval time.Duration
+	MaxEntries       int
 
 	CacheTTL   time.Duration
 	ReqTimeout time.Duration
 	UserAgent  string
 }
 
+// Weather fetches weather forecasts for a given geo location.
+type Weather struct {
+	data map[string]entry
+
+	// Queue for defering API fetch requests.
+	fetchQueue chan geo.Location
+
+	limiter *rate.Limiter
+	mut     sync.RWMutex
+
+	opt    Opt
+	geo    *geo.Geo
+	client *http.Client
+}
+
+var errQueued = errors.New("data is queued.")
+
 func New(o Opt, g *geo.Geo) *Weather {
 	w := &Weather{
-		data: make(map[string]entry),
-		opt:  o,
-		geo:  g,
+		data:       make(map[string]entry),
+		fetchQueue: make(chan geo.Location, 1000),
+
+		// yr.no API request rate limit.
+		limiter: rate.NewLimiter(apiRateLimit, 1),
+		opt:     o,
+		geo:     g,
 		client: &http.Client{
 			Timeout: o.ReqTimeout,
 			Transport: &http.Transport{
-				MaxIdleConnsPerHost:   15,
+				MaxIdleConnsPerHost:   apiRateLimit,
 				ResponseHeaderTimeout: o.ReqTimeout,
 			},
 		},
 	}
+
+	go w.runFetchQueue()
 
 	return w
 }
@@ -122,6 +142,13 @@ func (w *Weather) Query(q string) ([]string, error) {
 	for n, l := range locs {
 		data, err := w.get(l)
 		if err != nil {
+			// Data never existed and has been queued. Show a friendly
+			// message instead of an error.
+			if err == errQueued {
+				r := fmt.Sprintf("%s 1 TXT \"weather data is being fetched. Try again in a few seconds.\"", q)
+				return []string{r}, nil
+			}
+
 			return nil, err
 		}
 
@@ -168,30 +195,58 @@ func (w *Weather) Load(b []byte) error {
 	return err
 }
 
+func (w *Weather) runFetchQueue() {
+	for {
+		select {
+		case l := <-w.fetchQueue:
+			if !w.limiter.Allow() {
+				log.Println("weather API rate limit exceeded")
+				continue
+			}
+
+			res, err := w.fetchAPI(l.Lat, l.Lon)
+
+			// Even if it's an error, cache to avoid flooding the service.
+			w.mut.Lock()
+			w.data[l.ID] = res
+			w.mut.Unlock()
+
+			if err != nil {
+				log.Printf("error fetching weather API: %v", err)
+				continue
+			}
+		}
+	}
+}
+
 func (w *Weather) get(l geo.Location) (entry, error) {
 	w.mut.RLock()
 	data, ok := w.data[l.ID]
 	w.mut.RUnlock()
 
-	// If data isn't cached, fetch it.
 	if !ok || data.ExpiresAt.Before(time.Now()) {
-		res, err := w.fetchAPI(l.Lat, l.Lon)
-
-		// Even if it's an error, cache to avoid flooding the service.
-		w.mut.Lock()
-		w.data[l.ID] = res
-		w.mut.Unlock()
-
-		if err != nil {
-			log.Printf("error fetching weather API: %v", err)
-			return res, errors.New("error fetching weather data.")
+		// If data is cached but has expired, return the existing data
+		// to respond instantly but queue re-fetch in the background to
+		// update it for the next request.
+		select {
+		case w.fetchQueue <- l:
+		default:
 		}
 
-		data = res
+		// Set the expiry date to the future to not send further
+		// requests for the same location until the fetch queue is processed.
+		data.ExpiresAt = time.Now().Add(time.Minute)
+		w.mut.Lock()
+		w.data[l.ID] = data
+		w.mut.Unlock()
+	}
+
+	if !ok {
+		return entry{}, errQueued
 	}
 
 	if !data.Valid {
-		return entry{}, errors.New("weather data is currently unavailable.")
+		return entry{}, errors.New("weather data is unavailable. Try again in a few seconds.")
 	}
 
 	return data, nil
@@ -268,7 +323,6 @@ func (w *Weather) fetchAPI(lat, lon float64) (entry, error) {
 	}
 
 	now := time.Now()
-	intval := time.Hour * 4
 	for _, p := range data.Properties.Timeseries {
 		// Skip stale entries.
 		if p.Time.Before(now) {
@@ -285,7 +339,7 @@ func (w *Weather) fetchAPI(lat, lon float64) (entry, error) {
 
 		// Only pick up entries with with a certain gap.
 		if len(out.Forecasts) > 0 {
-			if out.Forecasts[len(out.Forecasts)-1].Time.Add(intval).After(p.Time) {
+			if out.Forecasts[len(out.Forecasts)-1].Time.Add(w.opt.ForecastInterval).After(p.Time) {
 				continue
 			}
 		}

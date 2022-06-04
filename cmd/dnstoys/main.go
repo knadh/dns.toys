@@ -187,10 +187,11 @@ func main() {
 	// Weather.
 	if ko.Bool("weather.enabled") {
 		w := weather.New(weather.Opt{
-			MaxEntries: ko.MustInt("weather.max_entries"),
-			CacheTTL:   ko.MustDuration("weather.cache_ttl"),
-			ReqTimeout: time.Second * 3,
-			UserAgent:  ko.MustString("server.domain"),
+			MaxEntries:       ko.MustInt("weather.max_entries"),
+			ForecastInterval: ko.MustDuration("weather.forecast_interval"),
+			CacheTTL:         ko.MustDuration("weather.cache_ttl"),
+			ReqTimeout:       time.Second * 3,
+			UserAgent:        ko.MustString("server.domain"),
 		}, ge)
 
 		// Load snapshot?

@@ -28,10 +28,13 @@ enabled = true
 [weather]
 enabled = true
 
-# Max forecast days to store.
-max_entries = 3
+# Min time between each forecast entry in hours. Min is 30 minutes.
+forecast_interval = "2h"
 
-cache_ttl = "1h"
+# Max forecasts to store.
+max_entries = 5
+
+cache_ttl = "2h"
 
 # Useragent for the yr.no API
 useragent = "github.com/knadh/dns.toys"
