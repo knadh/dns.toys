@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Useful utilities and toys over DNS</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Free and useful services over DNS accessible on command line" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link href="https://fonts.googleapis.com/css?family=Inter:400,600" rel="stylesheet" defer />
+	<meta property="og:image" content="https://www.dns.toys/static/images/thumb.png">
+		<link rel="shortcut icon" href="static/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="static/style.css" />
+</head>
+<body>
+
+<div class="container">
+	<header class="header">
+		<div class="logo">
+			<a href="/"><img src="static/logo.png" alt="DNS toys" /></a>
+		</div>
+		<nav class="nav">
+			<a href="https://github.com/knadh/dns.toys">GitHub</a>
+		</nav>
+	</header>
+	<section class="intro">
+		<h1 class="center"><span>Useful utilities and services over DNS</span></h1>
+
+		<p>
+			dns.toys is a DNS server that takes creative liberties with the DNS
+			protocol to offer handy utilities and services
+			that are easily accessible via the command line.
+		</p>
+
+		<p>
+			Copy and run the below commands to try it out.
+		</p>
+	</section>
+
+	<section class="box">
+		<h2>World time</h1>
+		<code class="block">
+			<p>dig mumbai.time @dns.toys</p>
+			<p>dig newyork.time @dns.toys</p>
+		</code>
+		<p>Pass city names without spaces suffixed with <code>.time</code></p>
+	</section>
+
+	<section class="box">
+		<h2>Weather</h1>
+		<code class="block">
+			<p>dig mumbai.weather @dns.toys</p>
+			<p>dig newyork.weather @dns.toys</p>
+		</code>
+		<p>
+			Pass city names without spaces suffixed with <code>.weather</code>.
+			This service is powered by <a href="https://www.yr.no/en">yr.no</a>
+		</p>
+	</section>
+
+	<section class="box">
+		<h2>Unit conversion</h1>
+		<code class="block">
+			<p>dig 42km-mi.unit @dns.toys</p>
+			<p>dig 32GB-MB.unit @dns.toys</p>
+		</code>
+		<p>$Value$FromUnit-$ToUnit. To see all 70 available units,
+			<code>dig unit @dns.toys</code>
+		</p>
+	</section>
+
+	<section class="box">
+		<h2>Currency conversion (forex)</h1>
+		<code class="block">
+			<p>dig 100USD-INR.fx @dns.toys</p>
+			<p>dig 50CAD-AUD.fx @dns.toys</p>
+		</code>
+		<p>$Value$FromCurrency-$ToCurrency. Daily rates are from <a href="https://exchangerate.host">exchangerate.host</a>.</p>
+	</section>
+
+	<section class="box">
+		<h2>IP echo</h1>
+		<code class="block">
+			<p>dig myip @dns.toys</p>
+		</code>
+		<p>Echo your IP address.</p>
+	</section>
+
+	<section class="box">
+		<h2>Number to words</h1>
+		<code class="block">
+			<p>dig 987654321.words @dns.toys</p>
+		</code>
+		<p>Convert numbers to English words.</p>
+	</section>
+
+	<section class="box">
+		<h2>Help</h1>
+		<code class="block">
+			<p>dig help @dns.toys</p>
+		</code>
+		<p>Lists available services.</p>
+	</section>
+
+	<section>
+		<h1>Shortcut function</h1>
+		<div class="box">
+			<p>
+				Add this bash function to your <code>~/.bashrc</code> file.
+				The <code>+</code> args show cleaner output from dig.
+			</p>
+			<code class="block">
+				<p>function dy { dig +noall +answer +additional "$1" @dns.toys; }</p>
+			</code>
+
+			<p>Then, use the dy command as a shortcut.</p>
+			<code class="block">
+				<p>dy berlin.time</p>
+				<p>dy mumbai.weather</p>
+				<p>dy 100USD-INR.fx</p>
+			</code>
+		</div>
+	</section>
+
+	<section>
+		<h1>Why?</h1>
+		Why not? For fun. I spend a lot of time on the terminal and doing quick unit
+		conversions, weather checks etc. without having to open a clunky search
+		page is useful. 
+	</section>
+</div>
+
+<footer>
+	<p class="disclaimer">
+		No guarantees are provided on the accuracy, timeliness, reliability, and appropriateness, or completeness of
+		any services or data. They are provided "as is" and "as available" with no warranties or guarantees.
+	</p>
+
+	<p><a href="https://nadh.in">Kailash Nadh</a> &copy; 2022</p>
+</footer>
+
+</body>
+</html>

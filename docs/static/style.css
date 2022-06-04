@@ -1,0 +1,145 @@
+:root {
+	--primary: #166ab9;
+	--secondary: #222;
+	--light: #999;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-size: 17px;
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	color: var(--secondary);
+}
+
+h1 {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+	a:hover {
+		color: var(--secondary);
+	}
+
+section {
+	margin-bottom: 45px;
+}
+	section:last-child {
+		margin-bottom: 0;
+	}
+
+img {
+	max-width: 100%;
+}
+
+figcaption {
+	font-size: 0.75rem;
+	text-align: center;
+	color: var(--light);
+	font-style: italic;
+}
+
+code {
+	background: #f3f3f3;
+	padding: 3px;
+	border-radius: 3px;
+}
+	code.block {
+		background: #f4f4f4;
+		color: var(--primary);
+		width: 100%;
+		display: block;
+		padding: 20px;
+	}
+	code p {
+		margin: 0 0 5px 0;
+	}
+	code p:last-child {
+		margin: 0;
+	}
+
+.center {
+	text-align: center;
+}
+
+.box {
+	box-shadow: 2px 2px 2px #eee;
+	border: 1px solid #eee;
+	padding: 20px;
+	border-radius: 3px;
+}
+	.box h2 {
+		margin: 0 0 15px 0;
+	}
+	.box p:last-child {
+		margin-bottom: 0;
+	}
+
+.container {
+	max-width: 800px;
+	margin: 60px auto 0 auto;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.logo {
+	margin-bottom: 15px;
+}
+	.logo img {
+		height: auto;
+		max-width: 220px;
+	}
+.nav a {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+
+footer {
+	margin: 45px 30px 30px 30px;
+	text-align: center;
+	color: var(--light);
+}
+	footer a {
+		font-weight: normal;
+	}
+
+	footer .disclaimer {
+		font-size: .875rem;
+		line-height: 1.25rem;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+@media(max-width: 750px) {
+	html, body {
+		font-size: 15px;
+		line-height: 24px;
+	}
+	.container {
+		padding: 20px;
+		margin: 0;
+	}
+	.header {
+		margin-bottom: 30px;
+	}
+	.intro {
+		text-align: center;
+	}
+}
