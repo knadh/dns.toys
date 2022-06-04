@@ -11,6 +11,7 @@ import (
 
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/weather"
@@ -215,6 +216,14 @@ func main() {
 		h.register("unit", u, mux)
 
 		help = append(help, []string{"convert between units.", "dig 42km-cm.unit @%s"})
+	}
+
+	// Numbers to words.
+	if ko.Bool("num2words.enabled") {
+		n := num2words.New()
+		h.register("words", n, mux)
+
+		help = append(help, []string{"convert numbers to words.", "dig 123456.words @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

@@ -45,3 +45,6 @@ snapshot_file = "weather.snapshot"
 
 [units]
 enabled = true
+
+[num2words]
+enabled = true
