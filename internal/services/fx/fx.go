@@ -104,6 +104,8 @@ func (fx *FX) Query(q string) ([]string, error) {
 	// Validate the currency names.
 	fx.mut.RLock()
 	fromRate, ok := fx.data.Rates[from]
+	fx.mut.RUnlock()
+
 	if !ok {
 		return nil, fmt.Errorf("unknown from currency '%s'.", from)
 	}
@@ -114,7 +116,6 @@ func (fx *FX) Query(q string) ([]string, error) {
 	}
 
 	baseRate := fx.data.Rates[fx.data.Base]
-	fx.mut.RUnlock()
 
 	// Convert.
 	conv := (baseRate / fromRate) / (baseRate / toRate) * val
