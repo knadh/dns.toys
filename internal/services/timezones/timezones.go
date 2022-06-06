@@ -42,7 +42,7 @@ func (t *Timezones) Query(q string) ([]string, error) {
 			continue
 		}
 
-		r := fmt.Sprintf("%s TXT \"%s (%s, %s)\" \"%s\"",
+		r := fmt.Sprintf("%s 1 TXT \"%s (%s, %s)\" \"%s\"",
 			q, l.Name, l.Timezone, l.Country, time.Now().In(zone).Format(time.RFC1123Z))
 
 		out = append(out, r)
