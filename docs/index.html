@@ -104,12 +104,21 @@
 	<section>
 		<h1>Shortcut function</h1>
 		<div class="box">
+			<h3>Bash</h3>
 			<p>
 				Add this bash function to your <code>~/.bashrc</code> file.
 				The <code>+</code> args show cleaner output from dig.
 			</p>
 			<code class="block">
 				<p>function dy { dig +noall +answer +additional "$1" @dns.toys; }</p>
+			</code>
+
+			<h3>Fish</h3>
+			<p>
+				Add this to your fish config file.
+			</p>
+			<code class="block">
+				<p>alias dy="dig +noall +answer +additional $argv[1] @dns.toys"</p>
 			</code>
 
 			<p>Then, use the dy command as a shortcut.</p>
