@@ -79,10 +79,10 @@ func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w 
 	return f
 }
 
-// handleMyIP returns the client's IP address as a DNS response.
+// handleEchoIP returns the client's IP address as a DNS response.
 // Although it is a service, it's not registered like a Service as it
 // uses w.RemoteAddr() instead of m.Question unlike a typical service.
-func (h *handlers) handleMyIP(w dns.ResponseWriter, r *dns.Msg) {
+func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 	m := &dns.Msg{}
 	m.SetReply(r)
 	m.Compress = false
@@ -99,9 +99,9 @@ func (h *handlers) handleMyIP(w dns.ResponseWriter, r *dns.Msg) {
 			return
 		}
 
-		rr, err := dns.NewRR(fmt.Sprintf("myip. 1 TXT \"%s\"", a[0]))
+		rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", a[0]))
 		if err != nil {
-			lo.Printf("error preparing myip response: %v", err)
+			lo.Printf("error preparing ip response: %v", err)
 			return
 		}
 

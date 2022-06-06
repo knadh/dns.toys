@@ -179,10 +179,10 @@ func main() {
 	}
 
 	// IP echo.
-	if ko.Bool("myip.enabled") {
-		mux.HandleFunc("myip.", h.handleMyIP)
+	if ko.Bool("ip.enabled") {
+		mux.HandleFunc("ip.", h.handleEchoIP)
 
-		help = append(help, []string{"get your host's requesting IP.", "dig myip @%s"})
+		help = append(help, []string{"get your host's requesting IP.", "dig ip @%s"})
 	}
 
 	// Weather.

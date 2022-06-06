@@ -21,7 +21,7 @@ snapshot_enabled = true
 snapshot_file = "fx.snapshot"
 
 
-[myip]
+[ip]
 enabled = true
 
 

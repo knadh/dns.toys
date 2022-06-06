@@ -16,7 +16,7 @@ dig 42km-mi.unit @dns.toys
 
 dig 100USD-INR.fx @dns.toys
 
-dig myip @dns.toys
+dig ip @dns.toys
 
 dig 987654321.words @dns.toys
 ```
