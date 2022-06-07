@@ -23,7 +23,7 @@ type handlers struct {
 	help     []dns.RR
 }
 
-var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.]")
+var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.:]")
 
 // register registers a Service for a given query suffix on the DNS server.
 // A Service responds to a DNS query via Query().
