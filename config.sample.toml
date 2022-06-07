@@ -48,3 +48,6 @@ enabled = true
 
 [num2words]
 enabled = true
+
+[cidr]
+enabled = true
