@@ -131,6 +131,16 @@ func New(o Opt, g *geo.Geo) *Weather {
 
 // Query queries the weather for a given location.
 func (w *Weather) Query(q string) ([]string, error) {
+	var (
+		str     = strings.Split(q, "/")
+		country = ""
+	)
+
+	// Is there a /2-letter-country-code?
+	if len(str) == 2 && len(str[1]) == 2 {
+		q = str[0]
+		country = strings.ToUpper(str[1])
+	}
 	q = strings.ToLower(q)
 
 	locs := w.geo.Query(q)
@@ -140,6 +150,13 @@ func (w *Weather) Query(q string) ([]string, error) {
 
 	out := make([]string, 0, len(locs)*3)
 	for n, l := range locs {
+		// Filter by country.
+		if country != "" {
+			if l.Country != country {
+				continue
+			}
+		}
+
 		data, err := w.get(l)
 		if err != nil {
 			// Data never existed and has been queued. Show a friendly

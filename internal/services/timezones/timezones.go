@@ -28,6 +28,16 @@ func New(o Opt, g *geo.Geo) *Timezones {
 // Query parses a given query string and returns the answer.
 // For the time package, the query is a location name.
 func (t *Timezones) Query(q string) ([]string, error) {
+	var (
+		str     = strings.Split(q, "/")
+		country = ""
+	)
+
+	// Is there a /2-letter-country-code?
+	if len(str) == 2 && len(str[1]) == 2 {
+		q = str[0]
+		country = strings.ToUpper(str[1])
+	}
 	q = strings.ToLower(q)
 
 	locs := t.geo.Query(q)
@@ -37,6 +47,13 @@ func (t *Timezones) Query(q string) ([]string, error) {
 
 	out := make([]string, 0, len(locs))
 	for _, l := range locs {
+		// Filter by country.
+		if country != "" {
+			if l.Country != country {
+				continue
+			}
+		}
+
 		zone, err := time.LoadLocation(l.Timezone)
 		if err != nil {
 			continue
