@@ -135,7 +135,7 @@ func (g *Geo) readFile(filePath string) ([]Location, error) {
 
 		out = append(out, Location{
 			ID:         r[0],
-			Name:       r[1],
+			Name:       r[2],
 			Lat:        lat,
 			Lon:        lon,
 			Country:    r[8],
