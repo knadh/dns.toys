@@ -133,6 +133,9 @@ func (g *Geo) readFile(filePath string) ([]Location, error) {
 			pop, _ = strconv.Atoi(r[14])
 		)
 
+		// Remove values in brackets.
+		r[2] = strings.TrimSpace(strings.Split(r[2], "(")[0])
+
 		out = append(out, Location{
 			ID:         r[0],
 			Name:       r[2],
