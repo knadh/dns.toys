@@ -232,7 +232,7 @@ func main() {
 		n := cidr.New()
 		h.register("cidr", n, mux)
 
-		help = append(help, []string{"convert cidr to ip range.", "dig 10.100.0.0/24 @%s"})
+		help = append(help, []string{"convert cidr to ip range.", "dig 10.100.0.0/24.cidr @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
