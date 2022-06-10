@@ -205,7 +205,7 @@ func main() {
 
 		h.register("weather", w, mux)
 
-		help = append(help, []string{"get weather forestcast for a city.", "dig berlin.weather @%s"})
+		help = append(help, []string{"get weather forecast for a city.", "dig berlin.weather @%s"})
 	}
 
 	// Units.
