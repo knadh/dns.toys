@@ -238,6 +238,13 @@ func main() {
 		help = append(help, []string{"convert cidr to ip range.", "dig 10.100.0.0/24.cidr @%s"})
 	}
 
+	// PI.
+	if ko.Bool("pi.enabled") {
+		mux.HandleFunc("pi.", h.handlePi)
+
+		help = append(help, []string{"return pi as TXT or A or AAAA record.", "dig ip @%s"})
+	}
+
 	// Prepare the static help response for the `help` query.
 	for _, l := range help {
 		r, err := dns.NewRR(fmt.Sprintf("help. 1 TXT \"%s\" \"%s\"", l[0], fmt.Sprintf(l[1], h.domain)))
