@@ -54,3 +54,6 @@ enabled = true
 
 [pi]
 enabled = true
+
+[base]
+enabled = true

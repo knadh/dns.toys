@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
+	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
@@ -243,6 +244,14 @@ func main() {
 		mux.HandleFunc("pi.", h.handlePi)
 
 		help = append(help, []string{"return pi as TXT or A or AAAA record.", "dig ip @%s"})
+	}
+
+	// Base
+	if ko.Bool("base.enabled") {
+		n := base.New()
+		h.register("base", n, mux)
+
+		help = append(help, []string{"convert numbers from one base to another", "dig 100dec-hex.base @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
