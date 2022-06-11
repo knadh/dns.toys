@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
+	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
@@ -233,6 +234,14 @@ func main() {
 		h.register("cidr", n, mux)
 
 		help = append(help, []string{"convert cidr to ip range.", "dig 10.100.0.0/24.cidr @%s"})
+	}
+
+	// Base
+	if ko.Bool("base.enabled") {
+		n := base.New()
+		h.register("base", n, mux)
+
+		help = append(help, []string{"convert numbers from one base to another", "dig 100dec-hex.base @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

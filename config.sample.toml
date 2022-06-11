@@ -51,3 +51,6 @@ enabled = true
 
 [cidr]
 enabled = true
+
+[base]
+enabled = true
