@@ -1,29 +1,24 @@
 // Package num2words implements numbers to words converter.
-// Forked from https://github.com/divan/num2words (Copyright (c) 2013 Ivan Daniluk, MIT License)
 package num2words
 
 import (
 	"errors"
 	"fmt"
-	"math"
 	"strconv"
 )
 
-const groupsNumber int = 4
-
 var (
-	_smallNumbers = []string{
+	ones = []string{
 		"zero", "one", "two", "three", "four",
 		"five", "six", "seven", "eight", "nine",
 		"ten", "eleven", "twelve", "thirteen", "fourteen",
 		"fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
 	}
-	_tens = []string{
-		"", "", "twenty", "thirty", "forty", "fifty",
-		"sixty", "seventy", "eighty", "ninety",
+	tens = []string{
+		"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety",
 	}
-	_scaleNumbers = []string{
-		"", "thousand", "million", "billion",
+	big = []string{
+		"", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion",
 	}
 )
 
@@ -41,7 +36,7 @@ func (n *Num2Words) Query(q string) ([]string, error) {
 		return nil, errors.New("invalid number.")
 	}
 
-	w := convert(num, false)
+	w := num2words(num)
 	r := fmt.Sprintf("%s 1 TXT \"%d = %s\"", q, num, w)
 	return []string{r}, nil
 }
@@ -51,87 +46,55 @@ func (n *Num2Words) Dump() ([]byte, error) {
 	return nil, nil
 }
 
-func convert(number int, useAnd bool) string {
-	// Zero rule
+func num2words(number int) string {
+	out := ""
+
 	if number == 0 {
-		return _smallNumbers[0]
+		return ones[0]
+	} else if number < 0 {
+		out += "minus"
+		number = number * -1
 	}
 
-	// Divide into three-digits group
-	var groups [groupsNumber]int
-	positive := math.Abs(float64(number))
-
-	// Form three-digit groups
-	for i := 0; i < groupsNumber; i++ {
-		groups[i] = int(math.Mod(positive, 1000))
-		positive /= 1000
-	}
-
-	var textGroup [groupsNumber]string
-	for i := 0; i < groupsNumber; i++ {
-		textGroup[i] = digitGroup2Text(groups[i], useAnd)
-	}
-	combined := textGroup[0]
-	and := useAnd && (groups[0] > 0 && groups[0] < 100)
-
-	for i := 1; i < groupsNumber; i++ {
-		if groups[i] != 0 {
-			prefix := textGroup[i] + " " + _scaleNumbers[i]
-
-			if len(combined) != 0 {
-				prefix += separator(and)
-			}
-
-			and = false
-
-			combined = prefix + combined
+	// Divide the number into groups of 3.
+	// eg: 9876543210 = [210 543 876 9] (should be read in reverse)
+	groups := []int{}
+	for {
+		if number < 1 {
+			break
 		}
+
+		groups = append(groups, number%1000)
+		number /= 1000
 	}
 
-	if number < 0 {
-		combined = "minus " + combined
-	}
-
-	return combined
-}
-
-func intMod(x, y int) int {
-	return int(math.Mod(float64(x), float64(y)))
-}
-
-func digitGroup2Text(group int, useAnd bool) (ret string) {
-	hundreds := group / 100
-	tensUnits := intMod(int(group), 100)
-
-	if hundreds != 0 {
-		ret += _smallNumbers[hundreds] + " hundred"
-
-		if tensUnits != 0 {
-			ret += separator(useAnd)
+	ln := len(groups) - 1
+	for i := ln; i >= 0; i-- {
+		n := groups[i]
+		if n == 0 {
+			continue
 		}
-	}
 
-	tens := tensUnits / 10
-	units := intMod(tensUnits, 10)
-
-	if tens >= 2 {
-		ret += _tens[tens]
-
-		if units != 0 {
-			ret += "-" + _smallNumbers[units]
+		num := n
+		if v := num / 100; v != 0 {
+			out += " " + ones[v] + " hundred"
+			num = num % 100
 		}
-	} else if tensUnits != 0 {
-		ret += _smallNumbers[tensUnits]
+
+		if v := num / 10; num >= 20 && v != 0 {
+			out += " " + tens[v]
+			num = num % 10
+		}
+
+		if num > 0 {
+			out += " " + ones[num]
+		}
+
+		if i > 0 && i <= len(big) {
+			out += " " + big[i] + ","
+		}
+
 	}
 
-	return
-}
-
-// separator returns proper separator string between
-// number groups.
-func separator(useAnd bool) string {
-	if useAnd {
-		return " and "
-	}
-	return " "
+	return out[1:]
 }
