@@ -19,6 +19,8 @@ dig 100USD-INR.fx @dns.toys
 dig ip @dns.toys
 
 dig 987654321.words @dns.toys
+
+dig pi @dns.toys
 ```
 
 ## Running locally

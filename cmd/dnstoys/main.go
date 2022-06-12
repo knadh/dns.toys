@@ -32,6 +32,9 @@ var (
 	buildString = "unknown"
 )
 
+// Not all platforms have syscall.SIGUNUSED so use Golang's default definition here
+const SIGUNUSED = syscall.Signal(0x1f)
+
 func initConfig() {
 	// Register --help handler.
 	f := flag.NewFlagSet("config", flag.ContinueOnError)
@@ -68,7 +71,7 @@ func saveSnapshot(h *handlers) {
 		syscall.SIGHUP,
 		syscall.SIGQUIT,
 		syscall.SIGINT,
-		syscall.SIGUNUSED, // SIGUNUSED, can be used to avoid shutting down the app.
+		SIGUNUSED, // SIGUNUSED, can be used to avoid shutting down the app.
 	)
 
 	// On receiving an OS signal, iterate through services and
@@ -99,7 +102,7 @@ func saveSnapshot(h *handlers) {
 				}
 			}
 
-			if i != syscall.SIGUNUSED {
+			if i != SIGUNUSED {
 				os.Exit(0)
 			}
 		}
@@ -233,6 +236,13 @@ func main() {
 		h.register("cidr", n, mux)
 
 		help = append(help, []string{"convert cidr to ip range.", "dig 10.100.0.0/24.cidr @%s"})
+	}
+
+	// PI.
+	if ko.Bool("pi.enabled") {
+		mux.HandleFunc("pi.", h.handlePi)
+
+		help = append(help, []string{"return pi as TXT or A or AAAA record.", "dig ip @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

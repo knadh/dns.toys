@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"math"
 	"regexp"
 	"strings"
 
@@ -105,6 +106,37 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 			return
 		}
 
+		m.Answer = append(m.Answer, rr)
+	}
+
+	w.WriteMsg(m)
+}
+
+// handlePi returns values of pi relevant for the record type.
+// TXT  record: "3.141592653589793115997963468544185161590576"
+// A    record: 3.141.59.26
+// AAAA record: 3141:5926:5358:9793:2384:6264:3383:2795
+func (h *handlers) handlePi(w dns.ResponseWriter, r *dns.Msg) {
+	m := &dns.Msg{}
+	m.SetReply(r)
+	m.Compress = false
+
+	for _, q := range m.Question {
+		var rrstr string
+		if q.Qtype == dns.TypeTXT {
+			rrstr = fmt.Sprintf("pi. 1 TXT \"%.42f\"", math.Pi)
+		} else if q.Qtype == dns.TypeA {
+			rrstr = "pi. IN A 3.141.59.26"
+		} else if q.Qtype == dns.TypeAAAA {
+			rrstr = "pi. IN AAAA 3141:5926:5358:9793:2384:6264:3383:2795"
+		} else {
+			continue
+		}
+		rr, err := dns.NewRR(rrstr)
+		if err != nil {
+			lo.Printf("error preparing pi response: %v", err)
+			return
+		}
 		m.Answer = append(m.Answer, rr)
 	}
 
