@@ -141,7 +141,7 @@
 				The <code>+</code> args show cleaner output from dig.
 			</p>
 			<code class="block">
-				<p>function dy { dig +noall +answer +additional "$1" @dns.toys; }</p>
+				<p>function dy { dig +noall +answer +additional "$@" @dns.toys; }</p>
 			</code>
 
 			<h3>Fish</h3>
@@ -149,7 +149,7 @@
 				Add this to your fish config file.
 			</p>
 			<code class="block">
-				<p>alias dy="dig +noall +answer +additional $argv[1] @dns.toys"</p>
+				<p>alias dy="dig +noall +answer +additional $argv @dns.toys"</p>
 			</code>
 
 			<p>Then, use the dy command as a shortcut.</p>
