@@ -28,4 +28,7 @@ dig 100dec-hex.base @dns.toys
 ## Running locally
 - Clone the repo
 - Copy `config.sample.toml` to `config.toml` and edit the config
-- Run `make build` to build the binary. Then run `./dnstoys.bin`
+- Run `make build` to build the binary and then run `./dnstoys.bin`
+
+## Others
+- [DnsToys.NET](https://github.com/fatihdgn/DnsToys.NET) - A .net client library for the service.
