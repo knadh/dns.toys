@@ -243,7 +243,7 @@ func main() {
 	if ko.Bool("pi.enabled") {
 		mux.HandleFunc("pi.", h.handlePi)
 
-		help = append(help, []string{"return pi as TXT or A or AAAA record.", "dig pi @%s"})
+		help = append(help, []string{"return digits of Pi as TXT or A or AAAA record.", "dig pi @%s"})
 	}
 
 	// Base
