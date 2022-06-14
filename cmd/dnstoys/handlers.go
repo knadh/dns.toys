@@ -113,7 +113,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 }
 
 // handlePi returns values of pi relevant for the record type.
-// TXT  record: "3.141592653589793115997963468544185161590576"
+// TXT  record: "3.141592653589793238462643383279502884197169"
 // A    record: 3.141.59.26
 // AAAA record: 3141:5926:5358:9793:2384:6264:3383:2795
 func (h *handlers) handlePi(w dns.ResponseWriter, r *dns.Msg) {
@@ -124,9 +124,9 @@ func (h *handlers) handlePi(w dns.ResponseWriter, r *dns.Msg) {
 	for _, q := range m.Question {
 		var rrstr string
 		if q.Qtype == dns.TypeTXT {
-			rrstr = fmt.Sprintf("pi. 1 TXT \"%.42f\"", math.Pi)
+			rrstr = "pi. 1 TXT 3.141592653589793238462643383279502884197169"
 		} else if q.Qtype == dns.TypeA {
-			rrstr = "pi. IN A 3.141.59.26"
+			rrstr = "pi. IN A 3.141.59.27"
 		} else if q.Qtype == dns.TypeAAAA {
 			rrstr = "pi. IN AAAA 3141:5926:5358:9793:2384:6264:3383:2795"
 		} else {
