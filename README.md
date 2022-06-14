@@ -28,6 +28,7 @@ dig 100dec-hex.base @dns.toys
 ## Running locally
 - Clone the repo
 - Copy `config.sample.toml` to `config.toml` and edit the config
+- Make sure you have a copy of the `cities15000.txt` file at the root of this directory (instructions are in the `config.sample.toml` file)
 - Run `make build` to build the binary and then run `./dnstoys.bin`
 
 ## Others
