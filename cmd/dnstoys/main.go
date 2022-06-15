@@ -99,7 +99,7 @@ func saveSnapshot(h *handlers) {
 				filePath := ko.MustString(name + ".snapshot_file")
 				lo.Printf("saving %s snapshot to %s", name, filePath)
 				if err := ioutil.WriteFile(filePath, b, 0644); err != nil {
-					lo.Printf("error writing weather snapshot: %v", err)
+					lo.Printf("error writing %s snapshot: %v", name, err)
 				}
 			}
 
@@ -122,7 +122,7 @@ func loadSnapshot(service string) []byte {
 		if _, ok := err.(*os.PathError); ok {
 			return nil
 		}
-		lo.Printf("error reading snapshot file %s: %v", err)
+		lo.Printf("error reading snapshot file %s: %v", filePath, err)
 		return nil
 	}
 
@@ -174,7 +174,7 @@ func main() {
 		// Load snapshot?
 		if b := loadSnapshot("fx"); b != nil {
 			if err := f.Load(b); err != nil {
-				lo.Printf("error reading weather snapshot: %v", err)
+				lo.Printf("error reading fx snapshot: %v", err)
 			}
 		}
 
