@@ -5,6 +5,7 @@ dns.toys is a DNS server that takes creative liberties with the DNS protocol to 
 For docs, visit [**www.dns.toys**](https://www.dns.toys)
 
 ## Sample commands
+
 ```shell
 dig help @dns.toys
 
@@ -23,12 +24,16 @@ dig 987654321.words @dns.toys
 dig pi @dns.toys
 
 dig 100dec-hex.base @dns.toys
+
+dig fun.dictionary @dns.toys
 ```
 
 ## Running locally
+
 - Clone the repo
 - Copy `config.sample.toml` to `config.toml` and edit the config
 - Run `make build` to build the binary and then run `./dnstoys.bin`
 
 ## Others
+
 - [DnsToys.NET](https://github.com/fatihdgn/DnsToys.NET) - A .net client library for the service.
