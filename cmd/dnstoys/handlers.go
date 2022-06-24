@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"net"
 	"regexp"
 	"strings"
 
@@ -92,20 +93,38 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 			continue
 		}
 
-		a := strings.Split(w.RemoteAddr().String(), ":")
-		if len(a) != 2 {
-			respErr(errors.New("unable to detect IP."), w, m)
-			w.WriteMsg(m)
-			return
-		}
-
-		rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", a[0]))
+		// Parse the Host:Port.
+		h, _, err := net.SplitHostPort(w.RemoteAddr().String())
 		if err != nil {
-			lo.Printf("error preparing ip response: %v", err)
+			respErr(errors.New("unable to detect IP."), w, m)
 			return
 		}
 
-		m.Answer = append(m.Answer, rr)
+		// Get the IP representaion.
+		ip := net.ParseIP(h)
+		if ip == nil {
+			respErr(errors.New("unable to detect IP."), w, m)
+			return
+		}
+
+		switch {
+		// Handle ipv4.
+		case ip.To4() != nil:
+			rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", ip.To4().String()))
+			if err != nil {
+				lo.Printf("error preparing ip response: %v", err)
+				return
+			}
+			m.Answer = append(m.Answer, rr)
+		// Handle ipv6.
+		case ip.To16() != nil:
+			rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", ip.To16().String()))
+			if err != nil {
+				lo.Printf("error preparing ip response: %v", err)
+				return
+			}
+			m.Answer = append(m.Answer, rr)
+		}
 	}
 
 	w.WriteMsg(m)
