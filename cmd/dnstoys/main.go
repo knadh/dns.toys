@@ -12,6 +12,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
+	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
@@ -264,6 +265,14 @@ func main() {
 		h.register("dict", d, mux)
 
 		help = append(help, []string{"get the definition of an English word, powered by WordNet(R).", "dig fun.dict @%s"})
+	}
+
+	// Rolling dice
+	if ko.Bool("dice.enabled") {
+		n := dice.New()
+		h.register("dice", n, mux)
+
+		help = append(help, []string{"roll dice", "dig 3d20+3.dice @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
