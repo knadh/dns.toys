@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"os/signal"
 	"syscall"
@@ -16,6 +17,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/dict"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
+	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/weather"
@@ -272,7 +274,17 @@ func main() {
 		n := dice.New()
 		h.register("dice", n, mux)
 
-		help = append(help, []string{"roll dice", "dig 3d20+3.dice @%s"})
+		help = append(help, []string{"roll dice", "dig 1-100.rand @%s"})
+	}
+
+	if ko.Bool("rand.enabled") {
+		// seed the RNG:
+		rand.Seed(time.Now().Unix())
+
+		n := random.New()
+		h.register("rand", n, mux)
+
+		help = append(help, []string{"generate random numbers", "dig 3d20+3.dice @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
