@@ -9,6 +9,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/hold7door/wnram"
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
@@ -22,7 +23,6 @@ import (
 	"github.com/knadh/koanf/parsers/toml"
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/providers/posflag"
-	"github.com/lloyd/wnram"
 	"github.com/miekg/dns"
 	flag "github.com/spf13/pflag"
 )

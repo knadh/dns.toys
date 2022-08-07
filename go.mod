@@ -3,6 +3,7 @@ module github.com/knadh/dns.toys
 go 1.17
 
 require (
+	github.com/hold7door/wnram v0.0.0-20220807183601-04f0a21e3770
 	github.com/knadh/koanf v1.4.1
 	github.com/miekg/dns v1.1.49
 	github.com/spf13/pflag v1.0.5
@@ -11,7 +12,6 @@ require (
 
 require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
-	github.com/lloyd/wnram v0.0.0-20170126174755-5860846ee743 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect

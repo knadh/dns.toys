@@ -3,10 +3,9 @@ package dictionary
 import (
 	"fmt"
 	"sort"
-	"strconv"
 	"strings"
 
-	"github.com/lloyd/wnram"
+	"github.com/hold7door/wnram"
 )
 
 type Dictionary struct {
@@ -66,12 +65,8 @@ func (d *Dictionary) Query(q string) ([]string, error){
 }
 
 // returns number of semantic relationships from a cluster
-func getSemantic(l *wnram.Lookup) (int, error){
-	dump := l.DumpStr()
-	res := strings.Split(dump, "\n")
-	symLine := res[2]
-	sym, err := strconv.Atoi(string(symLine[0]));
-	return sym, err
+func getSemantic(l *wnram.Lookup) (int){
+	return l.NumRelations()
 }
 
 func getMeaningExample(m string) (string, string){
@@ -98,10 +93,7 @@ func (d *Dictionary) get(w string) ([]string, error) {
 		}
 
 		for _, f := range clusters {
-			totSem, err := getSemantic(&f)
-			if err != nil {
-				return nil, err
-			}
+			totSem := getSemantic(&f)
 			// gloss is a string containing
 			// a brief definition (“gloss”) and, in most cases, one or more short sentences illustrating the use
 			means, ex := getMeaningExample(f.Gloss())
