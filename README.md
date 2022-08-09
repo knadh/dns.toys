@@ -25,7 +25,7 @@ dig pi @dns.toys
 
 dig 100dec-hex.base @dns.toys
 
-dig fun.dictionary @dns.toys
+dig fun.dict @dns.toys
 ```
 
 ## Running locally
