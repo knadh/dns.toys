@@ -12,6 +12,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
+	"github.com/knadh/dns.toys/internal/services/dict"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/timezones"
@@ -252,6 +253,17 @@ func main() {
 		h.register("base", n, mux)
 
 		help = append(help, []string{"convert numbers from one base to another", "dig 100dec-hex.base @%s"})
+	}
+
+	// Dictionary.
+	if ko.Bool("dict.enabled") {
+		d := dict.New(dict.Opt{
+			WordNetPath: ko.MustString("dict.wordnet_path"),
+			MaxResults:  ko.MustInt("dict.max_results"),
+		})
+		h.register("dict", d, mux)
+
+		help = append(help, []string{"get the definition of an English word, powered by WordNet(R).", "dig fun.dict @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

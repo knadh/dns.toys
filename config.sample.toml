@@ -57,3 +57,14 @@ enabled = true
 
 [base]
 enabled = true
+
+[dict]
+enabled = true
+
+# path to wordnet data files directory
+# https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz
+# directory should have files - data.noun, data.adj, data.adv, data.verb
+wordnet_path = "wordnet"
+
+# Maximum results to show per part-of-speech type (noun, verb etc.)
+max_results = 5
