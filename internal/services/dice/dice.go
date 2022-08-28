@@ -21,16 +21,14 @@ var queryFormat = regexp.MustCompile("([0-9]+)[dD]([0-9]+)(?:/([0-9]+))?")
 
 // Query returns the result of the given dice roll
 func (n *Dice) Query(q string) ([]string, error) {
-	// Parse the query:
+	// Parse the query.
 	reg := queryFormat.FindStringSubmatch(q)
-
 	if len(reg) != 4 {
 		return nil, errors.New("invalid dice query.")
 	}
 
 	// Parse the matched parts as ints:
 	// The elements of reg are all integers, but converting them to int can still fail if they're too large.
-
 	dice, err := strconv.Atoi(reg[1])
 	if err != nil {
 		return nil, errors.New("invalid dice query.")
@@ -49,19 +47,17 @@ func (n *Dice) Query(q string) ([]string, error) {
 		}
 	}
 
-	// build the response:
-
 	sb := strings.Builder{}
 	// strings.Builder is guaranteed to return nil errors, see docs.
 	sb.WriteString(q)
-	sb.WriteString(" 1 TXT \"")
+	sb.WriteString(" 1 TXT ")
 
 	results, total, err := performDiceRoll(dice, sides, modifier)
 	if err != nil {
 		return nil, errors.New("Can't generate random numbers")
 	}
 
-	sb.WriteString("rolled (")
+	sb.WriteString(`"rolled = [`)
 	for i, r := range results {
 		sb.WriteString(strconv.Itoa(r))
 		if i != len(results)-1 {
@@ -69,11 +65,11 @@ func (n *Dice) Query(q string) ([]string, error) {
 		}
 	}
 
-	sb.WriteString(")\"")
+	sb.WriteString(`]"`)
 
 	return []string{
 		sb.String(),
-		fmt.Sprintf("%s 1 TXT \"Total: %d\"", q, total),
+		fmt.Sprintf("%s 1 TXT \"total = %d\"", q, total),
 	}, nil
 }
 
@@ -87,8 +83,7 @@ func performDiceRoll(dice, sides, modifier int) (results []int, total int, err e
 	total = modifier
 
 	for i := 0; i < dice; i++ {
-		// get a random number in the range 0 (inclusive) to sides (exclusive).
-		// We use crypto/rand instead of the normal rand so that people can't cheat when using this feature to play games.
+		// Get a random number in the range 0 (inclusive) to sides (exclusive).
 		max := big.NewInt(int64(sides))
 		res, err := rand.Int(rand.Reader, max)
 		if err != nil {
