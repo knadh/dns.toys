@@ -140,12 +140,13 @@
 			<p>dig 1d6.dice @dns.toys</p>
 			<p>dig 3d20/2.dice @dns.toys</p>
 		</code>
-		<p>The syntax is the number of dice to roll, followed by a d, followed by the number of sides for each dice, like in tabletop RPG games.</p>
-		<p>Queries can optionally be followed by a / and a numeric modifier, which will be added to the total. For example, a DnD roll like 2d20+3 should be written as 2d20/3.</p>
+		<p>The number of dice to roll, followed by <code>d</code>, followed by the number of sides for each dice, like in tabletop RPG games.</p>
+		<p>Optionally suffix by <code>/$number</code> to add it to the total.
+			For example, a DnD roll like 2d20+3 is written as 2d20/3.</p>
 	</section>
 
 	<section class="box">
-		<h2>Generating random numbers</h2>
+		<h2>Random number generation</h2>
 		<code class="block">
 			<p>dig 1-100.rand @dns.toys</p>
 			<p>dig 30-200.rand @dns.toys</p>
