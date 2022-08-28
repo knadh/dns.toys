@@ -26,9 +26,6 @@ func (n *Random) Query(q string) ([]string, error) {
 		return nil, errors.New("invalid random query.")
 	}
 
-	// Parse the matched parts as ints:
-	// The elements of reg are all integers, but converting them to int can still fail if they're too large.
-
 	min, err := strconv.Atoi(reg[1])
 	if err != nil {
 		return nil, errors.New("invalid random query.")
@@ -39,16 +36,13 @@ func (n *Random) Query(q string) ([]string, error) {
 		return nil, errors.New("invalid random query.")
 	}
 
-	res := random(min, max)
-	s := fmt.Sprintf("%s 1 TXT \"Result: %d\"", q, res)
+	v := min + rand.Intn(max-min+1)
+
+	s := fmt.Sprintf("%s 1 TXT \"%d\"", q, v)
 	return []string{s}, nil
 }
 
 // Dump is not implemented in this package.
 func (n *Random) Dump() ([]byte, error) {
 	return nil, nil
-}
-
-func random(min, max int) int {
-	return rand.Int()%(max-min) + 1 + min // inclusive
 }
