@@ -274,7 +274,7 @@ func main() {
 		n := dice.New()
 		h.register("dice", n, mux)
 
-		help = append(help, []string{"roll dice", "dig 1-100.rand @%s"})
+		help = append(help, []string{"roll dice", "dig 1d6.dice @%s"})
 	}
 
 	if ko.Bool("rand.enabled") {
