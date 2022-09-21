@@ -5,14 +5,12 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
-	"strings"
 )
 
-type CoinTossResult string
-
-var (
-	Heads CoinTossResult = "heads"
-	Tails CoinTossResult = "tails"
+const (
+	heads     = "heads"
+	tails     = "tails"
+	maxTosses = 42
 )
 
 type Coin struct{}
@@ -22,50 +20,32 @@ func New() *Coin {
 	return &Coin{}
 }
 
-var maxTosses = 42
-
 // Query returns the result of the given coin toss
 func (n *Coin) Query(q string) ([]string, error) {
-	var tosses int
-	var err error
-
-	if q == "coin." {
-		// dig coin @dns.toys
-		tosses = 1
-	} else {
-		tosses, err = strconv.Atoi(q)
+	tosses := 1
+	if q != "coin." {
+		t, err := strconv.Atoi(q)
 		if err != nil {
 			return nil, errors.New("invalid coin toss query")
 		}
+		tosses = t
 	}
 
 	if tosses > maxTosses {
-		return nil, errors.New("toss overflow")
+		return nil, fmt.Errorf("max allowed tosses is %d", maxTosses)
 	}
-
-	sb := strings.Builder{}
-	// strings.Builder is guaranteed to return nil errors, see docs.
-	sb.WriteString(q)
-	sb.WriteString(" 1 TXT ")
 
 	results, err := performCoinToss(tosses)
 	if err != nil {
 		return nil, fmt.Errorf("error occurred whiler performing the coin toss: %w", err)
 	}
 
-	sb.WriteString(`"tossed = [`)
-	for i, r := range results {
-		sb.WriteString(string(r))
-		if i != len(results)-1 {
-			sb.WriteString(", ")
-		}
+	out := make([]string, 0, len(results))
+	for _, r := range results {
+		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, r))
 	}
 
-	sb.WriteString(`]"`)
-
-	return []string{
-		sb.String(),
-	}, nil
+	return out, nil
 }
 
 // Dump is not implemented in this package.
@@ -73,15 +53,16 @@ func (n *Coin) Dump() ([]byte, error) {
 	return nil, nil
 }
 
-func performCoinToss(tosses int) (results []CoinTossResult, err error) {
-	results = make([]CoinTossResult, 0, tosses)
+func performCoinToss(tosses int) ([]string, error) {
+	out := make([]string, 0, tosses)
+
 	for i := 0; i < tosses; i++ {
-		res := Heads
+		res := heads
 		if rand.Int()%2 == 0 {
-			res = Tails
+			res = tails
 		}
-		results = append(results, res)
+		out = append(out, res)
 	}
 
-	return results, nil
+	return out, nil
 }
