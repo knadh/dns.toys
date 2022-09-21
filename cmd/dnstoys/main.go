@@ -13,6 +13,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
+	"github.com/knadh/dns.toys/internal/services/coin"
 	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
 	"github.com/knadh/dns.toys/internal/services/fx"
@@ -275,6 +276,14 @@ func main() {
 		h.register("dice", n, mux)
 
 		help = append(help, []string{"roll dice", "dig 1d6.dice @%s"})
+	}
+
+	// Tossing coin
+	if ko.Bool("coin.enabled") {
+		n := coin.New()
+		h.register("coin", n, mux)
+
+		help = append(help, []string{"toss coin", "dig 2.coin @%s"})
 	}
 
 	if ko.Bool("rand.enabled") {
