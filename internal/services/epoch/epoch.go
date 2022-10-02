@@ -17,24 +17,31 @@ func New() *Epoch {
 
 // parses the query which is a epoch and returns it in human readable
 func (n *Epoch) Query(q string) ([]string, error) {
-
-	timestamp, err := strconv.ParseInt(q, 10, 64)
+	ts, err := strconv.ParseInt(q, 10, 64)
 	if err != nil {
 		return nil, errors.New("invalid epoch query")
 	}
 
-	if timestamp >= 1e16 || timestamp <= -1e16 {
-		timestamp = (timestamp / 1000000000) // To handle Nanoseconds
+	if ts >= 1e16 || ts <= -1e16 {
+		// Nanoseconds.
+		ts = (ts / 1000000000)
 
-	} else if timestamp >= 1e14 || timestamp <= -1e14 {
-		timestamp = (timestamp / 1000000) // To handle Microseconds
+	} else if ts >= 1e14 || ts <= -1e14 {
+		// Microseconds
+		ts = (ts / 1000000)
 
-	} else if timestamp >= 1e11 || timestamp <= -3e10 {
-		timestamp = (timestamp / 1000) // To handle Milliseconds
+	} else if ts >= 1e11 || ts <= -3e10 {
+		// Milliseconds
+		ts = (ts / 1000)
 	}
-	resinutc := time.Unix(timestamp, 0).UTC()
-	resinlocal := time.Unix(timestamp, 0)
-	out := fmt.Sprintf(`%s 1 TXT "%s" "%s"`, q, resinutc, resinlocal)
+
+	var (
+		utc   = time.Unix(ts, 0).UTC()
+		local = time.Unix(ts, 0)
+
+		out = fmt.Sprintf(`%s 1 TXT "%s" "%s"`, q, utc, local)
+	)
+
 	return []string{out}, nil
 }
 
