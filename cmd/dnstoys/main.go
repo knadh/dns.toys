@@ -16,6 +16,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/coin"
 	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
+	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
@@ -234,6 +235,14 @@ func main() {
 		h.register("words", n, mux)
 
 		help = append(help, []string{"convert numbers to words.", "dig 123456.words @%s"})
+	}
+
+	// Convert Epoch
+	if ko.Bool("epoch.enabled") {
+		n := epoch.New()
+		h.register("epoch", n, mux)
+
+		help = append(help, []string{"convert epoch to human readable date and time", "dig 784783800.epoch @%s"})
 	}
 
 	// CIDR.
