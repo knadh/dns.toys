@@ -237,14 +237,6 @@ func main() {
 		help = append(help, []string{"convert numbers to words.", "dig 123456.words @%s"})
 	}
 
-	// Convert Epoch
-	if ko.Bool("epoch.enabled") {
-		n := epoch.New()
-		h.register("epoch", n, mux)
-
-		help = append(help, []string{"convert epoch to human readable date and time", "dig 784783800.epoch @%s"})
-	}
-
 	// CIDR.
 	if ko.Bool("cidr.enabled") {
 		n := cidr.New()
@@ -287,14 +279,7 @@ func main() {
 		help = append(help, []string{"roll dice", "dig 1d6.dice @%s"})
 	}
 
-	// Tossing coin
-	if ko.Bool("coin.enabled") {
-		n := coin.New()
-		h.register("coin", n, mux)
-
-		help = append(help, []string{"toss coin", "dig 2.coin @%s"})
-	}
-
+	// Random number generator.
 	if ko.Bool("rand.enabled") {
 		// seed the RNG:
 		rand.Seed(time.Now().Unix())
@@ -303,6 +288,22 @@ func main() {
 		h.register("rand", n, mux)
 
 		help = append(help, []string{"generate random numbers", "dig 3d20+3.dice @%s"})
+	}
+
+	// Coin toss.
+	if ko.Bool("coin.enabled") {
+		n := coin.New()
+		h.register("coin", n, mux)
+
+		help = append(help, []string{"toss coin", "dig 2.coin @%s"})
+	}
+
+	// Epoch / Unix timestamp conversion.
+	if ko.Bool("epoch.enabled") {
+		n := epoch.New(ko.Bool("epoch.send_local_time"))
+		h.register("epoch", n, mux)
+
+		help = append(help, []string{"convert epoch / UNIX time to human readable time.", "dig 784783800.epoch @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

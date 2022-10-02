@@ -72,11 +72,12 @@ max_results = 5
 [dice]
 enabled = true
 
-[epoch]
-enabled = true
-
 [coin]
 enabled = true
 
 [rand]
 enabled = true
+
+[epoch]
+enabled = true
+send_local_time = true

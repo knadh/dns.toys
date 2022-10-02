@@ -8,15 +8,17 @@ import (
 	"time"
 )
 
-type Epoch struct{}
+type Epoch struct {
+	localTime bool
+}
 
 // New returns a new instance of CIDR.
-func New() *Epoch {
-	return &Epoch{}
+func New(localTime bool) *Epoch {
+	return &Epoch{localTime: localTime}
 }
 
 // parses the query which is a epoch and returns it in human readable
-func (n *Epoch) Query(q string) ([]string, error) {
+func (e *Epoch) Query(q string) ([]string, error) {
 	ts, err := strconv.ParseInt(q, 10, 64)
 	if err != nil {
 		return nil, errors.New("invalid epoch query")
@@ -38,13 +40,16 @@ func (n *Epoch) Query(q string) ([]string, error) {
 	var (
 		utc   = time.Unix(ts, 0).UTC()
 		local = time.Unix(ts, 0)
-
-		out = fmt.Sprintf(`%s 1 TXT "%s" "%s"`, q, utc, local)
 	)
+
+	out := fmt.Sprintf(`%s 1 TXT "%s"`, q, utc)
+	if e.localTime {
+		out += ` "` + local.String() + `"`
+	}
 
 	return []string{out}, nil
 }
 
-func (n *Epoch) Dump() ([]byte, error) {
+func (e *Epoch) Dump() ([]byte, error) {
 	return nil, nil
 }
