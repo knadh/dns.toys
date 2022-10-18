@@ -72,7 +72,7 @@ func initConfig() {
 }
 
 func saveSnapshot(h *handlers) {
-	interruptSignal := make(chan os.Signal)
+	interruptSignal := make(chan os.Signal, 1)
 	signal.Notify(interruptSignal,
 		syscall.SIGTERM,
 		syscall.SIGHUP,
@@ -83,35 +83,32 @@ func saveSnapshot(h *handlers) {
 
 	// On receiving an OS signal, iterate through services and
 	// dump their snapshots to the disk if available.
-	for {
-		select {
-		case i := <-interruptSignal:
-			lo.Printf("received SIGNAL: `%s`", i.String())
+	for i := range interruptSignal {
+		lo.Printf("received SIGNAL: `%s`", i.String())
 
-			for name, s := range h.services {
-				if !ko.Bool(name+".enabled") || !ko.Bool(name+".snapshot_enabled") {
-					continue
-				}
-
-				b, err := s.Dump()
-				if err != nil {
-					lo.Printf("error generating %s snapshot: %v", name, err)
-				}
-
-				if b == nil {
-					continue
-				}
-
-				filePath := ko.MustString(name + ".snapshot_file")
-				lo.Printf("saving %s snapshot to %s", name, filePath)
-				if err := ioutil.WriteFile(filePath, b, 0644); err != nil {
-					lo.Printf("error writing %s snapshot: %v", name, err)
-				}
+		for name, s := range h.services {
+			if !ko.Bool(name+".enabled") || !ko.Bool(name+".snapshot_enabled") {
+				continue
 			}
 
-			if i != SIGUNUSED {
-				os.Exit(0)
+			b, err := s.Dump()
+			if err != nil {
+				lo.Printf("error generating %s snapshot: %v", name, err)
 			}
+
+			if b == nil {
+				continue
+			}
+
+			filePath := ko.MustString(name + ".snapshot_file")
+			lo.Printf("saving %s snapshot to %s", name, filePath)
+			if err := ioutil.WriteFile(filePath, b, 0644); err != nil {
+				lo.Printf("error writing %s snapshot: %v", name, err)
+			}
+		}
+
+		if i != SIGUNUSED {
+			os.Exit(0)
 		}
 	}
 }
