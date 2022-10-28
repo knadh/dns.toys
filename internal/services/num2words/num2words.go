@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 var (
@@ -31,13 +32,19 @@ func New() *Num2Words {
 
 // Query converts a number to words.
 func (n *Num2Words) Query(q string) ([]string, error) {
-	num, err := strconv.Atoi(q)
+	num, err := strconv.ParseFloat(q, 64)
 	if err != nil {
 		return nil, errors.New("invalid number.")
 	}
 
-	w := num2words(num)
-	r := fmt.Sprintf("%s 1 TXT \"%d = %s\"", q, num, w)
+	w := num2words(int(num))
+	decimalIndex := strings.IndexRune(q, '.')
+	if decimalIndex >= 0 {
+		decimalValue := q[decimalIndex+1:decimalIndex+2] + strings.TrimRight(q[decimalIndex+2:], "0")
+		w += " Point" + decimal2words(decimalValue)
+	}
+
+	r := fmt.Sprintf("%s 1 TXT \"%g = %s\"", q, num, w)
 	return []string{r}, nil
 }
 
@@ -97,4 +104,12 @@ func num2words(number int) string {
 	}
 
 	return out[1:]
+}
+
+func decimal2words(decimal string) string {
+	out := ""
+	for _, c := range decimal {
+		out += " " + ones[c-'0']
+	}
+	return out
 }
