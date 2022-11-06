@@ -58,7 +58,9 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
 
-	r := fmt.Sprintf(`%s 1 TXT Aerial Distance is "%s" KMs`, q, d)
+	result := "Aerial Distance is " + d + " KMs"
+
+	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, result)
 	return []string{r}, nil
 }
 
