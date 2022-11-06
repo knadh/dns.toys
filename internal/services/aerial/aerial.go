@@ -21,6 +21,8 @@ var delimiter = "-"
 
 var reParse = regexp.MustCompile(validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex)
 
+// TODO: remove debug comments and decide limiter ","
+
 // Query returns the aerial distance in KMs between lat lng pair
 func (a *Aerial) Query(q string) ([]string, error) {
 	fmt.Println(q)
