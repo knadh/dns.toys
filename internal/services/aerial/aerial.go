@@ -68,10 +68,12 @@ func (n *Aerial) Dump() ([]byte, error) {
 func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (string, error) {
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 
-	validateLat(lat1)
-	validateLng(lng1)
-	validateLat(lat2)
-	validateLng(lng2)
+	errorPoints := []error { validateLat(lat1),validateLng(lng1), validateLat(lat2), validateLng(lng2) }
+	for _, e := range errorPoints {
+		if e != nil {
+			return "", e
+		}
+	}
 	
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
@@ -92,18 +94,23 @@ func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 floa
 	return s, nil
 }
 
-func validatePoint(point, maxVal float64) (error) {
+func isValidPoint(point, maxVal float64) (bool) {
 	absoluteVal := math.Abs(point);
-	if (absoluteVal > maxVal) {
-		return errors.New("point out of bounds")
-	}
-	return nil
+	return absoluteVal <= maxVal
 }
 
 func validateLat(lat float64) (error) {
-	return validatePoint(lat, 90);
+	isValid := isValidPoint(lat, 90)
+	if isValid {
+		return nil
+	}
+	return errors.New("lat out of bounds")
 }
 
 func validateLng(lng float64) (error) {
-	return validatePoint(lng, 180);
+	isValid := isValidPoint(lng, 180)
+	if isValid {
+		return nil
+	}
+	return errors.New("lng out of bounds")
 }
