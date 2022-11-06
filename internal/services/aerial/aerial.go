@@ -66,6 +66,7 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (string, error) {
+	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
 	
