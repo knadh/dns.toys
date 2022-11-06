@@ -3,7 +3,6 @@ package aerial
 import (
 	"errors"
 	"fmt"
-	"google.golang.org/genproto/googleapis/type/latlng"
 	"math"
 	"regexp"
 	"strconv"
@@ -16,7 +15,7 @@ func New() *Aerial {
 	return &Aerial{}
 }
 
-var validPointRegex = "(-?[0-9]{1,2}.[0-9]{1,6})"
+var validPointRegex = "(-?\\d+.\\d+)"
 var delimiter = "-"
 
 var reParse = regexp.MustCompile(validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex)
@@ -49,11 +48,7 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		cord = append(cord, f)
 	}
 
-	// for validation
-	var loc1 = latlng.LatLng{Latitude: cord[0], Longitude: cord[1]}
-	var loc2 = latlng.LatLng{Latitude: cord[2], Longitude: cord[3]}
-
-	d, err := calculateAerialDistance(loc1.Latitude, loc1.Longitude, loc2.Latitude, loc2.Longitude);
+	d, err := calculateAerialDistance(cord[0], cord[1], cord[2], cord[3]);
 	if err != nil {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
@@ -72,6 +67,12 @@ func (n *Aerial) Dump() ([]byte, error) {
 // calculates aerial distance in KMs
 func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (string, error) {
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
+
+	validateLat(lat1)
+	validateLng(lng1)
+	validateLat(lat2)
+	validateLng(lng2)
+	
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
 	
@@ -89,4 +90,20 @@ func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 floa
 	s := strconv.FormatFloat(d, 'f', 2, 64)
 	
 	return s, nil
+}
+
+func validatePoint(point, maxVal float64) (error) {
+	absoluteVal := math.Abs(point);
+	if (absoluteVal > maxVal) {
+		return errors.New("point out of bounds")
+	}
+	return nil
+}
+
+func validateLat(lat float64) (error) {
+	return validatePoint(lat, 90);
+}
+
+func validateLng(lng float64) (error) {
+	return validatePoint(lng, 180);
 }
