@@ -51,12 +51,12 @@ func (a *Aerial) Query(q string) ([]string, error) {
 	var loc1 = latlng.LatLng{Latitude: cord[0], Longitude: cord[1]}
 	var loc2 = latlng.LatLng{Latitude: cord[2], Longitude: cord[3]}
 
-	distanceString, err := calculateAerialDistance(loc1.Latitude, loc1.Longitude, loc2.Latitude, loc2.Longitude);
+	d, err := calculateAerialDistance(loc1.Latitude, loc1.Longitude, loc2.Latitude, loc2.Longitude);
 	if err != nil {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
 
-	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, distanceString)
+	r := fmt.Sprintf(`%s 1 TXT Aerial Distance is "%s" KMs`, q, d)
 	return []string{r}, nil
 }
 
@@ -65,6 +65,7 @@ func (n *Aerial) Dump() ([]byte, error) {
 	return nil, nil
 }
 
+// calculates aerial distance in KMs
 func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (string, error) {
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 	radlat1 := float64(math.Pi * lat1 / 180)
@@ -81,7 +82,7 @@ func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 floa
 	d = d * 180 / math.Pi
 	d = d * 60 * 1.1515 * 1.609344
 
-	var s string = "Aerial Distance is " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
+	s := strconv.FormatFloat(d, 'f', 2, 64)
 	
 	return s, nil
 }
