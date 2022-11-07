@@ -78,15 +78,20 @@ var tests = []struct {
 		0,
 		"lng out of bounds",
 	},
+	{
+		aerial.Location{Lat: -120.9716, Lng: 77.5946},  // Wrong Lat
+		aerial.Location{Lat: 28.7041, Lng: 187.1025}, // Wrong Lng
+		0,
+		"lat out of bounds",
+	},
 }
 
 func TestCalculateAerialDistance(t *testing.T) {
 	for _, input := range tests {
 		d, err := aerial.CalculateAerialDistance(input.l1, input.l2)
-		if err != nil {
-			if err.Error() != input.errorString {
-				t.Errorf("fail: %v %v -> %v got error: %v", input.l1, input.l2, input.errorString, err)
-			}
+
+		if err != nil && err.Error() != input.errorString {
+			t.Errorf("fail: %v %v -> %v got error: %v", input.l1, input.l2, input.errorString, err)
 		}
 
 		if input.d != d {
