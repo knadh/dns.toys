@@ -53,7 +53,7 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
 
-	result := "aerial Distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
+	result := "aerial distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
 
 	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, result)
 	return []string{r}, nil
