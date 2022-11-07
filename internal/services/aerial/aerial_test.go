@@ -2,13 +2,14 @@ package aerial_test
 
 import (
 	"testing"
+
 	"github.com/knadh/dns.toys/internal/services/aerial"
 )
 
 var tests = []struct {
-	l1 aerial.Location
-	l2 aerial.Location
-	d float64
+	l1          aerial.Location
+	l2          aerial.Location
+	d           float64
 	errorString string
 }{
 	{
@@ -18,7 +19,7 @@ var tests = []struct {
 		"",
 	},
 	{
-		aerial.Location{Lat: 12.9352, Lng: 77.6245},  // Kormangala
+		aerial.Location{Lat: 12.9352, Lng: 77.6245}, // Kormangala
 		aerial.Location{Lat: 12.9698, Lng: 77.7500}, // Whitefield
 		14.132940521067107,
 		"",
@@ -31,48 +32,48 @@ var tests = []struct {
 	},
 	{
 		aerial.Location{Lat: -120.9716, Lng: 77.5946}, // Wrong Lat
-		aerial.Location{Lat: 28.7041, Lng: 77.1025}, // New Delhi
+		aerial.Location{Lat: 28.7041, Lng: 77.1025},   // New Delhi
 		0,
 		"lat out of bounds",
 	},
 	{
 		aerial.Location{Lat: 120.9716, Lng: 77.5946}, // Wrong Lat
-		aerial.Location{Lat: 28.7041, Lng: 77.1025}, // New Delhi
+		aerial.Location{Lat: 28.7041, Lng: 77.1025},  // New Delhi
 		0,
 		"lat out of bounds",
 	},
 	{
 		aerial.Location{Lat: 12.9716, Lng: 277.5946}, // Wrong Lng
-		aerial.Location{Lat: 28.7041, Lng: 77.1025}, // New Delhi
+		aerial.Location{Lat: 28.7041, Lng: 77.1025},  // New Delhi
 		0,
 		"lng out of bounds",
 	},
 	{
 		aerial.Location{Lat: 12.9716, Lng: -277.5946}, // Wrong Lng
-		aerial.Location{Lat: 28.7041, Lng: 77.1025}, // New Delhi
+		aerial.Location{Lat: 28.7041, Lng: 77.1025},   // New Delhi
 		0,
 		"lng out of bounds",
 	},
 	{
-		aerial.Location{Lat: 12.9716, Lng: 77.5946}, // Bengaluru
+		aerial.Location{Lat: 12.9716, Lng: 77.5946},  // Bengaluru
 		aerial.Location{Lat: 128.7041, Lng: 77.1025}, // Wrong Lat
 		0,
 		"lat out of bounds",
 	},
 	{
-		aerial.Location{Lat: 12.9716, Lng: 77.5946}, // Bengaluru
+		aerial.Location{Lat: 12.9716, Lng: 77.5946},   // Bengaluru
 		aerial.Location{Lat: -128.7041, Lng: 77.1025}, // Wrong Lat
 		0,
 		"lat out of bounds",
 	},
 	{
-		aerial.Location{Lat: 12.9716, Lng: 77.5946}, // Bengaluru
+		aerial.Location{Lat: 12.9716, Lng: 77.5946},   // Bengaluru
 		aerial.Location{Lat: 28.7041, Lng: -187.1025}, // Wrong Lng
 		0,
 		"lng out of bounds",
 	},
 	{
-		aerial.Location{Lat: 12.9716, Lng: 77.5946}, // Bengaluru
+		aerial.Location{Lat: 12.9716, Lng: 77.5946},  // Bengaluru
 		aerial.Location{Lat: 28.7041, Lng: 187.1025}, // Wrong Lng
 		0,
 		"lng out of bounds",
@@ -86,7 +87,6 @@ func TestCalculateAerialDistance(t *testing.T) {
 			if err.Error() != input.errorString {
 				t.Errorf("fail: %v %v -> %v got error: %v", input.l1, input.l2, input.errorString, err)
 			}
-			continue
 		}
 
 		if input.d != d {

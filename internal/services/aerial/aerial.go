@@ -31,9 +31,9 @@ var reParse = regexp.MustCompile(validPointRegex + delimiter + validPointRegex +
 func (a *Aerial) Query(q string) ([]string, error) {
 	fmt.Println(q)
 	regexGroups := reParse.FindStringSubmatch(q)
-	fmt.Println("regex groups"); // remove comment 
+	fmt.Println("regex groups") // remove comment
 	for _, rg := range regexGroups {
-		fmt.Println(rg); // remove comment
+		fmt.Println(rg) // remove comment
 	}
 
 	if len(regexGroups) != 5 {
@@ -42,21 +42,21 @@ func (a *Aerial) Query(q string) ([]string, error) {
 
 	res := regexGroups[1:]
 	cord := make([]float64, 0, len(res))
-	fmt.Println("after parsing regex groups"); // remove comment
+	fmt.Println("after parsing regex groups") // remove comment
 	for _, p := range res {
 		// iterate overy every point to convert into float
 		f, err := strconv.ParseFloat(p, 64)
 		if err != nil {
 			return nil, fmt.Errorf("invalid point %s; Error: %w", p, err)
 		}
-		fmt.Println(f); // remove comment
+		fmt.Println(f) // remove comment
 		cord = append(cord, f)
 	}
 
-	l1 := Location{ Lat: cord[0], Lng: cord[1] }
-	l2 := Location{ Lat: cord[2], Lng: cord[3] }
+	l1 := Location{Lat: cord[0], Lng: cord[1]}
+	l2 := Location{Lat: cord[2], Lng: cord[3]}
 
-	d, err := CalculateAerialDistance(l1, l2);
+	d, err := CalculateAerialDistance(l1, l2)
 	if err != nil {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
@@ -80,36 +80,36 @@ func CalculateAerialDistance(l1, l2 Location) (float64, error) {
 	lng2 := l2.Lng
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 
-	errorPoints := []error { validateLat(lat1),validateLng(lng1), validateLat(lat2), validateLng(lng2) }
+	errorPoints := []error{validateLat(lat1), validateLng(lng1), validateLat(lat2), validateLng(lng2)}
 	for _, e := range errorPoints {
 		if e != nil {
 			return 0, e
 		}
 	}
-	
+
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
-	
-	radtheta := float64(math.Pi * float64(lng1 - lng2) / 180)
-	
-	d := math.Sin(radlat1) * math.Sin(radlat2) + math.Cos(radlat1) * math.Cos(radlat2) * math.Cos(radtheta);
+
+	radtheta := float64(math.Pi * float64(lng1-lng2) / 180)
+
+	d := math.Sin(radlat1)*math.Sin(radlat2) + math.Cos(radlat1)*math.Cos(radlat2)*math.Cos(radtheta)
 	if d > 1 {
 		d = 1
 	}
-	
+
 	d = math.Acos(d)
 	d = d * 180 / math.Pi
 	d = d * 60 * 1.1515 * 1.609344
-	
+
 	return d, nil
 }
 
-func isValidPoint(point, maxVal float64) (bool) {
-	absoluteVal := math.Abs(point);
+func isValidPoint(point, maxVal float64) bool {
+	absoluteVal := math.Abs(point)
 	return absoluteVal <= maxVal
 }
 
-func validateLat(lat float64) (error) {
+func validateLat(lat float64) error {
 	isValid := isValidPoint(lat, 90)
 	if isValid {
 		return nil
@@ -117,7 +117,7 @@ func validateLat(lat float64) (error) {
 	return errors.New("lat out of bounds")
 }
 
-func validateLng(lng float64) (error) {
+func validateLng(lng float64) error {
 	isValid := isValidPoint(lng, 180)
 	if isValid {
 		return nil
