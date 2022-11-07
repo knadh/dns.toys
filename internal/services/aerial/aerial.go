@@ -56,9 +56,9 @@ func (a *Aerial) Query(q string) ([]string, error) {
 	l1 := Location{Lat: cord[0], Lng: cord[1]}
 	l2 := Location{Lat: cord[2], Lng: cord[3]}
 
-	d, err := CalculateAerialDistance(l1, l2)
-	if err != nil {
-		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
+	d, errArray := CalculateAerialDistance(l1, l2)
+	if len(errArray) != 0 {
+		return nil, fmt.Errorf("%v", errArray)
 	}
 
 	result := "aerial distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
@@ -73,19 +73,22 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func CalculateAerialDistance(l1, l2 Location) (float64, error) {
+func CalculateAerialDistance(l1, l2 Location) (float64, []error) {
+	
+	errorMessagesL1 := validateLocation(l1)
+	errorMessagesL2 := validateLocation(l2)
+
+	errorMessages := append(errorMessagesL1[:], errorMessagesL2[:]...)
+
+	if len(errorMessages) != 0 {
+		return 0, errorMessages
+	}
+
 	lat1 := l1.Lat
 	lng1 := l1.Lng
 	lat2 := l2.Lat
 	lng2 := l2.Lng
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
-
-	errorPoints := []error{validateLat(lat1), validateLng(lng1), validateLat(lat2), validateLng(lng2)}
-	for _, e := range errorPoints {
-		if e != nil {
-			return 0, e
-		}
-	}
 
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
@@ -109,18 +112,18 @@ func isValidPoint(point, maxVal float64) bool {
 	return absoluteVal <= maxVal
 }
 
-func validateLat(lat float64) error {
-	isValid := isValidPoint(lat, 90)
-	if isValid {
-		return nil
-	}
-	return errors.New("lat out of bounds")
-}
+func validateLocation(l Location) []error {
+	e := make([]error, 0);
 
-func validateLng(lng float64) error {
-	isValid := isValidPoint(lng, 180)
-	if isValid {
-		return nil
+	isLatValid := isValidPoint(l.Lat, 90)
+	if !isLatValid {
+		e = append(e, errors.New(strconv.FormatFloat(l.Lat, 'f', -1, 64) + " lat out of bounds"))
 	}
-	return errors.New("lng out of bounds")
+
+	isLngValid := isValidPoint(l.Lng, 180)
+	if !isLngValid {
+		e = append(e, errors.New(strconv.FormatFloat(l.Lng, 'f', -1, 64) + " lng out of bounds"))
+	}
+
+	return e
 }
