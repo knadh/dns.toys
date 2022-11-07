@@ -10,6 +10,11 @@ import (
 
 type Aerial struct{}
 
+type Location struct {
+	Lat float64
+	Lng float64
+}
+
 // New returns a new instance of Aerial.
 func New() *Aerial {
 	return &Aerial{}
@@ -48,7 +53,10 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		cord = append(cord, f)
 	}
 
-	d, err := calculateAerialDistance(cord[0], cord[1], cord[2], cord[3]);
+	l1 := Location{ Lat: cord[0], Lng: cord[1] }
+	l2 := Location{ Lat: cord[2], Lng: cord[3] }
+
+	d, err := CalculateAerialDistance(l1, l2);
 	if err != nil {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
@@ -65,7 +73,11 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (float64, error) {
+func CalculateAerialDistance(l1, l2 Location) (float64, error) {
+	lat1 := l1.Lat
+	lng1 := l1.Lng
+	lat2 := l2.Lat
+	lng2 := l2.Lng
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 
 	errorPoints := []error { validateLat(lat1),validateLng(lng1), validateLat(lat2), validateLng(lng2) }
