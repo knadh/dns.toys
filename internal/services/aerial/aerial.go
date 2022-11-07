@@ -53,7 +53,7 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		return nil, fmt.Errorf("error in aerial distance calculation: %w", err)
 	}
 
-	result := "Aerial Distance is " + d + " KMs"
+	result := "aerial Distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
 
 	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, result)
 	return []string{r}, nil
@@ -65,13 +65,13 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (string, error) {
+func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 float64) (float64, error) {
 	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 
 	errorPoints := []error { validateLat(lat1),validateLng(lng1), validateLat(lat2), validateLng(lng2) }
 	for _, e := range errorPoints {
 		if e != nil {
-			return "", e
+			return 0, e
 		}
 	}
 	
@@ -88,10 +88,8 @@ func calculateAerialDistance(lat1 float64, lng1 float64, lat2 float64, lng2 floa
 	d = math.Acos(d)
 	d = d * 180 / math.Pi
 	d = d * 60 * 1.1515 * 1.609344
-
-	s := strconv.FormatFloat(d, 'f', 2, 64)
 	
-	return s, nil
+	return d, nil
 }
 
 func isValidPoint(point, maxVal float64) (bool) {
