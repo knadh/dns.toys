@@ -50,7 +50,7 @@ func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w 
 			if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 				continue
 			}
-			
+
 			// Call the service with the incoming query.
 			// Strip the service suffix from the query eg: mumbai.time.
 			ans, err := s.Query(cleanQuery(q.Name, "."+suffix+"."))

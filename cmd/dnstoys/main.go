@@ -312,7 +312,7 @@ func main() {
 		a := aerial.New()
 		h.register("aerial", a, mux)
 
-		help = append(help, []string{"get aerial distance between lat lng pair", "dig 12.9352,77.6245,12.9698,77.7500.aerial @%s"})
+		help = append(help, []string{"get aerial distance between lat lng pair", "dig A12.9352,77.6245/12.9698,77.7500.aerial @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
