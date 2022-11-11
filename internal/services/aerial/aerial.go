@@ -21,20 +21,15 @@ func New() *Aerial {
 }
 
 var validPointRegex = "(-?\\d+.\\d+)"
-var delimiter = "-"
+var delimiter = ","
+var separator = "/"
+var latlngpair = validPointRegex + delimiter + validPointRegex
 
-var reParse = regexp.MustCompile(validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex + delimiter + validPointRegex)
-
-// TODO: remove debug comments and decide limiter ","
+var reParse = regexp.MustCompile("A" + latlngpair + separator + latlngpair)
 
 // Query returns the aerial distance in KMs between lat lng pair
 func (a *Aerial) Query(q string) ([]string, error) {
-	fmt.Println(q)
 	regexGroups := reParse.FindStringSubmatch(q)
-	fmt.Println("regex groups") // remove comment
-	for _, rg := range regexGroups {
-		fmt.Println(rg) // remove comment
-	}
 
 	if len(regexGroups) != 5 {
 		return nil, errors.New("invalid lat lng format")
@@ -42,14 +37,12 @@ func (a *Aerial) Query(q string) ([]string, error) {
 
 	res := regexGroups[1:]
 	cord := make([]float64, 0, len(res))
-	fmt.Println("after parsing regex groups") // remove comment
 	for _, p := range res {
 		// iterate overy every point to convert into float
 		f, err := strconv.ParseFloat(p, 64)
 		if err != nil {
 			return nil, fmt.Errorf("invalid point %s; Error: %w", p, err)
 		}
-		fmt.Println(f) // remove comment
 		cord = append(cord, f)
 	}
 
@@ -88,7 +81,6 @@ func CalculateAerialDistance(l1, l2 Location) (float64, []error) {
 	lng1 := l1.Lng
 	lat2 := l2.Lat
 	lng2 := l2.Lng
-	fmt.Println("in fn", lat1, lng1, lat2, lng2) // remove comment
 
 	radlat1 := float64(math.Pi * lat1 / 180)
 	radlat2 := float64(math.Pi * lat2 / 180)
