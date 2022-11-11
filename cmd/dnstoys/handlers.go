@@ -24,7 +24,7 @@ type handlers struct {
 	help     []dns.RR
 }
 
-var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.:]")
+var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.:,]")
 
 // register registers a Service for a given query suffix on the DNS server.
 // A Service responds to a DNS query via Query().
@@ -50,7 +50,7 @@ func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w 
 			if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
 				continue
 			}
-
+			
 			// Call the service with the incoming query.
 			// Strip the service suffix from the query eg: mumbai.time.
 			ans, err := s.Query(cleanQuery(q.Name, "."+suffix+"."))
