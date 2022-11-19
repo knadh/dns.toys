@@ -49,9 +49,9 @@ func (a *Aerial) Query(q string) ([]string, error) {
 	l1 := Location{Lat: cord[0], Lng: cord[1]}
 	l2 := Location{Lat: cord[2], Lng: cord[3]}
 
-	d, errArray := CalculateAerialDistance(l1, l2)
-	if len(errArray) != 0 {
-		return nil, fmt.Errorf("%v", errArray)
+	d, e := CalculateAerialDistance(l1, l2)
+	if e != nil {
+		return nil, e
 	}
 
 	result := "aerial distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KMs"
@@ -66,15 +66,24 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func CalculateAerialDistance(l1, l2 Location) (float64, []error) {
+func CalculateAerialDistance(l1, l2 Location) (float64, error) {
 	
-	errorMessagesL1 := validateLocation(l1)
-	errorMessagesL2 := validateLocation(l2)
+	e1 := validateLocation(l1)
+	e2 := validateLocation(l2)
 
-	errorMessages := append(errorMessagesL1[:], errorMessagesL2[:]...)
+	if e1 != nil || e2 != nil {
+		errString := "";
+		if (e1 != nil) {
+			errString += e1.Error();
+		}
+		if (e2 != nil) {
+			if (e1 != nil) {
+				errString += "; "
+			}
+			errString += e2.Error()
+		}
 
-	if len(errorMessages) != 0 {
-		return 0, errorMessages
+		return 0, errors.New(errString)
 	}
 
 	lat1 := l1.Lat
@@ -104,18 +113,25 @@ func isValidPoint(point, maxVal float64) bool {
 	return absoluteVal <= maxVal
 }
 
-func validateLocation(l Location) []error {
-	e := make([]error, 0);
+func validateLocation(l Location) error {
+	errString := ""
 
 	isLatValid := isValidPoint(l.Lat, 90)
 	if !isLatValid {
-		e = append(e, errors.New(strconv.FormatFloat(l.Lat, 'f', -1, 64) + " lat out of bounds"))
+		errString += strconv.FormatFloat(l.Lat, 'f', -1, 64) + " lat out of bounds"
 	}
 
 	isLngValid := isValidPoint(l.Lng, 180)
 	if !isLngValid {
-		e = append(e, errors.New(strconv.FormatFloat(l.Lng, 'f', -1, 64) + " lng out of bounds"))
+		if (!isLatValid) {
+			errString += " "
+		}
+		errString += strconv.FormatFloat(l.Lng, 'f', -1, 64) + " lng out of bounds"
 	}
 
-	return e
+	if (errString != "") {
+		return errors.New(errString)
+	}
+
+	return nil
 }
