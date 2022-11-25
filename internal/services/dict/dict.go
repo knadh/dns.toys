@@ -49,7 +49,7 @@ func New(o Opt) *Dict {
 
 	wn, err := wnram.New(o.WordNetPath)
 	if err != nil {
-		log.Fatalf("error loading worndet: %v", err)
+		log.Fatalf("error loading wordnet: %v", err)
 	}
 	log.Printf("loaded wordnet dictionary data")
 
