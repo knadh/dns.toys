@@ -44,7 +44,7 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		coord = make([]float64, 0, len(res))
 	)
 	for _, p := range res {
-		// Iterate overy every point to convert into float.
+		// Iterate every every point to convert into float.
 		f, err := strconv.ParseFloat(p, 64)
 		if err != nil {
 			return nil, fmt.Errorf("invalid point %s: %w", p, err)
