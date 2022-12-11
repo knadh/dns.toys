@@ -10,7 +10,7 @@ import (
 
 type Aerial struct{}
 
-type loc struct {
+type Location struct {
 	Lat  float64
 	Long float64
 }
@@ -52,10 +52,10 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		coord = append(coord, f)
 	}
 
-	l1 := loc{Lat: coord[0], Long: coord[1]}
-	l2 := loc{Lat: coord[2], Long: coord[3]}
+	l1 := Location{Lat: coord[0], Long: coord[1]}
+	l2 := Location{Lat: coord[2], Long: coord[3]}
 
-	d, e := calculate(l1, l2)
+	d, e := Calculate(l1, l2)
 	if e != nil {
 		return nil, e
 	}
@@ -72,7 +72,7 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func calculate(l1, l2 loc) (float64, error) {
+func Calculate(l1, l2 Location) (float64, error) {
 	if err := validateLoc(l1); err != nil {
 		return 0, err
 	}
@@ -98,7 +98,7 @@ func calculate(l1, l2 loc) (float64, error) {
 	return d, nil
 }
 
-func validateLoc(l loc) error {
+func validateLoc(l Location) error {
 	err := ""
 
 	isLatValid := isValidPoint(l.Lat, 90)
