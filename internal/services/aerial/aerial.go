@@ -10,7 +10,7 @@ import (
 
 type Aerial struct{}
 
-type Location struct {
+type loc struct {
 	Lat  float64
 	Long float64
 }
@@ -52,10 +52,10 @@ func (a *Aerial) Query(q string) ([]string, error) {
 		coord = append(coord, f)
 	}
 
-	l1 := Location{Lat: coord[0], Long: coord[1]}
-	l2 := Location{Lat: coord[2], Long: coord[3]}
+	l1 := loc{Lat: coord[0], Long: coord[1]}
+	l2 := loc{Lat: coord[2], Long: coord[3]}
 
-	d, e := CalculateAerialDistance(l1, l2)
+	d, e := calculate(l1, l2)
 	if e != nil {
 		return nil, e
 	}
@@ -72,23 +72,12 @@ func (n *Aerial) Dump() ([]byte, error) {
 }
 
 // calculates aerial distance in KMs
-func CalculateAerialDistance(l1, l2 Location) (float64, error) {
-	e1 := validateLocation(l1)
-	e2 := validateLocation(l2)
-
-	if e1 != nil || e2 != nil {
-		errString := ""
-		if e1 != nil {
-			errString += e1.Error()
-		}
-		if e2 != nil {
-			if e1 != nil {
-				errString += "; "
-			}
-			errString += e2.Error()
-		}
-
-		return 0, errors.New(errString)
+func calculate(l1, l2 loc) (float64, error) {
+	if err := validateLoc(l1); err != nil {
+		return 0, err
+	}
+	if err := validateLoc(l2); err != nil {
+		return 0, err
 	}
 
 	var (
@@ -109,29 +98,29 @@ func CalculateAerialDistance(l1, l2 Location) (float64, error) {
 	return d, nil
 }
 
-func isValidPoint(point, maxVal float64) bool {
-	return math.Abs(point) <= maxVal
-}
-
-func validateLocation(l Location) error {
-	errString := ""
+func validateLoc(l loc) error {
+	err := ""
 
 	isLatValid := isValidPoint(l.Lat, 90)
 	if !isLatValid {
-		errString += strconv.FormatFloat(l.Lat, 'f', -1, 64) + " lat out of bounds"
+		err += strconv.FormatFloat(l.Lat, 'f', -1, 64) + ": lat out of bounds"
 	}
 
 	isLongValid := isValidPoint(l.Long, 180)
 	if !isLongValid {
 		if !isLatValid {
-			errString += " "
+			err += " "
 		}
-		errString += strconv.FormatFloat(l.Long, 'f', -1, 64) + " long out of bounds"
+		err += strconv.FormatFloat(l.Long, 'f', -1, 64) + ": long out of bounds"
 	}
 
-	if errString != "" {
-		return errors.New(errString)
+	if err != "" {
+		return errors.New(err)
 	}
 
 	return nil
+}
+
+func isValidPoint(point, maxVal float64) bool {
+	return math.Abs(point) <= maxVal
 }
