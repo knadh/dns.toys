@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
+	"github.com/knadh/dns.toys/internal/services/aerial"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/coin"
@@ -304,6 +305,14 @@ func main() {
 		h.register("epoch", n, mux)
 
 		help = append(help, []string{"convert epoch / UNIX time to human readable time.", "dig 784783800.epoch @%s"})
+	}
+
+	// Aerial Distance between Lat,Lng
+	if ko.Bool("aerial.enabled") {
+		a := aerial.New()
+		h.register("aerial", a, mux)
+
+		help = append(help, []string{"get aerial distance between lat lng pair", "dig A12.9352,77.6245/12.9698,77.7500.aerial @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
