@@ -288,7 +288,7 @@ func main() {
 		n := random.New()
 		h.register("rand", n, mux)
 
-		help = append(help, []string{"generate random numbers", "dig 3d20+3.dice @%s"})
+		help = append(help, []string{"generate random numbers", "dig 1-100.rand @%s"})
 	}
 
 	// Coin toss.
