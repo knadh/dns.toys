@@ -132,7 +132,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 
 // handlePi returns values of pi relevant for the record type.
 // TXT  record: "3.141592653589793238462643383279502884197169"
-// A    record: 3.141.59.26
+// A    record: 3.141.59.27
 // AAAA record: 3141:5926:5358:9793:2384:6264:3383:2795
 func (h *handlers) handlePi(w dns.ResponseWriter, r *dns.Msg) {
 	m := &dns.Msg{}
