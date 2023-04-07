@@ -35,6 +35,8 @@ dig A12.9352,77.6245/12.9698,77.7500.aerial @dns.toys
 - Clone the repo
 - Copy `config.sample.toml` to `config.toml` and edit the config
 - Make sure you have a copy of the `cities15000.txt` file at the root of this directory (instructions are in the `config.sample.toml` file)
+- Make sure to download the `wordnet` from [Wordnet website](https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz).(more instructions are in the `config.sample.toml` file)
+- Extract the tarball and rename extracted the directory to `wordnet`
 - Run `make build` to build the binary and then run `./dnstoys.bin`
 
 ## Others
