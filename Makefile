@@ -31,3 +31,6 @@ release-dry:
 .PHONY: release
 release:
 	goreleaser --parallelism 1 --rm-dist --skip-validate
+
+clean:
+	rm $(BIN)
