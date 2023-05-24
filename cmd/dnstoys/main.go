@@ -23,6 +23,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
+	"github.com/knadh/dns.toys/internal/services/uuid"
 	"github.com/knadh/dns.toys/internal/services/weather"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/toml"
@@ -313,6 +314,14 @@ func main() {
 		h.register("aerial", a, mux)
 
 		help = append(help, []string{"get aerial distance between lat lng pair", "dig A12.9352,77.6245/12.9698,77.7500.aerial @%s"})
+	}
+
+	// Random UUID.
+	if ko.Bool("uuid.enabled") {
+		u := uuid.New(ko.Int("uuid.max_results"))
+		h.register("uuid", u, mux)
+
+		help = append(help, []string{"generate random UUID-v4s", "dig 2.uuid @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

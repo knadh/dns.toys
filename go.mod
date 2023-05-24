@@ -3,6 +3,7 @@ module github.com/knadh/dns.toys
 go 1.17
 
 require (
+	github.com/gofrs/uuid v4.4.0+incompatible
 	github.com/hold7door/wnram v0.0.0-20220807183601-04f0a21e3770
 	github.com/knadh/koanf v1.4.1
 	github.com/miekg/dns v1.1.49

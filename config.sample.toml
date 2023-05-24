@@ -84,3 +84,7 @@ send_local_time = true
 
 [aerial]
 enabled = true
+
+[uuid]
+enabled = true
+max_results = 25
