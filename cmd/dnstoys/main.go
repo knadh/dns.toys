@@ -12,6 +12,7 @@ import (
 
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/aerial"
+	"github.com/knadh/dns.toys/internal/services/stock"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/coin"
@@ -314,6 +315,14 @@ func main() {
 		h.register("aerial", a, mux)
 
 		help = append(help, []string{"get aerial distance between lat lng pair", "dig A12.9352,77.6245/12.9698,77.7500.aerial @%s"})
+	}
+
+	// Stock price of a symbol
+	if ko.Bool("stock.enabled") {
+		st := stock.New()
+		h.register("stock", st, mux)
+
+		help = append(help, []string{"get stock price of a symbol", "dig AAPL.stock @%s"})
 	}
 
 	// Random UUID.
