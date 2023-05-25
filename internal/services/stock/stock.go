@@ -3,8 +3,8 @@ package stock
 import (
 	"errors"
 	"fmt"
-	"net/http"
-	"strconv"
+	"net/url"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -16,30 +16,43 @@ func New() *Stock {
 	return &Stock{}
 }
 
+func FindStockPrice(symbol string) (string, error) {
+	return findStockPriceByUrl(stockPriceUrl(symbol))
+}
+
+func findStockPriceByUrl(stockPriceUrl string) (string, error) {
+	doc, err := goquery.NewDocument(stockPriceUrl)
+	if err != nil {
+		return "", errors.New("Your search produces no matches.")
+	}
+
+	selection := doc.Find(".wsod_last span")
+
+	if len(selection.Nodes) == 0 {
+		return "", errors.New("Your search produces no matches.")
+	}
+
+	stockPrice := strings.TrimSpace(strings.Replace(selection.Text(), ",", "", -1))[0:6]
+
+	return stockPrice, nil
+}
+
+func stockPriceUrl(symbol string) string {
+	return "http://money.cnn.com/quote/quote.html?symb=" + url.QueryEscape(symbol)
+}
+
 // Query returns the stock price for a given symbol
 func (c *Stock) Query(q string) ([]string, error) {
-	res, err := http.Get("https://finance.yahoo.com/quote/" + q)
+	res, err := FindStockPrice(q)
 	if err != nil {
 		return nil, errors.New("invalid stock symbol")
 	}
-	defer res.Body.Close()
 
-	if res.StatusCode != 200 {
-		return nil, errors.New("status code"+strconv.Itoa(res.StatusCode)+": "+res.Status)
-	}
-
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		return nil, errors.New("cannot parse html")
-	}
-
-	marketPrice := doc.Find("[data-field=regularMarketPrice][data-symbol=" + q + "]").Text()
-
-	if marketPrice == "" {
+	if res == "" {
 		return nil, errors.New("cannot find stock price")
 	}
 
-	r := fmt.Sprintf("%s 1 TXT \"%s\"", q, marketPrice)
+	r := fmt.Sprintf("%s 1 TXT \"%s\"", q, res)
 	return []string{r}, nil
 }
 
