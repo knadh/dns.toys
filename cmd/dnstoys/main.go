@@ -322,7 +322,7 @@ func main() {
 		st := stock.New()
 		h.register("stock", st, mux)
 
-		help = append(help, []string{"get stock price of a symbol", "dig AAPL.stock @%s"})
+		help = append(help, []string{"get price of a US stock", "dig AAPL.stock @%s"})
 	}
 
 	// Random UUID.
