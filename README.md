@@ -11,6 +11,8 @@ dig help @dns.toys
 
 dig mumbai.time @dns.toys
 
+dig 22:30bengaluru-austin.timeconv @dns.toys
+
 dig newyork.weather @dns.toys
 
 dig 42km-mi.unit @dns.toys

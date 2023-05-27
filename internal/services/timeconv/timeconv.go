@@ -92,8 +92,8 @@ func (t *Timeconv) convertTime(input string) (string, error) {
 			continue
 		}
 	}
-	
-	timeToConvTarget:="2023-05-27T"+timeToConvert+":00.0000"
+	today := time.Now().Format("2006-01-02")
+	timeToConvTarget:=today+"T"+timeToConvert+":00.0000"
 	convertedTime, err := time.ParseInLocation(TimeFormat, timeToConvTarget, fromLoc)
 	if err != nil {
 		return "", errors.New("invalid time format")

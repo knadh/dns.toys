@@ -22,6 +22,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/timezones"
+	"github.com/knadh/dns.toys/internal/services/timeconv"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/uuid"
 	"github.com/knadh/dns.toys/internal/services/weather"
@@ -171,6 +172,14 @@ func main() {
 		h.register("time", tz, mux)
 
 		help = append(help, []string{"get time for a city", "dig mumbai.time @%s"})
+	}
+
+	// Timezone conversion service.
+	if ko.Bool("timeconv.enabled") {
+		tz := timeconv.New(timeconv.Opt{}, ge)
+		h.register("timeconv", tz, mux)
+
+		help = append(help, []string{"convert time from one city;s timezone to another", "dig 22:30bengaluru/IN-austin.timeconv @%s"})
 	}
 
 	// FX currency conversion.

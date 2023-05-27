@@ -6,6 +6,9 @@ domain = "dns.toys"
 [timezones]
 enabled = true
 
+[timeconv]
+enabled = true
+
 # You will need to manually download the cities file and move it into this directory
 # Go to http://download.geonames.org/export/dump/ and download the cities15000.zip file
 # Unzip the file and move the cities15000.txt file to the root of this directory 
