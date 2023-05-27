@@ -179,7 +179,7 @@ func main() {
 		tz := timeconv.New(timeconv.Opt{}, ge)
 		h.register("timeconv", tz, mux)
 
-		help = append(help, []string{"convert time from one city;s timezone to another", "dig 22:30bengaluru/IN-austin.timeconv @%s"})
+		help = append(help, []string{"convert time from one city's timezone to another", "dig 22:30bengaluru/IN-austin.timeconv @%s"})
 	}
 
 	// FX currency conversion.
