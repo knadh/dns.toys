@@ -9,6 +9,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // Geo is the geolocation controller.
@@ -30,6 +31,8 @@ type Location struct {
 	Timezone   string
 	Country    string
 	Population int
+
+	Loc *time.Location
 }
 
 var (
@@ -53,11 +56,34 @@ func New(filePath string) (*Geo, error) {
 
 // Query queries a loaded geo location by the given keyword.
 func (g *Geo) Query(q string) []Location {
-	q = reClean.ReplaceAllString(strings.ToLower(q), "")
+	// If there's a country code, separate it.
+	var (
+		str     = strings.Split(q, "/")
+		country = ""
+	)
+	if len(str) == 2 && len(str[1]) == 2 {
+		q = str[0]
+		country = strings.ToUpper(str[1])
+	}
 
+	q = reClean.ReplaceAllString(strings.ToLower(q), "")
 	zones, ok := g.tzMap[q]
 	if !ok {
 		return nil
+	}
+
+	// Filter by country.
+	if country != "" {
+		out := make([]Location, 0, len(zones))
+		for _, z := range zones {
+			if z.Country != country {
+				continue
+			}
+
+			out = append(out, z)
+		}
+
+		return out
 	}
 
 	return zones
@@ -76,6 +102,7 @@ func (g *Geo) load(locs []Location) {
 		if _, ok := g.tzMap[name]; !ok {
 			g.tzMap[name] = []Location{}
 		}
+
 		g.tzMap[name] = append(g.tzMap[name], l)
 
 		g.count++
@@ -136,6 +163,11 @@ func (g *Geo) readFile(filePath string) ([]Location, error) {
 		// Remove values in brackets.
 		r[2] = strings.TrimSpace(strings.Split(r[2], "(")[0])
 
+		loc, err := time.LoadLocation(r[17])
+		if err != nil {
+			continue
+		}
+
 		out = append(out, Location{
 			ID:         r[0],
 			Name:       r[2],
@@ -144,6 +176,7 @@ func (g *Geo) readFile(filePath string) ([]Location, error) {
 			Country:    r[8],
 			Timezone:   r[17],
 			Population: pop,
+			Loc:        loc,
 		})
 	}
 
