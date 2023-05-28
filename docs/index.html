@@ -43,7 +43,15 @@
 			<p>dig newyork.time @dns.toys</p>
 			<p>dig paris/fr.time @dns.toys</p>
 		</code>
-		<p>Pass city names without spaces suffixed with <code>.time</code>. Pass two letter country codes optionally.</p>
+		<p>Pass city names without spaces suffixed with <code>.time</code>. Pass two letter country codes separated by slash optionally.</p>
+
+		<br />
+		<h3>Timezone conversion</h3>
+		<p>Pass YYYY-MM-DD<strong>T</strong>HH:MM-$fromCity-$toCity (two letter country codes separated by slash optionally).</p>
+
+		<code class="block">
+			<p>dig 2023-05-28T14:00-mumbai-paris/fr.time @dns.toys</p>
+		</code>
 	</section>
 
 	<section class="box">

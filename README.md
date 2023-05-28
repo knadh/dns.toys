@@ -11,6 +11,8 @@ dig help @dns.toys
 
 dig mumbai.time @dns.toys
 
+dig 2023-05-28T14:00-bengaluru-berlin/de.time @dns.toys
+
 dig newyork.weather @dns.toys
 
 dig 42km-mi.unit @dns.toys
