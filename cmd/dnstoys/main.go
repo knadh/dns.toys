@@ -12,6 +12,7 @@ import (
 
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/services/aerial"
+	"github.com/knadh/dns.toys/internal/services/aes"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/coin"
@@ -322,6 +323,14 @@ func main() {
 		h.register("uuid", u, mux)
 
 		help = append(help, []string{"generate random UUID-v4s", "dig 2.uuid @%s"})
+	}
+
+	// AES encryption key.
+	if ko.Bool("aes.enabled") {
+		u := aes.New()
+		h.register("aes", u, mux)
+
+		help = append(help, []string{"generate random keys for AES encryption", "dig 256.aes @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
