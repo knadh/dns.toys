@@ -21,6 +21,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
+	"github.com/knadh/dns.toys/internal/services/sudokusolver"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/uuid"
@@ -322,6 +323,14 @@ func main() {
 		h.register("uuid", u, mux)
 
 		help = append(help, []string{"generate random UUID-v4s", "dig 2.uuid @%s"})
+	}
+
+	// Sudoku Solver
+	if ko.Bool("sudokusolver.enabled") {
+		ssolver := sudokusolver.New()
+		h.register("uuid", ssolver, mux)
+		// enter the sudoku puzzle string in row major format, empty cells should have value 0
+		help = append(help, []string{"solve a sudoku", "dig 002840003076000000100006050030080000007503200000020010080100004000000730700064500.sudokusolver @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

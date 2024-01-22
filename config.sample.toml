@@ -88,3 +88,6 @@ enabled = true
 [uuid]
 enabled = true
 max_results = 25
+
+[sudokusolver]
+enabled = true
