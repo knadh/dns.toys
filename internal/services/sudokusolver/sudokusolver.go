@@ -27,7 +27,6 @@ func New() *SudokuSolver {
 
 // Query converts a number to words.
 func (solver *SudokuSolver) Query(q string) ([]string, error) {
-	fmt.Println("given puzzle")
 	puzzle, err := stringToPuzzle(q)
 	if err != nil {
 		return nil, errors.New(incorrect_puzzle_string_format)
@@ -46,25 +45,20 @@ func (n *SudokuSolver) Dump() ([]byte, error) {
 
 // converts string to puzzle which is of type [][]int
 func stringToPuzzle(puzzleString string) ([][]int, error) {
-	if len(puzzleString) != 81 {
-		return nil, fmt.Errorf(incorrect_puzzle_string_format)
-	}
+	rows := strings.Split(puzzleString, ".")
 	puzzle := make([][]int, 0)
-	i, j := 0, -1
-
-	for _, char := range puzzleString {
-		if i%9 == 0 {
-			puzzle = append(puzzle, make([]int, 0))
-			j += 1
+	i := 0
+	for _, row := range rows {
+		puzzle = append(puzzle, make([]int, 0))
+		for _, char := range row {
+			k, err := strconv.Atoi(string(char))
+			if err != nil {
+				return nil, fmt.Errorf(incorrect_puzzle_string_format)
+			}
+			puzzle[i] = append(puzzle[i], k)
 		}
-		k, err := strconv.Atoi(string(char))
-		if err != nil {
-			return nil, fmt.Errorf(incorrect_puzzle_string_format)
-		}
-		puzzle[j] = append(puzzle[j], k)
 		i += 1
 	}
-
 	return puzzle, nil
 }
 

@@ -328,9 +328,9 @@ func main() {
 	// Sudoku Solver
 	if ko.Bool("sudokusolver.enabled") {
 		ssolver := sudokusolver.New()
-		h.register("uuid", ssolver, mux)
-		// enter the sudoku puzzle string in row major format, empty cells should have value 0
-		help = append(help, []string{"solve a sudoku", "dig 002840003076000000100006050030080000007503200000020010080100004000000730700064500.sudokusolver @%s"})
+		h.register("sudokusolver", ssolver, mux)
+		// enter the sudoku puzzle string in row major format, each row separated by a dot, empty cells should have value 0
+		help = append(help, []string{"solve a sudoku", "dig 002840003.076000000.100006050.030080000.007503200.000020010.080100004.000000730.700064500.sudokusolver @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
