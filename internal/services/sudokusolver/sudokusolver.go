@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-const incorrect_puzzle_string_format = "Incorrect sudoku puzzle string. Puzzle string must be in the row major order. Empty puzzle cells must be replaced with 0 value. The string must consists of only digits [0, 9]. Puzzle string must be of length 81."
+const incorrect_puzzle_string_format = "Incorrect sudoku puzzle string. Puzzle string must be in the row major order and each row separated by a dot. Empty puzzle cells must be replaced with 0 value. The string must consists of only digits [0, 9]. Puzzle string must be of length 81."
 const puzzle_not_solvable = "Puzzle could not be solved."
 
 // stores the starting index of each of the 3x3 blocks. for example first 3x3 block's starting row and column are (0,0)
@@ -46,6 +46,9 @@ func (n *SudokuSolver) Dump() ([]byte, error) {
 // converts string to puzzle which is of type [][]int
 func stringToPuzzle(puzzleString string) ([][]int, error) {
 	rows := strings.Split(puzzleString, ".")
+	if len(rows) < 9 {
+		return nil, errors.New(incorrect_puzzle_string_format)
+	}
 	puzzle := make([][]int, 0)
 	i := 0
 	for _, row := range rows {
