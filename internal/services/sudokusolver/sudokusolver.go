@@ -143,8 +143,9 @@ func puzzleToString(puzzle [][]int) string {
 		for _, val := range row {
 			rowStrings = append(rowStrings, fmt.Sprintf("%d", val))
 		}
+		rowStrings = append(rowStrings, ".")
 	}
-	return strings.Join(rowStrings, "")
+	return strings.Join(rowStrings, "")[:89]
 }
 
 // only for visualization purpose
