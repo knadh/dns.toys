@@ -17,7 +17,7 @@ import (
 	"time"
 )
 
-const apiURL = "https://api.exchangerate.host/latest"
+const apiURL = "https://open.er-api.com/v6/latest/USD"
 
 var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})")
 
@@ -29,8 +29,8 @@ type FX struct {
 }
 
 type data struct {
-	Base  string             `json:"base"`
-	Date  string             `json:"date"`
+	Base  string             `json:"base_code"`
+	Date  string             `json:"time_last_update_utc"`
 	Rates map[string]float64 `json:"rates"`
 }
 
