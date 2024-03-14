@@ -8,7 +8,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"sync"
@@ -268,7 +267,7 @@ func (w *Weather) fetchAPI(lat, lon float64) (entry, error) {
 	}
 	defer func() {
 		// Drain and close the body to let the Transport reuse the connection
-		io.Copy(ioutil.Discard, r.Body)
+		io.Copy(io.Discard, r.Body)
 		r.Body.Close()
 	}()
 
@@ -281,7 +280,7 @@ func (w *Weather) fetchAPI(lat, lon float64) (entry, error) {
 		}
 		defer reader.Close()
 
-		b, err := ioutil.ReadAll(reader)
+		b, err := io.ReadAll(reader)
 		if err != nil {
 			return bad, err
 		}
@@ -289,7 +288,7 @@ func (w *Weather) fetchAPI(lat, lon float64) (entry, error) {
 		body = b
 	} else {
 		defer r.Body.Close()
-		b, err := ioutil.ReadAll(r.Body)
+		b, err := io.ReadAll(r.Body)
 		if err != nil {
 			return bad, err
 		}
