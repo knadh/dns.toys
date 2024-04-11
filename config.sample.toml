@@ -89,5 +89,5 @@ enabled = true
 enabled = true
 max_results = 25
 
-[sudokusolver]
+[sudoku]
 enabled = true

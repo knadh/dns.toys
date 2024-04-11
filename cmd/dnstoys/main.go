@@ -21,7 +21,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
-	"github.com/knadh/dns.toys/internal/services/sudokusolver"
+	"github.com/knadh/dns.toys/internal/services/sudoku"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/uuid"
@@ -326,11 +326,11 @@ func main() {
 	}
 
 	// Sudoku Solver
-	if ko.Bool("sudokusolver.enabled") {
-		ssolver := sudokusolver.New()
-		h.register("sudokusolver", ssolver, mux)
+	if ko.Bool("sudoku.enabled") {
+		ssolver := sudoku.New()
+		h.register("sudoku", ssolver, mux)
 		// enter the sudoku puzzle string in row major format, each row separated by a dot, empty cells should have value 0
-		help = append(help, []string{"solve a sudoku", "dig 002840003.076000000.100006050.030080000.007503200.000020010.080100004.000000730.700064500.sudokusolver @%s"})
+		help = append(help, []string{"solve a sudoku puzzle", "dig 002840003.076000000.100006050.030080000.007503200.000020010.080100004.000000730.700064500.sudoku @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
