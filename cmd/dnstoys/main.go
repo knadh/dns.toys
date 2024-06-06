@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"os"
@@ -107,7 +106,7 @@ func saveSnapshot(h *handlers) {
 
 				filePath := ko.MustString(name + ".snapshot_file")
 				lo.Printf("saving %s snapshot to %s", name, filePath)
-				if err := ioutil.WriteFile(filePath, b, 0644); err != nil {
+				if err := os.WriteFile(filePath, b, 0644); err != nil {
 					lo.Printf("error writing %s snapshot: %v", name, err)
 				}
 			}
@@ -126,7 +125,7 @@ func loadSnapshot(service string) []byte {
 
 	filePath := ko.MustString(service + ".snapshot_file")
 
-	b, err := ioutil.ReadFile(filePath)
+	b, err := os.ReadFile(filePath)
 	if err != nil {
 		if _, ok := err.(*os.PathError); ok {
 			return nil
