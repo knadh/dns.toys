@@ -252,7 +252,31 @@
 			</code>
 		</div>
 	</section>
+	<section>
+		<h1>Windows</h1>
+		<div class="box">
+			<h3>PowerShell</h3>
+			<p>
+				You can use <code>Resolve-DnsName</code> cmdlet in Windows PowerShell to interact with <code>@dns-toys</code>.
+			</p>
+			<code class="block">
+				<p>Resolve-DnsName -Name mumbai.time -Server dns.toys</p>
+			</code>
 
+			<p>
+				Alternatively, you can install <code>dig</code> utility utility, which is part of the <a href="https://community.chocolatey.org/packages/bind-toolsonly">BIND tools package</a>.
+			</p>
+			<code class="block">
+				<p>choco install bind-toolsonly</p>
+			</code>
+			<p>
+				Once <code>dig</code> is installed, you can use it to query <code>@dns-toys</code>. Here are some examples:
+			</p>
+			<code class="block">
+				dig mumbai.time @dns.toys
+			</code>
+		</div>
+	</section>
 	<section>
 		<h1>Why?</h1>
 		Why not? For fun. I spend a lot of time on the terminal and doing quick unit

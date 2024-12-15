@@ -4,7 +4,7 @@ dns.toys is a DNS server that takes creative liberties with the DNS protocol to 
 
 For docs, visit [**www.dns.toys**](https://www.dns.toys)
 
-## Sample commands
+## Sample commands for Linux
 
 ```shell
 dig help @dns.toys
@@ -31,6 +31,61 @@ dig fun.dict @dns.toys
 
 dig A12.9352,77.6245/12.9698,77.7500.aerial @dns.toys
 ```
+
+## Using @dns-toys on Windows
+
+### Using PowerShell (Recomended)
+
+You can use Resolve-DnsName cmdlet in Windows PowerShell to interact with @dns-toys:
+
+* **Open PowerShell**
+   - Press `Win + X` and select **Windows PowerShell**.
+
+* **Use `Resolve-DnsName`**
+     - **Get the current time in a city**:
+       ```powershell
+       Resolve-DnsName -Name mumbai.time -Server dns.toys
+       ```
+     - **Check the weather**:
+       ```powershell
+       Resolve-DnsName -Name newyork.weather -Server dns.toys
+       ```
+     - **Convert units**:
+       ```powershell
+       Resolve-DnsName -Name 42km-mi.unit -Server dns.toys
+       ```
+     - **Currency conversion**:
+       ```powershell
+       Resolve-DnsName -Name 100USD-INR.fx -Server dns.toys
+       ```
+
+* **Format the Output**:
+   - To make the output more readable, you can format it using `Format-List`:
+     ```powershell
+     Resolve-DnsName -Name mumbai.time -Server dns.toys | Format-List
+     ```
+
+
+### Using dig
+
+* **Install `dig` Utility**:
+   - You can install the `dig` utility, which is part of the BIND tools, using a package manager like Chocolatey:
+     ```powershell
+     choco install bind-toolsonly
+     ```
+
+* **Using `dig` with @dns-toys**
+
+    Once `dig` is installed, you can use it to query @dns-toys. Here are some examples:
+
+- **Get the current time in a city**:
+  ```powershell
+  dig mumbai.time @dns.toys
+  ```
+- **Currency conversion**:
+  ```powershell
+  dig 100USD-INR.fx @dns.toys
+  ```
 
 ## Running locally
 
