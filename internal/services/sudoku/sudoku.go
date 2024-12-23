@@ -17,6 +17,9 @@ var startRowColumns = [][][]int{
 	{[]int{6, 0}, []int{6, 3}, []int{6, 6}},
 }
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 type Sudoku struct{}
 
 // New returns a new instance of Sudoku.
@@ -32,8 +35,7 @@ func (s *Sudoku) Query(q string) ([]string, error) {
 	}
 
 	if s.solvePuzzle(puzzle) {
-		// TTL is set to 900 seconds (15 minutes).
-		return []string{fmt.Sprintf(`%s 900 TXT "%s"`, q, s.puzzleToString(puzzle))}, nil
+		return []string{fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, s.puzzleToString(puzzle))}, nil
 	}
 
 	return nil, errors.New("puzzle could not be solved.")

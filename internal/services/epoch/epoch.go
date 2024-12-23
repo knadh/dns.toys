@@ -17,6 +17,9 @@ func New(localTime bool) *Epoch {
 	return &Epoch{localTime: localTime}
 }
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 // parses the query which is a epoch and returns it in human readable
 func (e *Epoch) Query(q string) ([]string, error) {
 	ts, err := strconv.ParseInt(q, 10, 64)
@@ -42,8 +45,7 @@ func (e *Epoch) Query(q string) ([]string, error) {
 		local = time.Unix(ts, 0)
 	)
 
-	// TTL is set to 900 seconds (15 minutes).
-	out := fmt.Sprintf(`%s 900 TXT "%s"`, q, utc)
+	out := fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, utc)
 	if e.localTime {
 		out += ` "` + local.String() + `"`
 	}
