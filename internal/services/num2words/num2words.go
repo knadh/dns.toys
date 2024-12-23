@@ -44,7 +44,8 @@ func (n *Num2Words) Query(q string) ([]string, error) {
 		w += " Point" + decimal2words(decimalValue)
 	}
 
-	r := fmt.Sprintf("%s 1 TXT \"%g = %s\"", q, num, w)
+	// TTL is set to 900 seconds (15 minutes).
+	r := fmt.Sprintf("%s 900 TXT \"%g = %s\"", q, num, w)
 	return []string{r}, nil
 }
 

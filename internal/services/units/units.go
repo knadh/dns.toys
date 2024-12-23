@@ -127,7 +127,8 @@ func (u *Units) Query(q string) ([]string, error) {
 	// Convert.
 	conv := (baseRate / from.Value) / (baseRate / to.Value) * val
 
-	r := fmt.Sprintf("%s 1 TXT \"%0.2f %s (%s) = %0.2f %s (%s)\"",
+	// TTL is set to 900 seconds (15 minutes).
+	r := fmt.Sprintf("%s 900 TXT \"%0.2f %s (%s) = %0.2f %s (%s)\"",
 		q, val, from.Name, from.Symbol, conv, to.Name, to.Symbol)
 
 	return []string{r}, nil
@@ -167,7 +168,8 @@ func (u *Units) printUnitsList() []string {
 		})
 
 		for _, un := range list {
-			l := fmt.Sprintf("unit. 1 TXT \"%s\" \"%s (%s)\"", g, un.Symbol, un.Name)
+			// TTL is set to 900 seconds (15 minutes).
+			l := fmt.Sprintf("unit. 900 \"%s\" \"%s (%s)\"", g, un.Symbol, un.Name)
 			out = append(out, l)
 		}
 	}

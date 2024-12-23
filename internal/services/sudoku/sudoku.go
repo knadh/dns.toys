@@ -32,7 +32,8 @@ func (s *Sudoku) Query(q string) ([]string, error) {
 	}
 
 	if s.solvePuzzle(puzzle) {
-		return []string{fmt.Sprintf(`%s 1 TXT "%s"`, q, s.puzzleToString(puzzle))}, nil
+		// TTL is set to 900 seconds (15 minutes).
+		return []string{fmt.Sprintf(`%s 900 TXT "%s"`, q, s.puzzleToString(puzzle))}, nil
 	}
 
 	return nil, errors.New("puzzle could not be solved.")

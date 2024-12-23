@@ -333,8 +333,9 @@ func main() {
 	}
 
 	// Prepare the static help response for the `help` query.
+	// TTL is set to 1 day (60*60*24 = 86,400).
 	for _, l := range help {
-		r, err := dns.NewRR(fmt.Sprintf("help. 1 TXT \"%s\" \"%s\"", l[0], fmt.Sprintf(l[1], h.domain)))
+		r, err := dns.NewRR(fmt.Sprintf("help. 86400 TXT \"%s\" \"%s\"", l[0], fmt.Sprintf(l[1], h.domain)))
 		if err != nil {
 			lo.Fatalf("error preparing: %v", err)
 		}

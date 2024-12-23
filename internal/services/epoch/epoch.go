@@ -42,7 +42,8 @@ func (e *Epoch) Query(q string) ([]string, error) {
 		local = time.Unix(ts, 0)
 	)
 
-	out := fmt.Sprintf(`%s 1 TXT "%s"`, q, utc)
+	// TTL is set to 900 seconds (15 minutes).
+	out := fmt.Sprintf(`%s 900 TXT "%s"`, q, utc)
 	if e.localTime {
 		out += ` "` + local.String() + `"`
 	}

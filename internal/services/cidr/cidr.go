@@ -52,7 +52,8 @@ func (c *CIDR) Query(q string) ([]string, error) {
 		// Get the size of subnet.
 		size := 1 << (uint64(bits) - uint64(prefixLen))
 
-		r := fmt.Sprintf("%s 1 TXT \"%s\" \"%s\" \"%d\"", q, first, last, size)
+		// TTL is set to 900 seconds (15 minutes).
+		r := fmt.Sprintf("%s 900 TXT \"%s\" \"%s\" \"%d\"", q, first, last, size)
 		return []string{r}, nil
 
 	// Handle ipv6.
@@ -71,7 +72,8 @@ func (c *CIDR) Query(q string) ([]string, error) {
 		size := big.NewInt(1)
 		size = size.Lsh(size, uint(bits-prefixLen))
 
-		r := fmt.Sprintf("%s 1 TXT \"%s\" \"%s\" \"%d\"", q, first, last, size)
+		// TTL is set to 900 seconds (15 minutes).
+		r := fmt.Sprintf("%s 900 TXT \"%s\" \"%s\" \"%d\"", q, first, last, size)
 		return []string{r}, nil
 
 	default:

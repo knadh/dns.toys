@@ -154,7 +154,8 @@ func (w *Weather) Query(q string) ([]string, error) {
 		}
 
 		for _, f := range data.Forecasts {
-			r := fmt.Sprintf("%s 1 TXT \"%s (%s)\" \"%0.2fC (%0.2fF)\" \"%0.2f%% hu.\" \"%s\" \"%s\"",
+			// TTL is set to 1 hour (60*60=3,600).
+			r := fmt.Sprintf("%s 3600 TXT \"%s (%s)\" \"%0.2fC (%0.2fF)\" \"%0.2f%% hu.\" \"%s\" \"%s\"",
 				q, l.Name, l.Country, f.TempC, f.TempF, f.Humidity, f.Forecast1H, f.Time.In(zone).Format("15:04, Mon"))
 			out = append(out, r)
 		}

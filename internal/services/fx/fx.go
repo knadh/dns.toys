@@ -120,7 +120,8 @@ func (fx *FX) Query(q string) ([]string, error) {
 	// Convert.
 	conv := (baseRate / fromRate) / (baseRate / toRate) * val
 
-	r := fmt.Sprintf("%s TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date)
+	// TTL is set to 900 seconds (15 minutes).
+	r := fmt.Sprintf("%s 900 TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date)
 
 	return []string{r}, nil
 }

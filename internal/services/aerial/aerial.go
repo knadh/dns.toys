@@ -59,9 +59,9 @@ func (a *Aerial) Query(q string) ([]string, error) {
 	if e != nil {
 		return nil, e
 	}
-
+	// TTL is set to 900 seconds (15 minutes).
 	result := "aerial distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KM"
-	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, result)
+	r := fmt.Sprintf(`%s 900 TXT "%s"`, q, result)
 
 	return []string{r}, nil
 }
