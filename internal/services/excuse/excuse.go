@@ -8,13 +8,14 @@ import (
 	"math/big"
 )
 
+// excuse represents a single excuse.
 type excuse struct {
 	ID     int    `yaml:"id"`
 	TextEn string `yaml:"text_en"`
 }
 
 type Excuse struct {
-	excuses []excuse `yaml:",flow"`
+	excuses []excuse
 }
 
 //go:embed excuses.yml
@@ -58,7 +59,7 @@ func (e *Excuse) load() error {
 	return nil
 }
 
-// randomExcuse returns a random excuse from the slice.
+// randomExcuse returns a random excuse from the list of excuses.
 func (e *Excuse) randomExcuse() (string, error) {
 	if len(e.excuses) == 0 {
 		return "", fmt.Errorf("cannot pick from empty slice")
@@ -71,7 +72,5 @@ func (e *Excuse) randomExcuse() (string, error) {
 		return "", fmt.Errorf("failed to generate random number: %w", err)
 	}
 
-	// Convert to int since we know it's within bounds
-	index := int(res.Int64())
-	return e.excuses[index].TextEn, nil
+	return e.excuses[int(res.Int64())].TextEn, nil
 }
