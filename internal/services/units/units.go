@@ -41,6 +41,9 @@ type Units struct {
 	help []string
 }
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 //go:embed units.json
 var dataB []byte
 
@@ -127,8 +130,8 @@ func (u *Units) Query(q string) ([]string, error) {
 	// Convert.
 	conv := (baseRate / from.Value) / (baseRate / to.Value) * val
 
-	r := fmt.Sprintf("%s 1 TXT \"%0.2f %s (%s) = %0.2f %s (%s)\"",
-		q, val, from.Name, from.Symbol, conv, to.Name, to.Symbol)
+	r := fmt.Sprintf("%s %d TXT \"%0.2f %s (%s) = %0.2f %s (%s)\"",
+		q, TTL, val, from.Name, from.Symbol, conv, to.Name, to.Symbol)
 
 	return []string{r}, nil
 }
@@ -167,7 +170,7 @@ func (u *Units) printUnitsList() []string {
 		})
 
 		for _, un := range list {
-			l := fmt.Sprintf("unit. 1 TXT \"%s\" \"%s (%s)\"", g, un.Symbol, un.Name)
+			l := fmt.Sprintf("unit. %d \"%s\" \"%s (%s)\"", TTL, g, un.Symbol, un.Name)
 			out = append(out, l)
 		}
 	}

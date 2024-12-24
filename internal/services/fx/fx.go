@@ -19,6 +19,9 @@ import (
 
 const apiURL = "https://open.er-api.com/v6/latest/USD"
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})")
 
 // FX represents the currency coversion (Foreign Exchange) package.
@@ -120,7 +123,7 @@ func (fx *FX) Query(q string) ([]string, error) {
 	// Convert.
 	conv := (baseRate / fromRate) / (baseRate / toRate) * val
 
-	r := fmt.Sprintf("%s TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, val, from, conv, to, fx.data.Date)
+	r := fmt.Sprintf("%s %d TXT \"%0.2f %s = %0.2f %s\" \"%s\"", q, TTL, val, from, conv, to, fx.data.Date)
 
 	return []string{r}, nil
 }

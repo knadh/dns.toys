@@ -26,6 +26,13 @@ type handlers struct {
 
 var reClean = regexp.MustCompile("[^a-zA-Z0-9/\\-\\.:,]")
 
+const (
+	// TTL is set to 60 seconds (1 Minute).
+	IP_TTL = 60
+	// TTL is set to 1 year (60*60*24*365 = 3,15,36,000).
+	PI_TTL = 31536000
+)
+
 // register registers a Service for a given query suffix on the DNS server.
 // A Service responds to a DNS query via Query().
 func (h *handlers) register(suffix string, s Service, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
@@ -110,7 +117,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 		switch {
 		// Handle ipv4.
 		case ip.To4() != nil:
-			rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", ip.To4().String()))
+			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"", IP_TTL, ip.To4().String()))
 			if err != nil {
 				lo.Printf("error preparing ip response: %v", err)
 				return
@@ -118,7 +125,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 			m.Answer = append(m.Answer, rr)
 		// Handle ipv6.
 		case ip.To16() != nil:
-			rr, err := dns.NewRR(fmt.Sprintf("ip. 1 TXT \"%s\"", ip.To16().String()))
+			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"",IP_TTL, ip.To16().String()))
 			if err != nil {
 				lo.Printf("error preparing ip response: %v", err)
 				return
@@ -142,11 +149,11 @@ func (h *handlers) handlePi(w dns.ResponseWriter, r *dns.Msg) {
 	for _, q := range m.Question {
 		var rrstr string
 		if q.Qtype == dns.TypeTXT {
-			rrstr = "pi. 1 TXT 3.141592653589793238462643383279502884197169"
+			rrstr = fmt.Sprintf("pi. %d TXT 3.141592653589793238462643383279502884197169", PI_TTL)
 		} else if q.Qtype == dns.TypeA {
-			rrstr = "pi. IN A 3.141.59.27"
+			rrstr = fmt.Sprintf("pi. %d IN A 3.141.59.27", PI_TTL)
 		} else if q.Qtype == dns.TypeAAAA {
-			rrstr = "pi. IN AAAA 3141:5926:5358:9793:2384:6264:3383:2795"
+			rrstr = fmt.Sprintf("pi. %d IN AAAA 3141:5926:5358:9793:2384:6264:3383:2795", PI_TTL)
 		} else {
 			continue
 		}

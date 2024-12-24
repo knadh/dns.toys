@@ -18,6 +18,8 @@ type Location struct {
 const (
 	delimiter = ","
 	separator = "/"
+	// TTL is set to 900 seconds (15 minutes).
+	TTL = 900
 )
 
 var (
@@ -59,9 +61,8 @@ func (a *Aerial) Query(q string) ([]string, error) {
 	if e != nil {
 		return nil, e
 	}
-
 	result := "aerial distance = " + strconv.FormatFloat(d, 'f', 2, 64) + " KM"
-	r := fmt.Sprintf(`%s 1 TXT "%s"`, q, result)
+	r := fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, result)
 
 	return []string{r}, nil
 }

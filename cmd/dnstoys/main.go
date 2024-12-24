@@ -41,6 +41,9 @@ var (
 	buildString = "unknown"
 )
 
+// TTL is set to 1 day (60*60*24 = 86,400).
+const HELP_TTL = 86400
+
 // Not all platforms have syscall.SIGUNUSED so use Golang's default definition here
 const SIGUNUSED = syscall.Signal(0x1f)
 
@@ -334,7 +337,7 @@ func main() {
 
 	// Prepare the static help response for the `help` query.
 	for _, l := range help {
-		r, err := dns.NewRR(fmt.Sprintf("help. 1 TXT \"%s\" \"%s\"", l[0], fmt.Sprintf(l[1], h.domain)))
+		r, err := dns.NewRR(fmt.Sprintf("help. %d TXT \"%s\" \"%s\"", HELP_TTL, l[0], fmt.Sprintf(l[1], h.domain)))
 		if err != nil {
 			lo.Fatalf("error preparing: %v", err)
 		}

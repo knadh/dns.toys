@@ -15,6 +15,8 @@ const (
 	Adjective = wnram.Adjective
 	Adverb    = wnram.Adverb
 	Noun      = wnram.Noun
+	// TTL is set to 900 seconds (15 minutes).
+	TTL = 900
 )
 
 type clusterGroupItem struct {
@@ -127,9 +129,9 @@ func (d *Dict) get(q string) ([]string, error) {
 
 		for _, entry := range group[p] {
 			if len(entry.example) > 0 {
-				out = append(out, fmt.Sprintf("%s 1 TXT \"%s\" \"%s\" \"eg: '%s'\"", original, posMap[p], entry.meaning, entry.example))
+				out = append(out, fmt.Sprintf("%s %d TXT \"%s\" \"%s\" \"eg: '%s'\"", original, TTL, posMap[p], entry.meaning, entry.example))
 			} else {
-				out = append(out, fmt.Sprintf("%s 1 TXT \"%s\" \"%s\"", original, posMap[p], entry.meaning))
+				out = append(out, fmt.Sprintf("%s %d TXT \"%s\" \"%s\"", original, TTL, posMap[p], entry.meaning))
 			}
 		}
 	}

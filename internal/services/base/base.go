@@ -24,6 +24,9 @@ var baseStrToNum = map[string]int{
 	"bin": 2,
 }
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 // Query converts a number from one base to another base format
 func (n *Base) Query(q string) ([]string, error) {
 
@@ -51,7 +54,7 @@ func (n *Base) Query(q string) ([]string, error) {
 
 	res := strconv.FormatInt(num, toBase)
 
-	r := fmt.Sprintf("%s 1 TXT \"%s %s = %s %s\"", q, reg[1], reg[2], res, reg[3])
+	r := fmt.Sprintf("%s %d TXT \"%s %s = %s %s\"", q, TTL, reg[1], reg[2], res, reg[3])
 	return []string{r}, nil
 }
 

@@ -23,6 +23,9 @@ var (
 	}
 )
 
+// TTL is set to 900 seconds (15 minutes).
+const TTL = 900
+
 type Num2Words struct{}
 
 // New returns a new instance of Num2Words.
@@ -44,7 +47,7 @@ func (n *Num2Words) Query(q string) ([]string, error) {
 		w += " Point" + decimal2words(decimalValue)
 	}
 
-	r := fmt.Sprintf("%s 1 TXT \"%g = %s\"", q, num, w)
+	r := fmt.Sprintf("%s %d TXT \"%g = %s\"", q, TTL, num, w)
 	return []string{r}, nil
 }
 
