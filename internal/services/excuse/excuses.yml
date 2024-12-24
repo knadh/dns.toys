@@ -1,3 +1,13 @@
+# Description: Excuses for developers
+# Source:
+#  - https://github.com/michelegera/devexcuses-api
+#  - https://github.com/thecatontheflat/excuses
+#  - https://github.com/afreeorange/developer-excuses
+#  - https://github.com/lnfnunes/WFH-excuses
+#  - https://gist.github.com/fortytw2/78f5f9ef915cb43a3be4
+#  - https://github.com/GabrielCrackPro/developer-excuses-app
+
+
 - id: 1
   text_en: "Actually, that's a feature."
 - id: 2
@@ -454,3 +464,289 @@
   text_en: "We've not been able to reproduce the problem."
 - id: 228
   text_en: "We've not received any error notifications."
+- id: 229
+  text_en: "The accounting department made me put that there."
+- id: 230
+  text_en: "The sales department made me do it that way."
+- id: 231
+  text_en: "The accounting department made me do it that way."
+- id: 232
+  text_en: "The sales department made me put that there."
+- id: 233
+  text_en: "The accounting department asked it to be that way."
+- id: 234
+  text_en: "The sales department asked for it to be that way."
+- id: 235
+  text_en: "That must be an accounting department error."
+- id: 236
+  text_en: "That must be a sales department error."
+- id: 237
+  text_en: "Man, I am not that type of a person!"
+- id: 238
+  text_en: "Someone must have left some test code in."
+- id: 239
+  text_en: "The client requested an XML response, but JSON is clearly better."
+- id: 240
+  text_en: "The dev that worked here for a week? Yeah, he wrote that."
+- id: 241
+  text_en: "But we are in a startup, what would you expect?"
+- id: 242
+  text_en: "I forgot my computer."
+- id: 243
+  text_en: "The stakeholder was sick."
+- id: 244
+  text_en: "Everyone was sick."
+- id: 245
+  text_en: "I've a Dr appointment this morning at 10h40 hence I'll WFH."
+- id: 246
+  text_en: "I'm not feeling very well today hence I'll WFH."
+- id: 247
+  text_en: "I will be WFH tomorrow from 7am since my plane is leaving at 5pm."
+- id: 248
+  text_en: "I'm WFH due to an unexpected situation at home."
+- id: 249
+  text_en: "WFH: Car trouble yesterday and today. Punctured tire, replaced and alignment today."
+- id: 250
+  text_en: "I am very unwell and have lost my voice since last evening. I will be WFH today."
+- id: 251
+  text_en: "Will be WFH rest of day. Need to catch a flight shortly after work."
+- id: 252
+  text_en: "I'm WFH today again, my stomach is still feeling weird."
+- id: 253
+  text_en: "WFH Back to the tire shop to install tire and do alignment before lunch hour today."
+- id: 254
+  text_en: "I'm not feeling very well today. I'll WFH and will be available by all usual means."
+- id: 255
+  text_en: "I'll be WFH on Thursday. Wife is getting her wisdom teeth out that morning."
+- id: 256
+  text_en: "I will be WFH today, kids are off this week."
+- id: 257
+  text_en: "It's raining and my car is far away. WFH."
+- id: 258
+  text_en: "WFH today, car is at the mechanic getting fixed for inspection."
+- id: 259
+  text_en: "We lost our apartment keys last night and got locked out! We just entered into apartment by borrowing spare key from Leasing office. I will WFH in the morning session."
+- id: 260
+  text_en: "My daughter's daycare is closed today due to some emergency work in center so I'll WFH."
+- id: 261
+  text_en: "I've an appointment at DMV office this afternoon hence I'll WFH today."
+- id: 262
+  text_en: "I got flu and is WFH today as I am feverish and got body pain. I will be connected and available over phone and slack too."
+- id: 263
+  text_en: "I will be WFH today, my kids are sick and I need to look after them."
+- id: 264
+  text_en: "I woke up late, that's why I am WFH today."
+- id: 265
+  text_en: "I will be WFH because I'm waiting a shipment to arrive today."
+- id: 266
+  text_en: "My dog is sick, so I'm going to WFH today."
+- id: 267
+  text_en: "A company is going to do pest control here in my house and I will have to stay here to give them assistance, I'll be WFH."
+- id: 268
+  text_en: "The internet provider is coming to repair my network so I'll WFH today."
+- id: 269
+  text_en: "My grandmother poisoned me with ham! WFH today."
+- id: 270
+  text_en: "Don't worry, that value is only wrong half of the time."
+- id: 271
+  text_en: "I can have a look but there's a lot of if statements in that code!"
+- id: 272
+  text_en: "I had to do the project backwards as people demanded results out of order."
+- id: 273
+  text_en: "I haven't had the chance to run that code yet."
+- id: 274
+  text_en: "I thought I fixed that."
+- id: 275
+  text_en: "It must be because of a leap second."
+- id: 276
+  text_en: "It was working in my head."
+- id: 277
+  text_en: "It worked yesterday."
+- id: 278
+  text_en: "It's a known bug with the server software."
+- id: 279
+  text_en: "It's an unexpected emergent behaviour of several last-minute abstractions."
+- id: 280
+  text_en: "Maybe somebody forgot to pay our hosting company."
+- id: 281
+  text_en: "My time was split in a way that meant I couldn't do either project properly."
+- id: 282
+  text_en: "That process requires human oversight that nobody was providing."
+- id: 283
+  text_en: "That code seemed so simple I didn't think it needed testing."
+- id: 284
+  text_en: "That behaviour is in the original specification."
+- id: 285
+  text_en: "That's interesting, how did you manage to make it do that?"
+- id: 286
+  text_en: "That's not a bug it's a configuration issue."
+- id: 287
+  text_en: "The WYSIWYG must have produced an invalid output."
+- id: 288
+  text_en: "The original specification contained conflicting requirements."
+- id: 289
+  text_en: "The third party API is not responding."
+- id: 290
+  text_en: "The third party documentation doesn't exist."
+- id: 291
+  text_en: "The third party documentation is wrong."
+- id: 292
+  text_en: "The unit test doesn't cover that eventuality."
+- id: 293
+  text_en: "The user must not know how to use it."
+- id: 294
+  text_en: "There must be something strange in your data."
+- id: 295
+  text_en: "There were too many developers working on that same thing."
+- id: 296
+  text_en: "This code was not supposed to go in to production yet."
+- id: 297
+  text_en: "This is a previously known bug you told me not to work on yet."
+- id: 298
+  text_en: "We didn't have enough time to peer review the final changes."
+- id: 299
+  text_en: "We outsourced that months ago."
+- id: 300
+  text_en: "We should have updated our software years ago."
+- id: 301
+  text_en: "We spent three months debugging it because we only had one month to build it."
+- id: 302
+  text_en: "Well at least we know not to try that again."
+- id: 303
+  text_en: "What did you type in wrong to get it to crash?"
+- id: 304
+  text_en: "Where were you when the program blew up?"
+- id: 305
+  text_en: "You can't use that version on your system."
+- id: 306
+  text_en: "You must be missing some of the dependencies."
+- id: 307
+  text_en: "Your browser must be caching the old content."
+- id: 308
+  text_en: "The sales department made me do it that way."
+- id: 309
+  text_en: "The sales department made me put that there."
+- id: 310
+  text_en: "The accounting department asked it to be that way."
+- id: 311
+  text_en: "The sales department asked for it to be that way."
+- id: 312
+  text_en: "That must be an accounting department error."
+- id: 313
+  text_en: "That must be a sales department error."
+- id: 314
+  text_en: "Why do they want it that way?"
+- id: 315
+  text_en: "The fail-overs must have failed."
+- id: 316
+  text_en: "You mustn't have got my email about that, check your spam."
+- id: 317
+  text_en: "There must have been a miscommunication on the requirements."
+- id: 318
+  text_en: "That's an architecture issue."
+- id: 319
+  text_en: "That's a data issue."
+- id: 320
+  text_en: "That's a user issue."
+- id: 321
+  text_en: "That's a support issue."
+- id: 322
+  text_en: "There must be an error with your data."
+- id: 323
+  text_en: "The 3rd party API must be down."
+- id: 324
+  text_en: "That is a known bug with the programming language."
+- id: 325
+  text_en: "That is a known bug with the framework."
+- id: 326
+  text_en: "That feature is part of phase two."
+- id: 327
+  text_en: "That feature is set to low priority."
+- id: 328
+  text_en: "That feature is a nice to have."
+- id: 329
+  text_en: "That is a problem with our host."
+- id: 330
+  text_en: "That is an issue with a legacy system."
+- id: 331
+  text_en: "That was like that before I started here."
+- id: 332
+  text_en: "That is a training issue."
+- id: 333
+  text_en: "There isn't the budget to address that at the moment."
+- id: 334
+  text_en: "I've not been able to recreate the issue."
+- id: 335
+  text_en: "That's been fixed, but the code still has to be released."
+- id: 336
+  text_en: "That's been fixed on another branch."
+- id: 337
+  text_en: "The developer who coded that doesn't work here anymore."
+- id: 338
+  text_en: "That is part of the old system."
+- id: 339
+  text_en: "I didn't write that part of the system."
+- id: 340
+  text_en: "It is unlikely to happen again."
+- id: 341
+  text_en: "That is a vendor issue."
+- id: 342
+  text_en: "The documentation for that feature is wrong."
+- id: 343
+  text_en: "We weren't given enough time to write unittests."
+- id: 344
+  text_en: "It must be a Y2K issue."
+- id: 345
+  text_en: "You're doing it wrong."
+- id: 346
+  text_en: "There must be a problem with the virtual machine."
+- id: 347
+  text_en: "We have to do it that way for security reasons."
+- id: 348
+  text_en: "That's a problem with a third party application."
+- id: 349
+  text_en: "It was such a simple change I didn't think it needed testing."
+- id: 350
+  text_en: "The specification contained conflicting requirements."
+- id: 351
+  text_en: "The specification was ambiguous."
+- id: 352
+  text_en: "The file must have corrupted."
+- id: 353
+  text_en: "There is nothing in my error logs."
+- id: 354
+  text_en: "You must be looking at the wrong version."
+- id: 355
+  text_en: "Your browser must be caching the old version."
+- id: 356
+  text_en: "It must just be a coincidence."
+- id: 357
+  text_en: "Our users need more training."
+- id: 358
+  text_en: "It must be a problem with your internet connection."
+- id: 359
+  text_en: "That feature isn't due in this phase."
+- id: 360
+  text_en: "That feature is outside of the project scope."
+- id: 361
+  text_en: "That's not in my job description."
+- id: 362
+  text_en: "That's the fault of the designer."
+- id: 363
+  text_en: "That's the fault of the UX designer."
+- id: 364
+  text_en: "That's the fault of the UI designer."
+- id: 365
+  text_en: "There must have been a problem with the request."
+- id: 366
+  text_en: "The browser must have dropped some packets."
+- id: 367
+  text_en: "Someone must have left some test code in."
+- id: 368
+  text_en: "We didn't have time to send that to QA."
+- id: 369
+  text_en: "That software should have been updated ages ago."
+- id: 370
+  text_en: "The client requested an XML response, but JSON is clearly better."
+- id: 371
+  text_en: "It's most likely a forwarding proxy server that is caching the response."
