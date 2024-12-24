@@ -17,6 +17,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
 	"github.com/knadh/dns.toys/internal/services/epoch"
+	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
@@ -333,6 +334,16 @@ func main() {
 		h.register("sudoku", ssolver, mux)
 		// enter the sudoku puzzle string in row major format, each row separated by a dot, empty cells should have value 0
 		help = append(help, []string{"solve a sudoku puzzle", "dig 002840003.076000000.100006050.030080000.007503200.000020010.080100004.000000730.700064500.sudoku @%s"})
+	}
+
+	// Developer Excuse
+	if ko.Bool("excuse.enabled") {
+		e, err := excuse.New()
+		if err != nil {
+			lo.Fatalf("error initializing units service: %v", err)
+		}
+		h.register("excuse", e, mux)
+		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
