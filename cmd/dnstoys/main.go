@@ -338,7 +338,7 @@ func main() {
 
 	// Developer Excuse
 	if ko.Bool("excuse.enabled") {
-		e, err := excuse.New()
+		e, err := excuse.New(ko.MustString("excuse.file"))
 		if err != nil {
 			lo.Fatalf("error initializing units service: %v", err)
 		}

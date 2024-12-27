@@ -1,37 +1,40 @@
 package excuse
 
 import (
+	"bufio"
 	"crypto/rand"
 	_ "embed"
 	"fmt"
-	"gopkg.in/yaml.v3"
 	"math/big"
+	"os"
+	"strings"
 )
 
-// excuse represents a single excuse.
-type excuse struct {
-	ID     int    `yaml:"id"`
-	TextEn string `yaml:"text_en"`
-}
-
 type Excuse struct {
-	excuses []excuse
+	data []string
 }
-
-//go:embed excuses.yml
-var dataB []byte
 
 // New returns a new instance of Excuse.
-func New() (*Excuse, error) {
-	e := &Excuse{
-		excuses: make([]excuse, 0),
+func New(file string) (*Excuse, error) {
+	// Load excuses from disk.
+	data := []string{}
+
+	// Open the file and read it line by line.
+	f, err := os.Open(file)
+	if err != nil {
+		return nil, fmt.Errorf("error opening excuse file: %w", err)
+	}
+	defer f.Close()
+
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		line := strings.TrimSpace(s.Text())
+		if len(line) > 0 && line[0] != '#' {
+			data = append(data, line)
+		}
 	}
 
-	if err := e.load(); err != nil {
-		return nil, err
-	}
-
-	return e, nil
+	return &Excuse{data: data}, nil
 }
 
 func (e *Excuse) Query(q string) ([]string, error) {
@@ -51,26 +54,18 @@ func (e *Excuse) Dump() ([]byte, error) {
 	return nil, nil
 }
 
-func (e *Excuse) load() error {
-	if err := yaml.Unmarshal(dataB, &e.excuses); err != nil {
-		return fmt.Errorf("failed to unmarshal data: %w", err)
-	}
-
-	return nil
-}
-
 // randomExcuse returns a random excuse from the list of excuses.
 func (e *Excuse) randomExcuse() (string, error) {
-	if len(e.excuses) == 0 {
+	if len(e.data) == 0 {
 		return "", fmt.Errorf("cannot pick from empty slice")
 	}
 
 	// Get a random number in range [0, len(slice))
-	max := big.NewInt(int64(len(e.excuses)))
+	max := big.NewInt(int64(len(e.data)))
 	res, err := rand.Int(rand.Reader, max)
 	if err != nil {
 		return "", fmt.Errorf("failed to generate random number: %w", err)
 	}
 
-	return e.excuses[int(res.Int64())].TextEn, nil
+	return e.data[int(res.Int64())], nil
 }
