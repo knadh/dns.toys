@@ -91,3 +91,7 @@ max_results = 25
 
 [sudoku]
 enabled = true
+
+[excuse]
+enabled = true
+file = "data/excuses.txt"
