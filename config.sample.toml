@@ -95,3 +95,6 @@ enabled = true
 [excuse]
 enabled = true
 file = "data/excuses.txt"
+
+[ip2asn]
+enabled = true
