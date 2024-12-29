@@ -19,6 +19,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/ip2asn"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -344,6 +345,13 @@ func main() {
 		}
 		h.register("excuse", e, mux)
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
+	}
+
+	// Ip to ASN
+	if ko.Bool("ip2asn.enabled") {
+		i := ip2asn.New()
+		h.register("ip2asn", i, mux)
+		help = append(help, []string{"returns asn info for an ip", "dig 8.8.8.8.ip2asn @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
