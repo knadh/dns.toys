@@ -22,7 +22,7 @@ const apiURL = "https://open.er-api.com/v6/latest/USD"
 // TTL is set to 900 seconds (15 minutes).
 const TTL = 900
 
-var reParse = regexp.MustCompile("([0-9\\.]+)([A-Z]{3})\\-([A-Z]{3})")
+var reParse = regexp.MustCompile("([0-9\\.]*)([A-Z]{3})\\-([A-Z]{3})")
 
 // FX represents the currency coversion (Foreign Exchange) package.
 type FX struct {
@@ -93,8 +93,14 @@ func (fx *FX) Query(q string) ([]string, error) {
 		return nil, errors.New("invalid fx query.")
 	}
 
+	strVal := res[1]
+	// If no value is provided, default to 1.
+	if strVal == "" {
+		strVal = "1"
+	}
+
 	// Parse the numeric value.
-	val, err := strconv.ParseFloat(res[1], 32)
+	val, err := strconv.ParseFloat(strVal, 32)
 	if err != nil {
 		return nil, errors.New("invalid number.")
 	}
