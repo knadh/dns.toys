@@ -31,7 +31,7 @@ dig fun.dict @dns.toys
 
 dig excuse @dns.toys
 
-dig FDRL0000035.ifsc @dns.toys
+dig ABNA0000001.ifsc @dns.toys
 
 dig A12.9352,77.6245/12.9698,77.7500.aerial @dns.toys
 ```

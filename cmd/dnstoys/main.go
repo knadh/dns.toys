@@ -353,7 +353,7 @@ func main() {
 			lo.Fatalf("error initializing ifsc service: %v", err)
 		}
 		h.register("ifsc", e, mux)
-		help = append(help, []string{"lookup bank details for IFSC code", "dig FDRL0000035.ifsc @%s"})
+		help = append(help, []string{"lookup bank details for IFSC code", "dig ABNA0000001.ifsc @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
