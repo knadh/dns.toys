@@ -95,3 +95,11 @@ enabled = true
 [excuse]
 enabled = true
 file = "data/excuses.txt"
+
+[ifsc]
+enabled = true
+
+# You will need to manually download the IFSC data
+# Download from https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
+# Untar the folder and save its contents within data/ifsc directory
+ifsc_path = "data/ifsc"

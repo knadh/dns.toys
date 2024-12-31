@@ -19,6 +19,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/ifsc"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -344,6 +345,15 @@ func main() {
 		}
 		h.register("excuse", e, mux)
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
+	}
+
+	if ko.Bool("ifsc.enabled") {
+		e, err := ifsc.New(ko.MustString("ifsc.ifsc_path"))
+		if err != nil {
+			lo.Fatalf("error initializing ifsc service: %v", err)
+		}
+		h.register("ifsc", e, mux)
+		help = append(help, []string{"lookup bank details for IFSC code", "dig FDRL0000035.ifsc @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
