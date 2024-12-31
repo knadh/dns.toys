@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -34,6 +35,7 @@ type IFSC struct {
 
 func New(dir string) (*IFSC, error) {
 	// Load IFSCs from disk
+	log.Printf("loading IFSC data from %s", dir)
 	files, err := os.ReadDir(dir)
 	if err != nil {
 		return nil, fmt.Errorf("error accessing IFSC directory: %w", err)
@@ -62,6 +64,7 @@ func New(dir string) (*IFSC, error) {
 			ifsc.data[v.IFSC] = BranchDetails{Bank: v.Bank, Branch: v.Branch, City: v.City, State: v.State}
 		}
 	}
+	log.Printf("loaded IFSC data")
 
 	return &ifsc, nil
 }
