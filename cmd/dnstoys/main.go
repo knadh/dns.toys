@@ -55,6 +55,7 @@ func initConfig() {
 		fmt.Println(f.FlagUsages())
 		os.Exit(0)
 	}
+
 	f.StringSlice("config", []string{"config.toml"}, "path to one or more TOML config files to load in order")
 	f.Bool("version", false, "show build version")
 	f.Parse(os.Args[1:])
