@@ -19,6 +19,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/holiday"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -345,6 +346,16 @@ func main() {
 		}
 		h.register("excuse", e, mux)
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
+	}
+
+	// Public Holidays
+	if ko.Bool("holiday.enabled") {
+		e, err := holiday.New()
+		if err != nil {
+			lo.Fatalf("this is the error lmao: %v", err)
+		}
+		h.register("holiday", e, mux)
+		help = append(help, []string{"return a public holidays", "dig holiday @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
