@@ -9,64 +9,64 @@ import (
 )
 
 type Holiday struct {
-	data []string
+	fileP string              // points to holiday.json
+	data  map[string][]string //months state wise holiday
 }
 
 func New(file string) (*Holiday, error) {
-	//TODO
-
-	LoadJson(file)
-
-	return nil, nil
+	return &Holiday{fileP: file}, nil
 }
 
-// fetch holidays of current month from disk
-func (h *Holiday) fetchHolidays(s string) ([]string, error) {
-	//TODO
-	return nil, nil
-}
-
-type YearlyHolidays struct {
-	Data map[string][]string
-}
-
-func LoadJson(file string) (interface{}, error) {
+func (h *Holiday) loadJson() (map[string][]string, error) {
 
 	_, m, _ := time.Now().Date()
-	holidayJson, err := os.ReadFile(file)
-
 	var data map[string]map[string][]string
 
+	holidayJson, err := os.ReadFile(h.fileP)
 	if err != nil {
 		return nil, fmt.Errorf("cannot read file: %w", err)
 	}
+
 	json.Unmarshal(holidayJson, &data)
 
-	fmt.Println(data[strings.ToLower(m.String())]["maharashtra"], "line 42: hoiday.go", m)
+	h.data = data[strings.ToLower(m.String())]
 
-	return data, nil
-
+	return data[strings.ToLower(m.String())], err
 }
 
-// func (h *Holiday) checkForUpdate() {
-// 	currMonth := time.Now()
-// }
-
 func (h *Holiday) Query(q string) ([]string, error) {
-	results := make(map[string][]string)
+	_, m, _ := time.Now().Date()
 	state := strings.Split(q, ".")[0]
 
-	results["maharashtra"] = []string{"1st January", "26th January", "30th January"}
-	results["delhi"] = []string{"2nd January", "10th January", "15th January"}
+	var results map[string][]string
+	var err error
 
-	resultStr, exists := results[state]
-
-	if !exists {
-		return nil, fmt.Errorf("misspelled state or not available")
+	if len(h.data) != 0 && h.data["month"][0] == strings.ToLower(m.String()) {
+		fmt.Println("from snapshot waooo")
+		results = h.data
+	} else {
+		results, err = h.loadJson()
 	}
 
-	out := make([]string, 0, len(results))
-	for _, r := range resultStr {
+	if err != nil {
+		return nil, err
+	}
+
+	resultArr, exists := results[state]
+
+	out := make([]string, 0, len(resultArr))
+
+	if !exists {
+		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, "Maybe you mispelled the state?"))
+		return out, nil
+	}
+
+	if len(results[state]) == 0 {
+		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, "No Holidays this month :("))
+		return out, nil
+	}
+
+	for _, r := range results[state] {
 		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, r))
 	}
 

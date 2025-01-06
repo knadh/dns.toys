@@ -1,6 +1,8 @@
 {
     "january": {
-        "month": "january",
+        "month": [
+            "january"
+        ],
         "andaman-nicobar": [
             "26th Jan, Sunday - Republic Day"
         ],
@@ -146,7 +148,9 @@
         ]
     },
     "february": {
-        "month": "february",
+        "month": [
+            "february"
+        ],
         "andaman-nicobar": [],
         "andhra-pradesh": [
             "26th Feb, Wednesday - Maha Shivaratri"
@@ -240,7 +244,9 @@
         "west-bengal": []
     },
     "march": {
-        "month": "march",
+        "month": [
+            "march"
+        ],
         "andaman-nicobar": [
             "14th Mar, Friday - Holi",
             "31st Mar, Monday - Idul Fitr"
@@ -394,7 +400,9 @@
         ]
     },
     "april": {
-        "month": "april",
+        "month": [
+            "april"
+        ],
         "andaman-nicobar": [
             "6th Apr, Sunday - Ram Navami",
             "18th Apr, Friday - Good Friday"
@@ -587,7 +595,7 @@
         ]
     },
     "may": {
-        "month": "may",
+        "month": ["may"],
         "andaman-nicobar": [
             "12th May, Monday - Buddha Purnima"
         ],
