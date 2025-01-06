@@ -1,16 +1,22 @@
 package holiday
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 	"strings"
+	"time"
 )
 
 type Holiday struct {
-	data []int
+	data []string
 }
 
-func New() (*Holiday, error) {
+func New(file string) (*Holiday, error) {
 	//TODO
+
+	LoadJson(file)
+
 	return nil, nil
 }
 
@@ -19,6 +25,33 @@ func (h *Holiday) fetchHolidays(s string) ([]string, error) {
 	//TODO
 	return nil, nil
 }
+
+func LoadJson(file string) (interface{}, error) {
+
+	_, m, _ := time.Now().Date()
+	holidayJson, err := os.ReadFile(file)
+	// var data struct {
+	// 	Months map[string]map[string][]string
+	// }
+
+	fmt.Println(holidayJson)
+
+	var data interface{}
+
+	if err != nil {
+		return nil, fmt.Errorf("cannot read file: %w", err)
+	}
+	json.Unmarshal(holidayJson, data)
+
+	fmt.Println(data, "line 42: hoiday.go", m)
+
+	return data, nil
+
+}
+
+// func (h *Holiday) checkForUpdate() {
+// 	currMonth := time.Now()
+// }
 
 func (h *Holiday) Query(q string) ([]string, error) {
 	results := make(map[string][]string)

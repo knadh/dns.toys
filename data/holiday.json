@@ -1,0 +1,690 @@
+{
+    "January": {
+        "month": "january",
+        "andaman-nicobar": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "andhra-pradesh": [
+            "15th Jan, Wednesday - Pongal",
+            "16th Jan, Thursday - Kanuma Panduga",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "arunachal-pradesh": [
+            "1st Jan, Wednesday - New Year's Day",
+            "14th Jan, Tuesday - Makara Sankranti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "assam": [
+            "15th Jan, Wednesday - Magh Bihu",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "bihar": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "chandigarh": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "chhattisgarh": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "delhi": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "goa": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "gujarat": [
+            "14th Jan, Tuesday - Makara Sankranti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "haryana": [
+            "6th Jan, Monday - Guru Gobind Singh Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "himachal-pradesh": [
+            "25th Jan, Saturday - State Day",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "jammu-kashmir": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "jharkhand": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "karnataka": [
+            "14th Jan, Tuesday - Makara Sankranti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "kerala": [
+            "2nd Jan, Thursday - Mannam Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "lakshadweep": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "madhya-pradesh": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "maharashtra": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "manipur": [
+            "1st Jan, Wednesday - New Year's Day",
+            "12th Jan, Sunday - Gaan-Ngai",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "meghalaya": [
+            "1st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "mizoram": [
+            "1st Jan, Wednesday - New Year's Day",
+            "2nd Jan, Thursday - New Year Holiday",
+            "11th Jan, Saturday - Missionary Day",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "nagaland": [
+            "1st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "odisha": [
+            "14th Jan, Tuesday - Makara Sankranti",
+            "23rd Jan, Thursday - Netaji Subhas Chandra Bose Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "puducherry": [
+            "1st Jan, Wednesday - New Year's Day",
+            "14th Jan, Tuesday - Pongal",
+            "16th Jan, Thursday - Uzhavar Thirunal",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "punjab": [
+            "6th Jan, Monday - Guru Gobind Singh Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "rajasthan": [
+            "1st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "sikkim": [
+            "1st Jan, Wednesday - New Year's Day",
+            "14th Jan, Tuesday - Makara Sankranti",
+            "30th Jan, Thursday - Sonam Losar",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "tamil-nadu": [
+            "1st Jan, Wednesday - New Year's Day",
+            "14th Jan, Tuesday - Pongal",
+            "15th Jan, Wednesday - Thiruvalluvar Day",
+            "16th Jan, Thursday - Uzhavar Thirunal",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "telangana": [
+            "1st Jan, Wednesday - New Year's Day",
+            "14th Jan, Tuesday - Makara Sankranti",
+            "15th Jan, Wednesday - Pongal",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "tripura": [
+            "23rd Jan, Thursday - Netaji Subhas Chandra Bose Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "uttarakhand": [
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "uttar-pradesh": [
+            "14th Jan, Tuesday - Hazrat Ali Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ],
+        "west-bengal": [
+            "12th Jan, Sunday - Swami Vivekananda Jayanti",
+            "23rd Jan, Thursday - Netaji Subhas Chandra Bose Jayanti",
+            "26th Jan, Sunday - Republic Day"
+        ]
+    },
+    "February": {
+        "month": "february",
+        "andaman-nicobar": [],
+        "andhra-pradesh": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "arunachal-pradesh": [
+            "20th Feb, Thursday - State Day"
+        ],
+        "assam": [],
+        "bihar": [],
+        "chandigarh": [
+            "12th Feb, Wednesday - Guru Ravidas Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "chhattisgarh": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "delhi": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "goa": [],
+        "gujarat": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "haryana": [
+            "12th Feb, Wednesday - Guru Ravidas Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "himachal-pradesh": [
+            "12th Feb, Wednesday - Guru Ravidas Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "jammu-kashmir": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "jharkhand": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "karnataka": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "kerala": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "lakshadweep": [],
+        "madhya-pradesh": [
+            "12th Feb, Wednesday - Guru Ravidas Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "maharashtra": [
+            "19th Feb, Wednesday - Chhatrapati Shivaji Maharaj Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "manipur": [
+            "15th Feb, Saturday - Lui-Ngai-Ni"
+        ],
+        "meghalaya": [],
+        "mizoram": [
+            "20th Feb, Thursday - State Day"
+        ],
+        "nagaland": [],
+        "odisha": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "puducherry": [],
+        "punjab": [
+            "12th Feb, Wednesday - Guru Ravidas Jayanti",
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "rajasthan": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "sikkim": [
+            "28th Feb, Friday - Losar"
+        ],
+        "tamil-nadu": [],
+        "telangana": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "tripura": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "uttarakhand": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "uttar-pradesh": [
+            "26th Feb, Wednesday - Maha Shivaratri"
+        ],
+        "west-bengal": []
+    },
+    "March": {
+        "month": "march",
+        "andaman-nicobar": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "andhra-pradesh": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "arunachal-pradesh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "assam": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "bihar": [
+            "14th Mar, Friday - Holi",
+            "22nd Mar, Saturday - Bihar Day",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "chandigarh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "chhattisgarh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "daman-diu": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "delhi": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "goa": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "gujarat": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "haryana": [
+            "14th Mar, Friday - Holi",
+            "23rd Mar, Sunday - S. Bhagat Singh's Martyrdom Day",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "himachal-pradesh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "jammu-kashmir": [
+            "14th Mar, Friday - Holi",
+            "28th Mar, Friday - Shab-i-Qadr",
+            "28th Mar, Friday - Jumat-ul-Wida",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "jharkhand": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "karnataka": [
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "kerala": [
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "lakshadweep": [
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "madhya-pradesh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "maharashtra": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Gudi Padwa",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "manipur": [
+            "14th Mar, Friday - Yaosang",
+            "15th Mar, Saturday - Yaosang 2nd Day",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "meghalaya": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "mizoram": [
+            "7th Mar, Friday - Chapchar Kut",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "nagaland": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "odisha": [
+            "5th Mar, Wednesday - Panchayatiraj Divas",
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "puducherry": [
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "punjab": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "rajasthan": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "sikkim": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "tamil-nadu": [
+            "30th Mar, Sunday - Telugu New Year",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "telangana": [
+            "14th Mar, Friday - Holi",
+            "30th Mar, Sunday - Ugadi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "tripura": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "uttarakhand": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "uttar-pradesh": [
+            "14th Mar, Friday - Holi",
+            "31st Mar, Monday - Idul Fitr"
+        ],
+        "west-bengal": [
+            "14th Mar, Friday - Doljatra",
+            "31st Mar, Monday - Idul Fitr"
+        ]
+    },
+    "April": {
+        "month": "april",
+        "andaman-nicobar": [
+            "6th Apr, Sunday - Ram Navami",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "andhra-pradesh": [
+            "5th Apr, Saturday - Babu Jagjivan Ram Jayanti",
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "arunachal-pradesh": [
+            "15th Apr, Tuesday - Bohag Bihu",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "assam": [
+            "14th Apr, Monday - Bohag Bihu",
+            "16th Apr, Wednesday - Bohag Bihu Holiday",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "bihar": [
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "chandigarh": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "13th Apr, Sunday - Vaisakh",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "chhattisgarh": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "delhi": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "goa": [
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "gujarat": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "29th Apr, Tuesday - Maharshi Parasuram Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "haryana": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "29th Apr, Tuesday - Maharshi Parasuram Jayanti"
+        ],
+        "himachal-pradesh": [
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "15th Apr, Tuesday - Himachal Day",
+            "29th Apr, Tuesday - Maharshi Parasuram Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "jammu-kashmir": [
+            "13th Apr, Sunday - Vaisakh",
+            "14th Apr, Monday - Dr Ambedkar Jayanti"
+        ],
+        "jharkhand": [
+            "1st Apr, Tuesday - Sarhul",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "karnataka": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "30th Apr, Wednesday - Basava Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "kerala": [
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "14th Apr, Monday - Vishu",
+            "18th Apr, Friday - Good Friday",
+            "20th Apr, Sunday - Easter Sunday"
+        ],
+        "lakshadweep": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "madhya-pradesh": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "29th Apr, Tuesday - Maharshi Parasuram Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "maharashtra": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "manipur": [
+            "14th Apr, Monday - Cheiraoba",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "meghalaya": [
+            "18th Apr, Friday - Good Friday"
+        ],
+        "mizoram": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "nagaland": [
+            "18th Apr, Friday - Good Friday",
+            "19th Apr, Saturday - Easter Saturday",
+            "20th Apr, Sunday - Easter Sunday"
+        ],
+        "odisha": [
+            "1st Apr, Tuesday - Odisha Day",
+            "6th Apr, Sunday - Ram Navami",
+            "13th Apr, Sunday - Maha Vishuba Sankranti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "puducherry": [
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "14th Apr, Monday - Tamil New Year",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "punjab": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "13th Apr, Sunday - Vaisakh",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "rajasthan": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "29th Apr, Tuesday - Maharshi Parasuram Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "sikkim": [
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "tamil-nadu": [
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "14th Apr, Monday - Tamil New Year",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "telangana": [
+            "1st Apr, Tuesday - Idul Fitr Holiday",
+            "5th Apr, Saturday - Babu Jagjivan Ram Jayanti",
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "tripura": [
+            "14th Apr, Monday - Biju Festival",
+            "14th Apr, Monday - Bengali New Year",
+            "21st Apr, Monday - Garia Puja",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "uttarakhand": [
+            "6th Apr, Sunday - Ram Navami",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "uttar-pradesh": [
+            "6th Apr, Sunday - Ram Navami",
+            "10th Apr, Thursday - Mahavir Jayanti",
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "18th Apr, Friday - Good Friday"
+        ],
+        "west-bengal": [
+            "14th Apr, Monday - Dr Ambedkar Jayanti",
+            "14th Apr, Monday - Bengali New Year",
+            "18th Apr, Friday - Good Friday"
+        ]
+    },
+    "May": {
+        "month": "may",
+        "andaman-nicobar": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "andhra-pradesh": [],
+        "arunachal-pradesh": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "assam": [
+            "1st May, Thursday - May Day"
+        ],
+        "bihar": [
+            "1st May, Thursday - May Day"
+        ],
+        "chandigarh": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "chhattisgarh": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "dadra and nagar haveli and daman and diu": [],
+        "delhi": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "goa": [
+            "1st May, Thursday - May Day"
+        ],
+        "gujarat": [],
+        "haryana": [
+            "29th May, Thursday - Maharana Pratap Jayanti"
+        ],
+        "himachal-pradesh": [
+            "12th May, Monday - Buddha Purnima",
+            "29th May, Thursday - Maharana Pratap Jayanti"
+        ],
+        "jammu-kashmir": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "jharkhand": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "karnataka": [
+            "1st May, Thursday - May Day"
+        ],
+        "kerala": [
+            "1st May, Thursday - May Day"
+        ],
+        "lakshadweep": [],
+        "madhya-pradesh": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "maharashtra": [
+            "1st May, Thursday - Maharashtra Day",
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "manipur": [
+            "1st May, Thursday - May Day"
+        ],
+        "meghalaya": [],
+        "mizoram": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "nagaland": [],
+        "odisha": [],
+        "puducherry": [
+            "1st May, Thursday - May Day"
+        ],
+        "punjab": [
+            "30th May, Friday - Sri Guru Arjun Dev Ji's Martyrdom Day"
+        ],
+        "rajasthan": [
+            "29th May, Thursday - Maharana Pratap Jayanti"
+        ],
+        "sikkim": [
+            "16th May, Friday - State Day"
+        ],
+        "tamil-nadu": [
+            "1st May, Thursday - May Day"
+        ],
+        "telangana": [
+            "1st May, Thursday - May Day"
+        ],
+        "tripura": [
+            "1st May, Thursday - May Day",
+            "8th May, Thursday - Guru Rabindranath Jayanti",
+            "12th May, Monday - Buddha Purnima",
+            "26th May, Monday - Kazi Nazrul Islam Jayanti"
+        ],
+        "uttarakhand": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "uttar-pradesh": [
+            "12th May, Monday - Buddha Purnima"
+        ],
+        "west-bengal": [
+            "1st May, Thursday - May Day",
+            "8th May, Thursday - Guru Rabindranath Jayanti",
+            "12th May, Monday - Buddha Purnima"
+        ]
+    }
+}

@@ -350,7 +350,7 @@ func main() {
 
 	// Public Holidays
 	if ko.Bool("holidays.enabled") {
-		e, err := holiday.New()
+		e, err := holiday.New(ko.MustString("holidays.file"))
 		if err != nil {
 			lo.Fatalf("this is the error lmao: %v", err)
 		}
