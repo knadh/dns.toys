@@ -26,24 +26,23 @@ func (h *Holiday) fetchHolidays(s string) ([]string, error) {
 	return nil, nil
 }
 
+type YearlyHolidays struct {
+	Data map[string][]string
+}
+
 func LoadJson(file string) (interface{}, error) {
 
 	_, m, _ := time.Now().Date()
 	holidayJson, err := os.ReadFile(file)
-	// var data struct {
-	// 	Months map[string]map[string][]string
-	// }
 
-	fmt.Println(holidayJson)
-
-	var data interface{}
+	var data map[string]map[string][]string
 
 	if err != nil {
 		return nil, fmt.Errorf("cannot read file: %w", err)
 	}
-	json.Unmarshal(holidayJson, data)
+	json.Unmarshal(holidayJson, &data)
 
-	fmt.Println(data, "line 42: hoiday.go", m)
+	fmt.Println(data[strings.ToLower(m.String())]["maharashtra"], "line 42: hoiday.go", m)
 
 	return data, nil
 
