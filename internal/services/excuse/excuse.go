@@ -38,10 +38,7 @@ func New(file string) (*Excuse, error) {
 }
 
 func (e *Excuse) Query(q string) ([]string, error) {
-	result := "wow this is amazing"
-	result1, err := e.randomExcuse()
-
-	fmt.Println(result1)
+	result, err := e.randomExcuse()
 
 	//result, err := e.randomExcuse()
 	if err != nil {
@@ -51,8 +48,6 @@ func (e *Excuse) Query(q string) ([]string, error) {
 	out := []string{
 		fmt.Sprintf(`%s 1 TXT "%s"`, q, result),
 	}
-
-	fmt.Println(out)
 
 	return out, nil
 }
