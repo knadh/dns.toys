@@ -595,7 +595,9 @@
         ]
     },
     "may": {
-        "month": ["may"],
+        "month": [
+            "may"
+        ],
         "andaman-nicobar": [
             "12th May, Monday - Buddha Purnima"
         ],
@@ -693,6 +695,914 @@
             "1st May, Thursday - May Day",
             "8th May, Thursday - Guru Rabindranath Jayanti",
             "12th May, Monday - Buddha Purnima"
+        ]
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "andaman-nicobar": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "andhra-pradesh": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "arunachal-pradesh": [],
+        "assam": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "bihar": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "chandigarh": [],
+        "chhattisgarh": [
+            "11th Jun, Wednesday - Sant Guru Kabir Jayanti"
+        ],
+        "dadra and nagar haveli and daman and diu": [],
+        "delhi": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "goa": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "gujarat": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "haryana": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "11th Jun, Wednesday - Sant Guru Kabir Jayanti"
+        ],
+        "himachal-pradesh": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "11th Jun, Wednesday - Sant Guru Kabir Jayanti"
+        ],
+        "jammu-kashmir": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "8th Jun, Sunday - Bakrid / Eid al Adha Holiday",
+            "12th Jun, Thursday - Guru Hargobind Ji's Birthday"
+        ],
+        "jharkhand": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "karnataka": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "kerala": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "lakshadweep": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "madhya-pradesh": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "maharashtra": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "manipur": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "27th Jun, Friday - Ratha Yathra"
+        ],
+        "meghalaya": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "mizoram": [
+            "15th Jun, Sunday - YMA Day",
+            "30th Jun, Monday - Remna Ni"
+        ],
+        "nagaland": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "odisha": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "14th Jun, Saturday - Pahili Raja",
+            "15th Jun, Sunday - Raja Sankranti",
+            "27th Jun, Friday - Ratha Yathra"
+        ],
+        "puducherry": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "punjab": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha",
+            "11th Jun, Wednesday - Sant Guru Kabir Jayanti"
+        ],
+        "rajasthan": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "sikkim": [],
+        "tamil-nadu": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "telangana": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "tripura": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "uttarakhand": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "uttar-pradesh": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ],
+        "west-bengal": [
+            "7th Jun, Saturday - Bakrid / Eid al Adha"
+        ]
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "andaman-nicobar": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "andhra-pradesh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "arunachal-pradesh": [],
+        "assam": [],
+        "bihar": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "chandigarh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "chhattisgarh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "delhi": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "goa": [],
+        "gujarat": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "haryana": [
+            "27th Jul, Sunday - Haryali Teej",
+            "31st Jul, Thursday - Shaheed Udham Singh's Martyrdom Day"
+        ],
+        "himachal-pradesh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "jammu-kashmir": [
+            "6th Jul, Sunday - Muharram",
+            "13th Jul, Sunday - Martyrs' Day"
+        ],
+        "jharkhand": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "karnataka": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "kerala": [],
+        "lakshadweep": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "madhya-pradesh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "maharashtra": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "manipur": [],
+        "meghalaya": [
+            "17th Jul, Thursday - U Tirot Sing Day"
+        ],
+        "mizoram": [
+            "6th Jul, Sunday - MHIP Day"
+        ],
+        "nagaland": [],
+        "odisha": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "puducherry": [],
+        "punjab": [],
+        "rajasthan": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "sikkim": [
+            "13th Jul, Sunday - Bhanu Jayanti"
+        ],
+        "tamil-nadu": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "telangana": [
+            "6th Jul, Sunday - Muharram",
+            "21st Jul, Monday - Bonalu"
+        ],
+        "tripura": [
+            "3rd Jul, Thursday - Kharchi Puja",
+            "6th Jul, Sunday - Muharram",
+            "19th Jul, Saturday - Ker Puja"
+        ],
+        "uttarakhand": [],
+        "uttar-pradesh": [
+            "6th Jul, Sunday - Muharram"
+        ],
+        "west-bengal": [
+            "6th Jul, Sunday - Muharram"
+        ]
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "andaman-nicobar": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "andhra-pradesh": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "arunachal-pradesh": [
+            "15th Aug, Friday - Independence Day"
+        ],
+        "assam": [
+            "15th Aug, Friday - Independence Day"
+        ],
+        "bihar": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "chandigarh": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "chhattisgarh": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "26th Aug, Tuesday - Hartalika Teej"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "16th Aug, Saturday - Parsi New Year",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "delhi": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "goa": [
+            "15th Aug, Friday - Independence Day",
+            "27th Aug, Wednesday - Ganesh Chaturthi",
+            "28th Aug, Thursday - Ganesh Chaturthi Holiday"
+        ],
+        "gujarat": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "16th Aug, Saturday - Parsi New Year",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "haryana": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "himachal-pradesh": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "jammu-kashmir": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "jharkhand": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "karnataka": [
+            "15th Aug, Friday - Independence Day",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "kerala": [
+            "15th Aug, Friday - Independence Day"
+        ],
+        "lakshadweep": [
+            "15th Aug, Friday - Independence Day"
+        ],
+        "madhya-pradesh": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "maharashtra": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Parsi New Year",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "manipur": [
+            "13th Aug, Wednesday - Patriots Day",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "meghalaya": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "mizoram": [
+            "15th Aug, Friday - Independence Day"
+        ],
+        "nagaland": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "odisha": [
+            "8th Aug, Friday - Jhulan Purnima",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "27th Aug, Wednesday - Ganesh Chaturthi",
+            "28th Aug, Thursday - Nuakhai"
+        ],
+        "puducherry": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - De Jure Transfer Day",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "punjab": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "rajasthan": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "sikkim": [
+            "8th Aug, Friday - Tendong Lho Rum Faat",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "26th Aug, Tuesday - Hartalika Teej"
+        ],
+        "tamil-nadu": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "telangana": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami",
+            "27th Aug, Wednesday - Ganesh Chaturthi"
+        ],
+        "tripura": [
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "uttarakhand": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "uttar-pradesh": [
+            "9th Aug, Saturday - Raksha Bandhan",
+            "15th Aug, Friday - Independence Day",
+            "16th Aug, Saturday - Janmashtami"
+        ],
+        "west-bengal": [
+            "15th Aug, Friday - Independence Day"
+        ]
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "andaman-nicobar": [],
+        "andhra-pradesh": [
+            "5th Sep, Friday - Eid e Milad",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "arunachal-pradesh": [],
+        "assam": [
+            "29th Sep, Monday - Maha Saptami",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "bihar": [],
+        "chandigarh": [],
+        "chhattisgarh": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "delhi": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "goa": [],
+        "gujarat": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "haryana": [
+            "5th Sep, Friday - Eid e Milad",
+            "22nd Sep, Monday - Maharaja Agrasen Jayanti",
+            "23rd Sep, Tuesday - Heroes' Martyrdom Day"
+        ],
+        "himachal-pradesh": [],
+        "jammu-kashmir": [
+            "5th Sep, Friday - Eid e Milad",
+            "12th Sep, Friday - Friday Following Eid e Milad"
+        ],
+        "jharkhand": [
+            "5th Sep, Friday - Eid e Milad",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "karnataka": [
+            "5th Sep, Friday - Eid e Milad",
+            "21st Sep, Sunday - Mahalaya Amavasye"
+        ],
+        "kerala": [
+            "4th Sep, Thursday - First Onam",
+            "5th Sep, Friday - Thiruvonam",
+            "5th Sep, Friday - Eid e Milad",
+            "7th Sep, Sunday - Sree Narayana Guru Jayanti",
+            "21st Sep, Sunday - Sree Narayana Guru Samadhi"
+        ],
+        "lakshadweep": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "madhya-pradesh": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "maharashtra": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "manipur": [
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "meghalaya": [],
+        "mizoram": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "nagaland": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "odisha": [
+            "5th Sep, Friday - Eid e Milad",
+            "21st Sep, Sunday - Mahalaya Amavasye",
+            "29th Sep, Monday - Maha Saptami",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "puducherry": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "punjab": [],
+        "rajasthan": [
+            "2nd Sep, Tuesday - Ramdev Jayanti",
+            "2nd Sep, Tuesday - Teja Dashmi",
+            "5th Sep, Friday - Eid e Milad",
+            "22nd Sep, Monday - Ghatasthapana",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "sikkim": [
+            "7th Sep, Sunday - Indra Jatra",
+            "29th Sep, Monday - Maha Saptami",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "tamil-nadu": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "telangana": [
+            "5th Sep, Friday - Eid e Milad",
+            "22nd Sep, Monday - First Day of Bathukamma",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "tripura": [
+            "5th Sep, Friday - Eid e Milad",
+            "21st Sep, Sunday - Mahalaya Amavasye",
+            "29th Sep, Monday - Maha Saptami",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ],
+        "uttarakhand": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "uttar-pradesh": [
+            "5th Sep, Friday - Eid e Milad"
+        ],
+        "west-bengal": [
+            "21st Sep, Sunday - Mahalaya Amavasye",
+            "29th Sep, Monday - Maha Saptami",
+            "30th Sep, Tuesday - Maha Ashtami"
+        ]
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "andaman-nicobar": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "andhra-pradesh": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "arunachal-pradesh": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "assam": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "18th Oct, Saturday - Kati Bihu",
+            "20th Oct, Monday - Diwali"
+        ],
+        "bihar": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "27th Oct, Monday - Chhath Puja",
+            "28th Oct, Tuesday - Chhath Puja Holiday"
+        ],
+        "chandigarh": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "22nd Oct, Wednesday - Govardhan Puja"
+        ],
+        "chhattisgarh": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "27th Oct, Monday - Chhath Puja"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "22nd Oct, Wednesday - Govardhan Puja",
+            "27th Oct, Monday - Chhath Puja"
+        ],
+        "delhi": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "goa": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "gujarat": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "22nd Oct, Wednesday - Vikram Samvat New Year",
+            "23rd Oct, Thursday - Bhai Dooj",
+            "31st Oct, Friday - Sardar Vallabhbhai Patel Jayanti"
+        ],
+        "haryana": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "7th Oct, Tuesday - Maharishi Valmiki Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday"
+        ],
+        "himachal-pradesh": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "7th Oct, Tuesday - Maharishi Valmiki Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "jammu-kashmir": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "jharkhand": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "27th Oct, Monday - Chhath Puja"
+        ],
+        "karnataka": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "7th Oct, Tuesday - Maharishi Valmiki Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday"
+        ],
+        "kerala": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "lakshadweep": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "madhya-pradesh": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "7th Oct, Tuesday - Maharishi Valmiki Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "maharashtra": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday"
+        ],
+        "manipur": [
+            "24th Oct, Friday - Ningol Chakkouba"
+        ],
+        "meghalaya": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "mizoram": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "nagaland": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "odisha": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "6th Oct, Monday - Lakshmi Puja",
+            "20th Oct, Monday - Diwali"
+        ],
+        "puducherry": [
+            "1st Oct, Wednesday - Maha Navami"
+        ],
+        "punjab": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "7th Oct, Tuesday - Maharishi Valmiki Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "rajasthan": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday",
+            "23rd Oct, Thursday - Bhai Dooj"
+        ],
+        "sikkim": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "23rd Oct, Thursday - Bhai Dooj"
+        ],
+        "tamil-nadu": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "telangana": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali"
+        ],
+        "tripura": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "6th Oct, Monday - Lakshmi Puja",
+            "20th Oct, Monday - Diwali"
+        ],
+        "uttarakhand": [
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday",
+            "23rd Oct, Thursday - Bhai Dooj"
+        ],
+        "uttar-pradesh": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "20th Oct, Monday - Diwali",
+            "21st Oct, Tuesday - Deepavali Holiday",
+            "23rd Oct, Thursday - Bhai Dooj"
+        ],
+        "west-bengal": [
+            "1st Oct, Wednesday - Maha Navami",
+            "2nd Oct, Thursday - Gandhi Jayanti",
+            "6th Oct, Monday - Lakshmi Puja",
+            "20th Oct, Monday - Diwali"
+        ]
+    },
+    "november": {
+        "month": [
+            "November"
+        ],
+        "andaman-nicobar": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "andhra-pradesh": [],
+        "arunachal-pradesh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "assam": [],
+        "bihar": [],
+        "chandigarh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "chhattisgarh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "dadra and nagar haveli and daman and diu": [],
+        "delhi": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "goa": [],
+        "gujarat": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "haryana": [
+            "1st Nov, Saturday - Haryana Day",
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "himachal-pradesh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "jammu-kashmir": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "jharkhand": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "karnataka": [
+            "1st Nov, Saturday - Kannada Rajyothsava",
+            "8th Nov, Saturday - Kanakadasa Jayanti"
+        ],
+        "kerala": [],
+        "lakshadweep": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "madhya-pradesh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "maharashtra": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "manipur": [
+            "1st Nov, Saturday - Kut"
+        ],
+        "meghalaya": [
+            "7th Nov, Friday - Wangala Festival",
+            "23rd Nov, Sunday - Seng Kut Snem"
+        ],
+        "mizoram": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "nagaland": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "odisha": [
+            "5th Nov, Wednesday - Karthika Purnima"
+        ],
+        "puducherry": [
+            "1st Nov, Saturday - Puducherry Liberation Day"
+        ],
+        "punjab": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti",
+            "25th Nov, Tuesday - Sri Guru Teg Bahadur Ji's Martyrdom Day"
+        ],
+        "rajasthan": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "sikkim": [
+            "11th Nov, Tuesday - Lhabab Duchen"
+        ],
+        "tamil-nadu": [],
+        "telangana": [
+            "5th Nov, Wednesday - Karthika Purnima",
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "tripura": [],
+        "uttarakhand": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "uttar-pradesh": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ],
+        "west-bengal": [
+            "5th Nov, Wednesday - Guru Nanak Jayanti"
+        ]
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "andaman-nicobar": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "andhra-pradesh": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "arunachal-pradesh": [
+            "1st Dec, Monday - Indigenous Faith Day",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "assam": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "bihar": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "chandigarh": [],
+        "chhattisgarh": [
+            "18th Dec, Thursday - Guru Ghasidas Jayanti",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "dadra and nagar haveli and daman and diu": [
+            "19th Dec, Friday - Liberation Day",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "delhi": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "goa": [
+            "3rd Dec, Wednesday - Feast of St Francis Xavier",
+            "19th Dec, Friday - Liberation Day",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "gujarat": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "haryana": [
+            "26th Dec, Friday - Shaheed Udham Singh Jayanti",
+            "27th Dec, Saturday - Guru Gobind Singh Jayanti",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "himachal-pradesh": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "jammu-kashmir": [
+            "5th Dec, Friday - Sheikh Muhammad Abdullah Jayanti",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "jharkhand": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "karnataka": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "kerala": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "lakshadweep": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "madhya-pradesh": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "maharashtra": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "manipur": [
+            "25th Dec, Thursday - Christmas Day",
+            "31st Dec, Wednesday - New Year's Eve"
+        ],
+        "meghalaya": [
+            "12th Dec, Friday - Pa Togan Nengminza Sangma",
+            "18th Dec, Thursday - Death Anniversary of U SoSo Tham",
+            "24th Dec, Wednesday - Christmas Holiday",
+            "25th Dec, Thursday - Christmas Day",
+            "26th Dec, Friday - Christmas Holiday",
+            "30th Dec, Tuesday - U Kiang Nangbah"
+        ],
+        "mizoram": [
+            "24th Dec, Wednesday - Christmas Holiday",
+            "25th Dec, Thursday - Christmas Day",
+            "26th Dec, Friday - Christmas Holiday",
+            "31st Dec, Wednesday - New Year's Eve"
+        ],
+        "nagaland": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "odisha": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "puducherry": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "punjab": [
+            "27th Dec, Saturday - Guru Gobind Singh Jayanti",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "rajasthan": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "sikkim": [
+            "30th Dec, Tuesday - Tamu Losar",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "tamil-nadu": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "telangana": [
+            "26th Dec, Friday - Christmas Holiday",
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "tripura": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "uttarakhand": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "uttar-pradesh": [
+            "25th Dec, Thursday - Christmas Day"
+        ],
+        "west-bengal": [
+            "25th Dec, Thursday - Christmas Day"
         ]
     }
 }

@@ -1,0 +1,185 @@
+{
+    "month" : [ "October" ],
+    "andaman-nicobar": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "andhra-pradesh": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "arunachal-pradesh": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "assam": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "18th Oct, Saturday - Kati Bihu",
+        "20th Oct, Monday - Diwali"
+    ],
+    "bihar": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "27th Oct, Monday - Chhath Puja",
+        "28th Oct, Tuesday - Chhath Puja Holiday"
+    ],
+    "chandigarh": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "22nd Oct, Wednesday - Govardhan Puja"
+    ],
+    "chhattisgarh": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "27th Oct, Monday - Chhath Puja"
+    ],
+    "dadra and nagar haveli and daman and diu": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "22nd Oct, Wednesday - Govardhan Puja",
+        "27th Oct, Monday - Chhath Puja"
+    ],
+    "delhi": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "goa": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "gujarat": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "22nd Oct, Wednesday - Vikram Samvat New Year",
+        "23rd Oct, Thursday - Bhai Dooj",
+        "31st Oct, Friday - Sardar Vallabhbhai Patel Jayanti"
+    ],
+    "haryana": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday",
+        "7th Oct, Tuesday - Maharishi Valmiki Jayanti"
+    ],
+    "himachal-pradesh": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "7th Oct, Tuesday - Maharishi Valmiki Jayanti"
+    ],
+    "jammu-kashmir": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "jharkhand": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "27th Oct, Monday - Chhath Puja"
+    ],
+    "karnataka": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday",
+        "7th Oct, Tuesday - Maharishi Valmiki Jayanti"
+    ],
+    "kerala": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "lakshadweep": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "madhya-pradesh": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "7th Oct, Tuesday - Maharishi Valmiki Jayanti"
+    ],
+    "maharashtra": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday"
+    ],
+    "manipur": [
+        "24th Oct, Friday - Ningol Chakkouba"
+    ],
+    "meghalaya": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "mizoram": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "nagaland": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "odisha": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "6th Oct, Monday - Lakshmi Puja",
+        "20th Oct, Monday - Diwali"
+    ],
+    "puducherry": [
+        "1st Oct, Wednesday - Maha Navami"
+    ],
+    "punjab": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "7th Oct, Tuesday - Maharishi Valmiki Jayanti"
+    ],
+    "rajasthan": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday",
+        "23rd Oct, Thursday - Bhai Dooj"
+    ],
+    "sikkim": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "23rd Oct, Thursday - Bhai Dooj"
+    ],
+    "tamil-nadu": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "telangana": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali"
+    ],
+    "tripura": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "6th Oct, Monday - Lakshmi Puja",
+        "20th Oct, Monday - Diwali"
+    ],
+    "uttarakhand": [
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday",
+        "23rd Oct, Thursday - Bhai Dooj"
+    ],
+    "uttar-pradesh": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "20th Oct, Monday - Diwali",
+        "21st Oct, Tuesday - Deepavali Holiday",
+        "23rd Oct, Thursday - Bhai Dooj"
+    ],
+    "west-bengal": [
+        "1st Oct, Wednesday - Maha Navami",
+        "2nd Oct, Thursday - Gandhi Jayanti",
+        "6th Oct, Monday - Lakshmi Puja",
+        "20th Oct, Monday - Diwali"
+    ]
+}
