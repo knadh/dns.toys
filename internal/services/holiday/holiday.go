@@ -13,10 +13,14 @@ type Holiday struct {
 	data  map[string][]string //months state wise holiday
 }
 
+// returns Holiday instance with file path
+// idk how else to pass the file path from config to load json
+// might improve on this
 func New(file string) (*Holiday, error) {
 	return &Holiday{fileP: file}, nil
 }
 
+// loads data from disk and stores data in Holiday instance
 func (h *Holiday) loadJson() (map[string][]string, error) {
 
 	_, m, _ := time.Now().Date()
@@ -41,8 +45,9 @@ func (h *Holiday) Query(q string) ([]string, error) {
 	var results map[string][]string
 	var err error
 
+	// match current month with last stored month
+	// fetch and parse json again only if month not matching
 	if len(h.data) != 0 && h.data["month"][0] == strings.ToLower(m.String()) {
-		fmt.Println("from snapshot waooo")
 		results = h.data
 	} else {
 		results, err = h.loadJson()
@@ -56,11 +61,13 @@ func (h *Holiday) Query(q string) ([]string, error) {
 
 	out := make([]string, 0, len(resultArr))
 
+	// in case of mispell
 	if !exists {
 		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, "Maybe you mispelled the state?"))
 		return out, nil
 	}
 
+	// in case no holiday that month in that state
 	if len(results[state]) == 0 {
 		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, "No Holidays this month :("))
 		return out, nil
