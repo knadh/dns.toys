@@ -14,7 +14,8 @@ func New() (*Holiday, error) {
 	return nil, nil
 }
 
-func (h *Holiday) fetchHolidays() ([]string, error) {
+// fetch holidays of current month from disk
+func (h *Holiday) fetchHolidays(s string) ([]string, error) {
 	//TODO
 	return nil, nil
 }

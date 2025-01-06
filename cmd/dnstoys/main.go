@@ -349,12 +349,12 @@ func main() {
 	}
 
 	// Public Holidays
-	if ko.Bool("holiday.enabled") {
+	if ko.Bool("holidays.enabled") {
 		e, err := holiday.New()
 		if err != nil {
 			lo.Fatalf("this is the error lmao: %v", err)
 		}
-		h.register("holiday", e, mux)
+		h.register("holidays", e, mux)
 		help = append(help, []string{"return a public holidays", "dig holiday @%s"})
 	}
 
