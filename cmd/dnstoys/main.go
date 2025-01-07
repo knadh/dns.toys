@@ -356,7 +356,7 @@ func main() {
 		}
 
 		h.register("holidays", hldy, mux)
-		help = append(help, []string{"return a public holidays", "dig holiday @%s"})
+		help = append(help, []string{"return public holidays of the current month", "dig goa.holiday @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
