@@ -32,6 +32,8 @@ dig fun.dict @dns.toys
 dig excuse @dns.toys
 
 dig A12.9352,77.6245/12.9698,77.7500.aerial @dns.toys
+
+dig 5.16.nanoid @dns.toys 
 ```
 
 ## Running locally
