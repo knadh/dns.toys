@@ -66,6 +66,7 @@ code {
 	}
 	code p {
 		margin: 0 0 5px 0;
+		word-break: break-all;
 	}
 	code p:last-child {
 		margin: 0;
