@@ -355,8 +355,8 @@ func main() {
 			lo.Fatalf("this is the error lmao: %v", err)
 		}
 
-		h.register("holidays", hldy, mux)
-		help = append(help, []string{"return public holidays of the current month", "dig goa.holiday @%s"})
+		h.registerWithCountrySupport("holidays", hldy, mux)
+		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

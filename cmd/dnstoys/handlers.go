@@ -125,7 +125,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 			m.Answer = append(m.Answer, rr)
 		// Handle ipv6.
 		case ip.To16() != nil:
-			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"",IP_TTL, ip.To16().String()))
+			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"", IP_TTL, ip.To16().String()))
 			if err != nil {
 				lo.Printf("error preparing ip response: %v", err)
 				return
@@ -135,6 +135,67 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 	}
 
 	w.WriteMsg(m)
+}
+
+func (h *handlers) registerWithCountrySupport(queryName string, s Service, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
+	// might just make a pull request in the dns package to match with regex instead of exact matching
+	// but that doesnt make sense since different coutry codes are not subdomains, but a whole different domain
+	var country_codes = []string{".us", ".uk", ".ca", ".au", ".de", ".fr", ".in", ".jp", ".cn", ".br", ".ru", ".za", ".it", ".es", ".mx", ".kr", ".nl", ".se", ".ch", ".sg"}
+
+	f := func(w dns.ResponseWriter, r *dns.Msg) {
+		m := &dns.Msg{}
+		m.SetReply(r)
+		m.Compress = false
+		fmt.Println(m.Question)
+
+		if r.Opcode != dns.OpcodeQuery {
+			w.WriteMsg(m)
+			return
+		}
+
+		if len(m.Question) > 5 {
+			respErr(errors.New("too many queries."), w, m)
+			return
+		}
+
+		// Execute the service on all the questions.
+		out := []dns.RR{}
+		for _, q := range m.Question {
+			if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
+				continue
+			}
+
+			// Call the service with the incoming query.
+			// Strip the service suffix from the query eg: mumbai.time.
+			ans, err := s.Query(q.Name)
+			if err != nil {
+				respErr(err, w, m)
+				return
+			}
+
+			// Convert string responses to dns.RR{}.
+			o, err := makeResp(ans)
+			if err != nil {
+				log.Printf("error preparing response: %v", err)
+				respErr(errors.New("error preparing response."), w, m)
+				return
+			}
+
+			out = append(out, o...)
+		}
+
+		// Write the response.
+		m.Answer = out
+		w.WriteMsg(m)
+	}
+
+	h.services[queryName] = s
+
+	for _, v := range country_codes {
+		mux.HandleFunc(queryName+v+".", f)
+	}
+	// mux.HandleFunc(queryName+".in.", f)
+	return f
 }
 
 // handlePi returns values of pi relevant for the record type.
