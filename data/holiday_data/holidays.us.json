@@ -3,369 +3,134 @@
         "month": [
             "january"
         ],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day",
+            "20th Jan, Monday - Martin Luther King Jr. Da"
+        ],
         "alabama": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "20th Jan, Monday - Robert E. Lee's Birthday"
         ],
-        "alaska": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "arizona": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
+        "alaska": [],
+        "arizona": [],
         "arkansas": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "20th Jan, Monday - Robert E. Lee's Birthday"
         ],
-        "california": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "colorado": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "connecticut": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "delaware": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
         "florida": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "19th Jan, Sunday - Robert E. Lee Day"
         ],
         "georgia": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "20th Jan, Monday - Robert E. Lee Day"
         ],
-        "hawaii": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "idaho": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "illinois": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "indiana": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "iowa": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "kansas": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "kentucky": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "louisiana": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "maine": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "maryland": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "massachusetts": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "michigan": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "minnesota": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
         "mississippi": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "20th Jan, Monday - Robert E. Lee's Birthday"
         ],
-        "missouri": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "montana": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "nebraska": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "nevada": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "new_hampshire": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "new_jersey": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "new_mexico": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "new_york": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "north_carolina": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "north_dakota": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "ohio": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "oklahoma": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "oregon": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "pennsylvania": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "rhode_island": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
         "south_carolina": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "20th Jan, Monday - Robert E. Lee Day"
         ],
-        "south_dakota": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "tennessee": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
+        "south_dakota": [],
+        "tennessee": [],
         "texas": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day",
             "19th Jan, Sunday - Confederate Heroes Day"
         ],
-        "utah": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "vermont": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "virginia": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "washington": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "west_virginia": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "wisconsin": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ],
-        "wyoming": [
-            "1st Jan, Wednesday - New Year's Day",
-            "20th Jan, Monday - Martin Luther King Jr. Day"
-        ]
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "february": {
         "month": [
             "february"
         ],
-        "alabama": [
-            "17th Feb, Monday - Presidents' Day"
+        "national": [
+            "17th Feb, Monday - Presidents' Da"
         ],
-        "alaska": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "arizona": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
         "arkansas": [
-            "17th Feb, Monday - Presidents' Day",
             "20th Feb, Thursday - Daisy Gatson Bates Day"
         ],
-        "california": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "colorado": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "connecticut": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "delaware": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "florida": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "georgia": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "hawaii": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "idaho": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "illinois": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "indiana": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "iowa": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "kansas": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "kentucky": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "louisiana": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "maine": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "maryland": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "massachusetts": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "michigan": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "minnesota": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "mississippi": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "missouri": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "montana": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "nebraska": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "nevada": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "new_hampshire": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "new_jersey": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "new_mexico": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "new_york": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "north_carolina": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "north_dakota": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "ohio": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "oklahoma": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "oregon": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "pennsylvania": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "rhode_island": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "south_carolina": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "south_dakota": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "tennessee": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "texas": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "utah": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "vermont": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "virginia": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "washington": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "west_virginia": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "wisconsin": [
-            "17th Feb, Monday - Presidents' Day"
-        ],
-        "wyoming": [
-            "17th Feb, Monday - Presidents' Day"
-        ]
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "march": {
         "month": [
@@ -434,6 +199,84 @@
         "colorado": [],
         "connecticut": [],
         "delaware": [],
+        "florida": [
+            "18th April, Friday - Good Friday"
+        ],
+        "georgia": [],
+        "hawaii": [
+            "18th April, Friday - Good Friday"
+        ],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [
+            "18th April, Friday - Good Friday"
+        ],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [
+            "18th April, Friday - Good Friday"
+        ],
+        "louisiana": [
+            "18th April, Friday - Good Friday"
+        ],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [
+            "18th April, Friday - Good Friday"
+        ],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [
+            "18th April, Friday - Good Friday"
+        ],
+        "north_dakota": [
+            "18th April, Friday - Good Friday"
+        ],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [
+            "18th April, Friday - Good Friday"
+        ],
+        "texas": [
+            "18th April, Friday - Good Friday"
+        ],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "26th May, Monday - Memorial Da"
+        ],
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
         "florida": [],
         "georgia": [],
         "hawaii": [],
@@ -477,470 +320,121 @@
         "wisconsin": [],
         "wyoming": []
     },
-    "may": {
-        "month": [
-            "may"
-        ],
-        "alabama": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "alaska": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "arizona": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "arkansas": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "california": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "colorado": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "connecticut": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "delaware": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "florida": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "georgia": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "hawaii": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "idaho": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "illinois": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "indiana": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "iowa": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "kansas": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "kentucky": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "louisiana": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "maine": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "maryland": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "massachusetts": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "michigan": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "minnesota": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "mississippi": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "missouri": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "montana": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "nebraska": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "nevada": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "new_hampshire": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "new_jersey": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "new_mexico": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "new_york": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "north_carolina": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "north_dakota": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "ohio": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "oklahoma": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "oregon": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "pennsylvania": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "rhode_island": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "south_carolina": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "south_dakota": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "tennessee": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "texas": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "utah": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "vermont": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "virginia": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "washington": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "west_virginia": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "wisconsin": [
-            "26th May, Monday - Memorial Day"
-        ],
-        "wyoming": [
-            "26th May, Monday - Memorial Day"
-        ]
-    },
     "june": {
         "month": [
             "june"
         ],
-        "alabama": [
+        "national": [
             "19th Jun, Thursday - Juneteenth National Independence Day"
         ],
-        "alaska": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "arizona": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "arkansas": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "california": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "colorado": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "connecticut": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "delaware": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "florida": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "georgia": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "hawaii": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "idaho": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "illinois": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "indiana": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "iowa": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "kansas": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "kentucky": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "louisiana": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "maine": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "maryland": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "massachusetts": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "michigan": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "minnesota": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "mississippi": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "missouri": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "montana": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "nebraska": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "nevada": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "new_hampshire": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "new_jersey": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "new_mexico": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "new_york": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "north_carolina": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "north_dakota": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "ohio": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "oklahoma": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "oregon": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "pennsylvania": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "rhode_island": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "south_carolina": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "south_dakota": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "tennessee": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "texas": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "utah": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "vermont": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "virginia": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "washington": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "west_virginia": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "wisconsin": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ],
-        "wyoming": [
-            "19th Jun, Thursday - Juneteenth National Independence Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "july": {
         "month": [
             "july"
         ],
-        "alabama": [
-            "4th Jul, Friday - Independence Day"
+        "national": [
+            "04th Jul, Friday - Independence Day"
         ],
-        "alaska": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "arizona": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "arkansas": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "california": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "colorado": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "connecticut": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "delaware": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "florida": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "georgia": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "hawaii": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "idaho": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "illinois": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "indiana": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "iowa": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "kansas": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "kentucky": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "louisiana": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "maine": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "maryland": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "massachusetts": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "michigan": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "minnesota": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "mississippi": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "missouri": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "montana": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "nebraska": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "nevada": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "new_hampshire": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "new_jersey": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "new_mexico": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "new_york": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "north_carolina": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "north_dakota": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "ohio": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "oklahoma": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "oregon": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "pennsylvania": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "rhode_island": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "south_carolina": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "south_dakota": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "tennessee": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "texas": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "utah": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "vermont": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "virginia": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "washington": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "west_virginia": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "wisconsin": [
-            "4th Jul, Friday - Independence Day"
-        ],
-        "wyoming": [
-            "4th Jul, Friday - Independence Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "august": {
         "month": [
@@ -1001,670 +495,233 @@
         "month": [
             "september"
         ],
-        "alabama": [
-            "1st Sep, Monday - Labor Day"
+        "national": [
+            "01st Sep, Monday - Labor Day"
         ],
-        "alaska": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "arizona": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "arkansas": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "california": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "colorado": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "connecticut": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "delaware": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "florida": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "georgia": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "hawaii": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "idaho": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "illinois": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "indiana": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "iowa": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "kansas": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "kentucky": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "louisiana": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "maine": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "maryland": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "massachusetts": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "michigan": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "minnesota": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "mississippi": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "missouri": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "montana": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "nebraska": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "nevada": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "new_hampshire": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "new_jersey": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "new_mexico": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "new_york": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "north_carolina": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "north_dakota": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "ohio": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "oklahoma": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "oregon": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "pennsylvania": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "rhode_island": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "south_carolina": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "south_dakota": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "tennessee": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "texas": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "utah": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "vermont": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "virginia": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "washington": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "west_virginia": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "wisconsin": [
-            "1st Sep, Monday - Labor Day"
-        ],
-        "wyoming": [
-            "1st Sep, Monday - Labor Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "october": {
         "month": [
             "october"
         ],
-        "alabama": [
+        "national": [
             "13th Oct, Monday - Columbus Day"
         ],
-        "alaska": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "arizona": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "arkansas": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "california": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "colorado": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "connecticut": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "delaware": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "florida": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "georgia": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "hawaii": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "idaho": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "illinois": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "indiana": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "iowa": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "kansas": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "kentucky": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "louisiana": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "maine": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "maryland": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "massachusetts": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "michigan": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "minnesota": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "mississippi": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "missouri": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "montana": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "nebraska": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "nevada": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "new_hampshire": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "new_jersey": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "new_mexico": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "new_york": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "north_carolina": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "north_dakota": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "ohio": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "oklahoma": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "oregon": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "pennsylvania": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "rhode_island": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "south_carolina": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "south_dakota": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "tennessee": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "texas": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "utah": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "vermont": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "virginia": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "washington": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "west_virginia": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "wisconsin": [
-            "13th Oct, Monday - Columbus Day"
-        ],
-        "wyoming": [
-            "13th Oct, Monday - Columbus Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "november": {
         "month": [
             "november"
         ],
-        "alabama": [
+        "national": [
             "11th Nov, Tuesday - Veterans Day",
             "27th Nov, Thursday - Thanksgiving Day"
         ],
-        "alaska": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "arizona": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "arkansas": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "california": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "colorado": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "connecticut": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "delaware": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "florida": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "georgia": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "hawaii": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "idaho": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "illinois": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "indiana": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "iowa": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "kansas": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "kentucky": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "louisiana": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "maine": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "maryland": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "massachusetts": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "michigan": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "minnesota": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "mississippi": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "missouri": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "montana": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "nebraska": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "nevada": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "new_hampshire": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "new_jersey": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "new_mexico": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "new_york": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "north_carolina": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "north_dakota": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "ohio": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "oklahoma": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "oregon": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "pennsylvania": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "rhode_island": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "south_carolina": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "south_dakota": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "tennessee": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "texas": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "utah": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "vermont": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "virginia": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "washington": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "west_virginia": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "wisconsin": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ],
-        "wyoming": [
-            "11th Nov, Tuesday - Veterans Day",
-            "27th Nov, Thursday - Thanksgiving Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     },
     "december": {
         "month": [
             "december"
         ],
-        "alabama": [
+        "national": [
             "25th Dec, Thursday - Christmas Day"
         ],
-        "alaska": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "arizona": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "arkansas": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "california": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "colorado": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "connecticut": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "delaware": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "florida": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "georgia": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "hawaii": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "idaho": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "illinois": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "indiana": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "iowa": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "kansas": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "kentucky": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "louisiana": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "maine": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "maryland": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "massachusetts": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "michigan": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "minnesota": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "mississippi": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "missouri": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "montana": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "nebraska": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "nevada": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "new_hampshire": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "new_jersey": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "new_mexico": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "new_york": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "north_carolina": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "north_dakota": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "ohio": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "oklahoma": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "oregon": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "pennsylvania": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "rhode_island": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "south_carolina": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "south_dakota": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "tennessee": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "texas": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "utah": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "vermont": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "virginia": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "washington": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "west_virginia": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "wisconsin": [
-            "25th Dec, Thursday - Christmas Day"
-        ],
-        "wyoming": [
-            "25th Dec, Thursday - Christmas Day"
-        ]
+        "alabama": [],
+        "alaska": [],
+        "arizona": [],
+        "arkansas": [],
+        "california": [],
+        "colorado": [],
+        "connecticut": [],
+        "delaware": [],
+        "florida": [],
+        "georgia": [],
+        "hawaii": [],
+        "idaho": [],
+        "illinois": [],
+        "indiana": [],
+        "iowa": [],
+        "kansas": [],
+        "kentucky": [],
+        "louisiana": [],
+        "maine": [],
+        "maryland": [],
+        "massachusetts": [],
+        "michigan": [],
+        "minnesota": [],
+        "mississippi": [],
+        "missouri": [],
+        "montana": [],
+        "nebraska": [],
+        "nevada": [],
+        "new_hampshire": [],
+        "new_jersey": [],
+        "new_mexico": [],
+        "new_york": [],
+        "north_carolina": [],
+        "north_dakota": [],
+        "ohio": [],
+        "oklahoma": [],
+        "oregon": [],
+        "pennsylvania": [],
+        "rhode_island": [],
+        "south_carolina": [],
+        "south_dakota": [],
+        "tennessee": [],
+        "texas": [],
+        "utah": [],
+        "vermont": [],
+        "virginia": [],
+        "washington": [],
+        "west_virginia": [],
+        "wisconsin": [],
+        "wyoming": []
     }
 }

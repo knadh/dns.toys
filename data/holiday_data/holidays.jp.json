@@ -1,0 +1,75 @@
+{
+    "january": {
+        "month": ["january"],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day (元日)",
+            "02nd Jan, Thursday - New Year's Day Holiday (元日振替休日)",
+            "03rd Jan, Friday - New Year's Day Holiday (元日振替休日)"
+        ]
+    },
+    "february": {
+        "month": ["february"],
+        "national": [
+            "11th Feb, Monday - National Foundation Day (建国記念の日)"
+        ]
+    },
+    "march": {
+        "month": ["march"],
+        "national": [
+            "20th Mar, Thursday - Vernal Equinox Day (春分の日)"
+        ]
+    },
+    "april": {
+        "month": ["april"],
+        "national": [
+            "29th Apr, Monday - Showa Day (昭和の日)"
+        ]
+    },
+    "may": {
+        "month": ["may"],
+        "national": [
+            "03rd May, Saturday - Constitution Memorial Day (憲法記念日)",
+            "04th May, Sunday - Greenery Day (みどりの日)",
+            "05th May, Monday - Children's Day (こどもの日)"
+        ]
+    },
+    "june": {
+        "month": ["june"],
+        "national": []
+    },
+    "july": {
+        "month": ["july"],
+        "national": [
+            "20th Jul, Sunday - Marine Day (海の日)"
+        ]
+    },
+    "august": {
+        "month": ["august"],
+        "national": []
+    },
+    "september": {
+        "month": ["september"],
+        "national": [
+            "23rd Sep, Monday - Autumn Equinox Day (秋分の日)"
+        ]
+    },
+    "october": {
+        "month": ["october"],
+        "national": [
+            "14th Oct, Monday - Sports Day (体育の日)"
+        ]
+    },
+    "november": {
+        "month": ["november"],
+        "national": [
+            "03rd Nov, Sunday - Culture Day (文化の日)",
+            "23rd Nov, Saturday - Labor Thanksgiving Day (勤労感謝の日)"
+        ]
+    },
+    "december": {
+        "month": ["december"],
+        "national": [
+            "23rd Dec, Monday - Emperor's Birthday (天皇誕生日)"
+        ]
+    }
+}

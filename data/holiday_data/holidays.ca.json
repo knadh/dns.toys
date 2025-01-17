@@ -1,0 +1,280 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [],
+        "alberta": [
+            "19th Feb, Monday - Family Day"
+        ],
+        "british_columbia": [
+            "19th Feb, Monday - Family Day"
+        ],
+        "manitoba": [
+            "19th Feb, Monday - Louis Riel Day"
+        ],
+        "nova_scotia": [
+            "19th Feb, Monday - Heritage Day"
+        ],
+        "ontario": [
+            "19th Feb, Monday - Family Day"
+        ],
+        "saskatchewan": [
+            "19th Feb, Monday - Family Day"
+        ],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": [],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": [
+            "01st Apr, Friday - Good Friday"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "20th May, Monday - Victoria Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": [
+            "21st Jun, Friday - National Indigenous Peoples Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": [
+            "01st Jul, Monday - Canada Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": [],
+        "alberta": [
+            "05th Aug, Monday - Heritage Day"
+        ],
+        "british_columbia": [
+            "05th Aug, Monday - British Columbia Day"
+        ],
+        "manitoba": [
+            "05th Aug, Monday - Civic Holiday"
+        ],
+        "new_brunswick": [
+            "05th Aug, Monday - New Brunswick Day"
+        ],
+        "northwest_territories": [
+            "05th Aug, Monday - Civic Holiday"
+        ],
+        "nunavut": [
+            "05th Aug, Monday - Civic Holiday"
+        ],
+        "nova_scotia": [
+            "05th Aug, Monday - Natal Day"
+        ],
+        "ontario": [
+            "05th Aug, Monday - Civic Holiday"
+        ],
+        "prince_edward_island": [],
+        "quebec": [],
+        "saskatchewan": [
+            "05th Aug, Monday - Civic Holiday"
+        ],
+        "yukon": []
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": [
+            "02nd Sep, Monday - Labour Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": [
+            "14th Oct, Monday - Thanksgiving Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": [
+            "11th Nov, Monday - Remembrance Day"
+        ],
+        "ontario": [],
+        "quebec": [],
+        "newfoundland_and_labrador": [],
+        "new_brunswick": [],
+        "nova_scotia": [],
+        "prince_edward_island": [],
+        "manitoba": [],
+        "alberta": [],
+        "british_columbia": [],
+        "saskatchewan": [],
+        "yukon": [],
+        "northwest_territories": [],
+        "nunavut": []
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "alberta": [],
+        "british_columbia": [],
+        "manitoba": [],
+        "nova_scotia": [],
+        "ontario": [],
+        "saskatchewan": [],
+        "prince_edward_island": [],
+        "quebec": [],
+        "new_brunswick": [],
+        "newfoundland_and_labrador": [],
+        "northwest_territories": [],
+        "nunavut": [],
+        "yukon": []
+    }
+}
+
+
