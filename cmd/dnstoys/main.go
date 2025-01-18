@@ -356,7 +356,7 @@ func main() {
 		}
 
 		h.registerWithTLDSupport("holidays", hldy, nil, mux)
-		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays @%s"})
+		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays.in or holidays.us @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
