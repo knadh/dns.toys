@@ -4,9 +4,8 @@
             "january"
         ],
         "national": [
-            "01st Jan, Wednesday - New Year's Day",
-            "02nd Jan, Thursday - New Year's Day Holiday",
-            "03rd Jan, Friday - New Year's Day Holiday"
+            "1st Jan, Wednesday - New Year's Day",
+            "7th Jan, Tuesday - Orthodox Christmas Day"
         ]
     },
     "february": {
@@ -14,7 +13,7 @@
             "february"
         ],
         "national": [
-            "11th Feb, Monday - National Foundation Day"
+            "23rd Feb, Sunday - Defender of the Fatherland Day"
         ]
     },
     "march": {
@@ -22,40 +21,37 @@
             "march"
         ],
         "national": [
-            "20th Mar, Thursday - Vernal Equinox Day"
+            "8th Mar, Saturday - International Women's Day"
         ]
     },
     "april": {
         "month": [
             "april"
         ],
-        "national": [
-            "29th Apr, Monday - Showa Day"
-        ]
+        "national": []
     },
     "may": {
         "month": [
             "may"
         ],
         "national": [
-            "03rd May, Saturday - Constitution Memorial Day",
-            "04th May, Sunday - Greenery Day",
-            "05th May, Monday - Children's Day"
+            "1st May, Thursday - Spring and Labor Day",
+            "9th May, Friday - Victory Day"
         ]
     },
     "june": {
         "month": [
             "june"
         ],
-        "national": []
+        "national": [
+            "12th Jun, Thursday - Russia Day"
+        ]
     },
     "july": {
         "month": [
             "july"
         ],
-        "national": [
-            "20th Jul, Sunday - Marine Day"
-        ]
+        "national": []
     },
     "august": {
         "month": [
@@ -67,25 +63,20 @@
         "month": [
             "september"
         ],
-        "national": [
-            "23rd Sep, Monday - Autumn Equinox Day"
-        ]
+        "national": []
     },
     "october": {
         "month": [
             "october"
         ],
-        "national": [
-            "14th Oct, Monday - Sports Day"
-        ]
+        "national": []
     },
     "november": {
         "month": [
             "november"
         ],
         "national": [
-            "03rd Nov, Sunday - Culture Day",
-            "23rd Nov, Saturday - Labor Thanksgiving Day"
+            "4th Nov, Tuesday - Unity Day"
         ]
     },
     "december": {
@@ -93,7 +84,7 @@
             "december"
         ],
         "national": [
-            "23rd Dec, Monday - Emperor's Birthday"
+            "31st Dec, Wednesday - New Year's Eve"
         ]
     }
 }

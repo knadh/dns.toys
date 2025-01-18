@@ -4,9 +4,7 @@
             "january"
         ],
         "national": [
-            "01st Jan, Wednesday - New Year's Day",
-            "02nd Jan, Thursday - New Year's Day Holiday",
-            "03rd Jan, Friday - New Year's Day Holiday"
+            "1st Jan, Wednesday - New Year's Day"
         ]
     },
     "february": {
@@ -14,7 +12,8 @@
             "february"
         ],
         "national": [
-            "11th Feb, Monday - National Foundation Day"
+            "10th Feb, Monday - Korean New Year",
+            "11th Feb, Tuesday - Korean New Year Holiday"
         ]
     },
     "march": {
@@ -22,53 +21,53 @@
             "march"
         ],
         "national": [
-            "20th Mar, Thursday - Vernal Equinox Day"
+            "1st Mar, Saturday - Independence Movement Day"
         ]
     },
     "april": {
         "month": [
             "april"
         ],
-        "national": [
-            "29th Apr, Monday - Showa Day"
-        ]
+        "national": []
     },
     "may": {
         "month": [
             "may"
         ],
         "national": [
-            "03rd May, Saturday - Constitution Memorial Day",
-            "04th May, Sunday - Greenery Day",
-            "05th May, Monday - Children's Day"
+            "5th May, Monday - Children's Day",
+            "15th May, Thursday - Teacher's Day"
         ]
     },
     "june": {
         "month": [
             "june"
         ],
-        "national": []
+        "national": [
+            "6th Jun, Friday - Memorial Day"
+        ]
     },
     "july": {
         "month": [
             "july"
         ],
-        "national": [
-            "20th Jul, Sunday - Marine Day"
-        ]
+        "national": []
     },
     "august": {
         "month": [
             "august"
         ],
-        "national": []
+        "national": [
+            "15th Aug, Friday - Liberation Day"
+        ]
     },
     "september": {
         "month": [
             "september"
         ],
         "national": [
-            "23rd Sep, Monday - Autumn Equinox Day"
+            "15th Sep, Monday - Chuseok",
+            "16th Sep, Tuesday - Chuseok Holiday"
         ]
     },
     "october": {
@@ -76,24 +75,22 @@
             "october"
         ],
         "national": [
-            "14th Oct, Monday - Sports Day"
+            "3rd Oct, Friday - National Foundation Day",
+            "9th Oct, Thursday - Hangul Day"
         ]
     },
     "november": {
         "month": [
             "november"
         ],
-        "national": [
-            "03rd Nov, Sunday - Culture Day",
-            "23rd Nov, Saturday - Labor Thanksgiving Day"
-        ]
+        "national": []
     },
     "december": {
         "month": [
             "december"
         ],
         "national": [
-            "23rd Dec, Monday - Emperor's Birthday"
+            "25th Dec, Thursday - Christmas Day"
         ]
     }
 }

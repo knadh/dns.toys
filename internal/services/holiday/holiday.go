@@ -3,7 +3,9 @@ package holiday
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
+	"sort"
 	"strings"
 	"time"
 )
@@ -41,16 +43,18 @@ func (h *Holiday) loadJson(countryCode string) (map[string][]string, error) {
 func (h *Holiday) Query(q string) ([]string, error) {
 	// _, m, _ := time.Now().Date()
 	splitQuery := strings.Split(q, ".")
-	state := splitQuery[0]
-	var countryCode string
+	var state, countryCode string
 
-	fmt.Println(splitQuery)
+	// fmt.Println(q)
 
-	if len(splitQuery) == 4 {
-		countryCode = splitQuery[2]
+	if len(splitQuery) > 1 {
+		state = splitQuery[0]
+		countryCode = splitQuery[1]
 	} else {
-		countryCode = "india"
+		countryCode = splitQuery[0]
 	}
+
+	fmt.Println(state, countryCode)
 
 	var results map[string][]string
 	var err error
@@ -67,13 +71,32 @@ func (h *Holiday) Query(q string) ([]string, error) {
 
 	results, err = h.loadJson(countryCode)
 
-	if err != nil {
-		return nil, err
+	if r := "Country Support To Be Added Soon!"; err != nil {
+		log.Printf("error preparing response: %v", err)
+		return []string{fmt.Sprintf(`%s 1 TXT "%s"`, q, r)}, nil
 	}
 
-	resultArr, exists := results[state]
+	// fmt.Println(results)
+	// resultArr, exists := results[state]
 
-	out := make([]string, 0, len(resultArr))
+	var resultsArr []string
+	exists := true
+
+	out := make([]string, 0, len(resultsArr))
+
+	if countryCode == "in" {
+		resultsArr, exists = results[state]
+	} else {
+		resultsArr = results["national"]
+		var stateRes []string
+		if state != "" {
+			stateRes, exists = results[state]
+			resultsArr = append(resultsArr, stateRes...)
+		}
+
+		fmt.Println(resultsArr, "holiday.go, line 91")
+		sort.Strings(resultsArr)
+	}
 
 	// in case of mispell
 	if !exists {
@@ -82,12 +105,12 @@ func (h *Holiday) Query(q string) ([]string, error) {
 	}
 
 	// in case no holiday that month in that state
-	if len(results[state]) == 0 {
+	if len(resultsArr) == 0 {
 		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, "No Holidays this month :("))
 		return out, nil
 	}
 
-	for _, r := range results[state] {
+	for _, r := range resultsArr {
 		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, r))
 	}
 

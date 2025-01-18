@@ -137,16 +137,21 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 	w.WriteMsg(m)
 }
 
-func (h *handlers) registerWithCountrySupport(queryName string, s Service, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
-	// might just make a pull request in the dns package to match with regex instead of exact matching
-	// but that doesnt make sense since different coutry codes are not subdomains, but a whole different domain
-	var country_codes = []string{".us", ".uk", ".ca", ".au", ".de", ".fr", ".in", ".jp", ".cn", ".br", ".ru", ".za", ".it", ".es", ".mx", ".kr", ".nl", ".se", ".ch", ".sg"}
+func (h *handlers) registerWithCountrySupport(queryName string, s Service, customTLDs []string, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
+	//Since the dns package deos an exact match of the suffix we will manually have to add the codes
+	country_codes := []string{".us", ".uk", ".ca", ".au", ".de", ".fr", ".in", ".jp", ".cn", ".br", ".ru", ".za", ".it", ".es", ".mx", ".kr", ".nl", ".se", ".ch", ".sg"}
+	var TLDs []string
+
+	if len(customTLDs) == 0 {
+		TLDs = country_codes
+	} else {
+		TLDs = customTLDs
+	}
 
 	f := func(w dns.ResponseWriter, r *dns.Msg) {
 		m := &dns.Msg{}
 		m.SetReply(r)
 		m.Compress = false
-		fmt.Println(m.Question)
 
 		if r.Opcode != dns.OpcodeQuery {
 			w.WriteMsg(m)
@@ -166,8 +171,12 @@ func (h *handlers) registerWithCountrySupport(queryName string, s Service, mux *
 			}
 
 			// Call the service with the incoming query.
-			// Strip the service suffix from the query eg: mumbai.time.
-			ans, err := s.Query(q.Name)
+			// Strip the service from the query
+			//
+			// eg: kerala.holidays.in will return "kerala.in"
+			// or holidays.in. will return "in"
+			ans, err := s.Query(cleanQueryWithCountryCode(q.Name, queryName))
+			fmt.Println(ans, "handlers.go; line 179")
 			if err != nil {
 				respErr(err, w, m)
 				return
@@ -191,10 +200,9 @@ func (h *handlers) registerWithCountrySupport(queryName string, s Service, mux *
 
 	h.services[queryName] = s
 
-	for _, v := range country_codes {
+	for _, v := range TLDs {
 		mux.HandleFunc(queryName+v+".", f)
 	}
-	// mux.HandleFunc(queryName+".in.", f)
 	return f
 }
 
@@ -260,6 +268,27 @@ func respErr(err error, w dns.ResponseWriter, m *dns.Msg) {
 // from the given query string.
 func cleanQuery(q, trimSuffix string) string {
 	return reClean.ReplaceAllString(strings.TrimSuffix(q, trimSuffix), "")
+}
+
+// Strips the query and returns the argument and code
+func cleanQueryWithCountryCode(q, queryName string) string {
+	cleaned := reClean.ReplaceAllString(q, "")
+	splitQuery := strings.Split(cleaned, ".")
+
+	strippedQuery := ""
+
+	for _, val := range splitQuery[:len(splitQuery)-1] {
+		if val == queryName {
+			if strippedQuery != "" {
+				strippedQuery += "."
+			}
+			continue
+		}
+
+		strippedQuery += val
+	}
+
+	return strippedQuery
 }
 
 // makeResp converts a []string of DNS responses to []dns.RR.
