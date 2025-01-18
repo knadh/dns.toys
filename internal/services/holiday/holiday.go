@@ -10,22 +10,42 @@ import (
 	"time"
 )
 
+// map model for ref
+// {
+// 	 countryCode: {
+// 			month: ["someMonth"]
+// 			national: []
+// 			...
+// 	 	}
+// }
+
 type Holiday struct {
-	fileP string              // points to holiday.json
-	data  map[string][]string //months state wise holiday
+	fileP string                         // points to holiday.json
+	data  map[string]map[string][]string //months state wise holiday
 }
 
 // returns Holiday instance with file path
 // idk how else to pass the file path from config to load json
 // might improve on this
 func New(file string) (*Holiday, error) {
-	return &Holiday{fileP: file}, nil
+	return &Holiday{fileP: file, data: map[string]map[string][]string{}}, nil
 }
 
 // loads data from disk and stores data in Holiday instance
 func (h *Holiday) loadJson(countryCode string) (map[string][]string, error) {
 
+	// match current month with last stored month
+	// fetch and parse json again only if month not matching
 	_, m, _ := time.Now().Date()
+	currMonth := strings.ToLower(m.String())
+
+	if len(h.data[countryCode]) != 0 && h.data[countryCode]["month"][0] == currMonth {
+		fmt.Println("cache hit!")
+		return h.data[countryCode], nil
+	}
+
+	fmt.Println("cache missed!")
+
 	var data map[string]map[string][]string
 
 	holidayJson, err := os.ReadFile(fmt.Sprintf(h.fileP, countryCode))
@@ -35,9 +55,9 @@ func (h *Holiday) loadJson(countryCode string) (map[string][]string, error) {
 
 	json.Unmarshal(holidayJson, &data)
 
-	h.data = data[strings.ToLower(m.String())]
+	h.data[countryCode] = data[currMonth]
 
-	return data[strings.ToLower(m.String())], err
+	return data[currMonth], err
 }
 
 func (h *Holiday) Query(q string) ([]string, error) {
@@ -51,10 +71,7 @@ func (h *Holiday) Query(q string) ([]string, error) {
 		countryCode = splitQuery[0]
 	}
 
-	var results map[string][]string
-	var err error
-
-	results, err = h.loadJson(countryCode)
+	results, err := h.loadJson(countryCode)
 
 	if r := "Country Support To Be Added Soon!"; err != nil {
 		log.Printf("error preparing response: %v", err)
@@ -66,18 +83,14 @@ func (h *Holiday) Query(q string) ([]string, error) {
 
 	out := make([]string, 0, len(resultsArr))
 
-	if countryCode == "in" {
-		resultsArr, exists = results[state]
-	} else {
-		resultsArr = results["national"]
-		var stateRes []string
-		if state != "" {
-			stateRes, exists = results[state]
-			resultsArr = append(resultsArr, stateRes...)
-		}
-
-		sort.Strings(resultsArr)
+	resultsArr = results["national"]
+	var stateRes []string
+	if state != "" {
+		stateRes, exists = results[state]
+		resultsArr = append(resultsArr, stateRes...)
 	}
+
+	sort.Strings(resultsArr)
 
 	// in case of mispell
 	if !exists {

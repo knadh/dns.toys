@@ -355,7 +355,7 @@ func main() {
 			lo.Fatalf("this is the error lmao: %v", err)
 		}
 
-		h.registerWithCountrySupport("holidays", hldy, nil, mux)
+		h.registerWithTLDSupport("holidays", hldy, nil, mux)
 		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays @%s"})
 	}
 

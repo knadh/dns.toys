@@ -137,7 +137,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 	w.WriteMsg(m)
 }
 
-func (h *handlers) registerWithCountrySupport(queryName string, s Service, customTLDs []string, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
+func (h *handlers) registerWithTLDSupport(queryName string, s Service, customTLDs []string, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
 	//Since the dns package deos an exact match of the suffix we will manually have to add the codes
 	country_codes := []string{".us", ".uk", ".ca", ".au", ".de", ".fr", ".in", ".jp", ".cn", ".br", ".ru", ".za", ".it", ".es", ".mx", ".kr", ".nl", ".se", ".ch", ".sg"}
 	var TLDs []string
@@ -175,8 +175,7 @@ func (h *handlers) registerWithCountrySupport(queryName string, s Service, custo
 			//
 			// eg: kerala.holidays.in will return "kerala.in"
 			// or holidays.in. will return "in"
-			ans, err := s.Query(cleanQueryWithCountryCode(q.Name, queryName))
-			fmt.Println(ans, "handlers.go; line 179")
+			ans, err := s.Query(cleanQueryWithTLD(q.Name, queryName))
 			if err != nil {
 				respErr(err, w, m)
 				return
@@ -271,7 +270,7 @@ func cleanQuery(q, trimSuffix string) string {
 }
 
 // Strips the query and returns the argument and code
-func cleanQueryWithCountryCode(q, queryName string) string {
+func cleanQueryWithTLD(q, queryName string) string {
 	cleaned := reClean.ReplaceAllString(q, "")
 	splitQuery := strings.Split(cleaned, ".")
 
