@@ -41,11 +41,8 @@ func (h *Holiday) loadJson(countryCode string) (map[string][]string, error) {
 }
 
 func (h *Holiday) Query(q string) ([]string, error) {
-	// _, m, _ := time.Now().Date()
 	splitQuery := strings.Split(q, ".")
 	var state, countryCode string
-
-	// fmt.Println(q)
 
 	if len(splitQuery) > 1 {
 		state = splitQuery[0]
@@ -54,20 +51,8 @@ func (h *Holiday) Query(q string) ([]string, error) {
 		countryCode = splitQuery[0]
 	}
 
-	fmt.Println(state, countryCode)
-
 	var results map[string][]string
 	var err error
-
-	// match current month with last stored month
-	// fetch and parse json again only if month not matching
-	// not valid after making json universal
-
-	// if len(h.data) != 0 && h.data["month"][0] == strings.ToLower(m.String()) {
-	// 	results = h.data
-	// } else {
-	// 	results, err = h.loadJson(countryCode)
-	// }
 
 	results, err = h.loadJson(countryCode)
 
@@ -75,9 +60,6 @@ func (h *Holiday) Query(q string) ([]string, error) {
 		log.Printf("error preparing response: %v", err)
 		return []string{fmt.Sprintf(`%s 1 TXT "%s"`, q, r)}, nil
 	}
-
-	// fmt.Println(results)
-	// resultArr, exists := results[state]
 
 	var resultsArr []string
 	exists := true
@@ -94,7 +76,6 @@ func (h *Holiday) Query(q string) ([]string, error) {
 			resultsArr = append(resultsArr, stateRes...)
 		}
 
-		fmt.Println(resultsArr, "holiday.go, line 91")
 		sort.Strings(resultsArr)
 	}
 
