@@ -3,3 +3,4 @@ config.toml
 wordnet
 cities15000.txt
 *.snapshot
+ifsc
