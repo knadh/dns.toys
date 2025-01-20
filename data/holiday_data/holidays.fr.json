@@ -1,0 +1,216 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day (Jour de l'An)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": [],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": [
+            "21st Apr, Monday - Easter Monday (Lundi de P\u00e2ques)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "01st May, Thursday - Labor Day (F\u00eate du Travail)",
+            "08th May, Thursday - Victory in Europe Day (F\u00eate de la Victoire)",
+            "29th May, Thursday - Ascension Day (Jour de l'Ascension)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": [],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": [
+            "14th Jul, Monday - Bastille Day (F\u00eate Nationale)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": [
+            "15th Aug, Friday - Assumption Day (Assomption)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": []
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": [],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": [
+            "01st Nov, Saturday - All Saints' Day (La Toussaint)",
+            "11th Nov, Tuesday - Armistice Day (Jour de l'Armistice)"
+        ],
+        "alsace_moselle": [],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": [
+            "25th Dec, Thursday - Christmas Day (No\u00ebl)"
+        ],
+        "alsace_moselle": [
+            "26th Dec, Friday - St. Stephen's Day (Deuxi\u00e8me jour de No\u00ebl)"
+        ],
+        "guadeloupe": [],
+        "martinique": [],
+        "guyane": [],
+        "r\u00e9union": [],
+        "mayotte": [],
+        "new_caledonia": [],
+        "polynesia": [],
+        "saint_pierre_miquelon": [],
+        "wallis_futuna": [],
+        "corsica": []
+    }
+}
