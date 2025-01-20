@@ -19,6 +19,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -344,6 +345,14 @@ func main() {
 		}
 		h.register("excuse", e, mux)
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
+	}
+
+	// NanoID Generator
+	if ko.Bool("nanoid.enabled") {
+		n := nanoid.New(ko.Int("nanoid.max_results"), ko.Int("nanoid.max_length"))
+		h.register("nanoid", n, mux)
+
+		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
