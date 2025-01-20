@@ -19,14 +19,14 @@ import (
 // 	 	}
 // }
 
+const HOLIDAY_TTL = 86400
+
 type Holiday struct {
 	fileP string                         // points to holiday.json
 	data  map[string]map[string][]string //months state wise holiday
 }
 
 // returns Holiday instance with file path
-// idk how else to pass the file path from config to load json
-// might improve on this
 func New(file string) (*Holiday, error) {
 	return &Holiday{fileP: file, data: map[string]map[string][]string{}}, nil
 }
@@ -105,7 +105,7 @@ func (h *Holiday) Query(q string) ([]string, error) {
 	}
 
 	for _, r := range resultsArr {
-		out = append(out, fmt.Sprintf(`%s 1 TXT "%s"`, q, r))
+		out = append(out, fmt.Sprintf(`%s %d TXT "%s"`, q, HOLIDAY_TTL, r))
 	}
 
 	return out, nil
