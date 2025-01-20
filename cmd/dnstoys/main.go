@@ -20,6 +20,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/holiday"
+	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -357,6 +358,13 @@ func main() {
 
 		h.registerWithTLDSupport("holidays", hldy, nil, mux)
 		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays.in or holidays.us @%s"})
+	}
+
+	//NanoID Generator
+	if ko.Bool("nanoid.enabled") {
+		n := nanoid.New(ko.Int("nanoid.max_results"), ko.Int("nanoid.max_length"))
+		h.register("nanoid", n, mux)
+		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
