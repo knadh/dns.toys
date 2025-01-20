@@ -20,6 +20,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/ifsc"
+	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
@@ -347,6 +348,7 @@ func main() {
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
 	}
 
+	// IFSC service
 	if ko.Bool("ifsc.enabled") {
 		e, err := ifsc.New(ko.MustString("ifsc.ifsc_path"))
 		if err != nil {
@@ -354,6 +356,14 @@ func main() {
 		}
 		h.register("ifsc", e, mux)
 		help = append(help, []string{"lookup bank details for IFSC code", "dig ABNA0000001.ifsc @%s"})
+	}
+
+	// NanoID Generator
+	if ko.Bool("nanoid.enabled") {
+		n := nanoid.New(ko.Int("nanoid.max_results"), ko.Int("nanoid.max_length"))
+		h.register("nanoid", n, mux)
+
+		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
