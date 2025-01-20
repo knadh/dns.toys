@@ -99,7 +99,12 @@ file = "data/excuses.txt"
 [ifsc]
 enabled = true
 
-# You will need to manually download the IFSC data
-# Download from https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
-# Untar the folder and save its contents within data/ifsc directory
+# Use one of the following options to retrieve the latest IFSC data
+# Option 1:
+#   cd scripts
+#   sh update-ifsc.sh
+# Option 2:
+#   You will need to manually download the IFSC data
+#   Download from https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
+#   Untar the folder and save its contents within data/ifsc directory
 ifsc_path = "data/ifsc"
