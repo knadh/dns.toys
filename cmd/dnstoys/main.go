@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/knadh/dns.toys/internal/geo"
+	"github.com/knadh/dns.toys/internal/ifsc"
 	"github.com/knadh/dns.toys/internal/services/aerial"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
@@ -353,6 +354,16 @@ func main() {
 		h.register("nanoid", n, mux)
 
 		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})
+	}
+
+	// IFSC service
+	if ko.Bool("ifsc.enabled") {
+		e, err := ifsc.New(ko.MustString("ifsc.ifsc_path"))
+		if err != nil {
+			lo.Fatalf("error initializing ifsc service: %v", err)
+		}
+		h.register("ifsc", e, mux)
+		help = append(help, []string{"lookup bank details for IFSC code", "dig ABNA0000001.ifsc @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
