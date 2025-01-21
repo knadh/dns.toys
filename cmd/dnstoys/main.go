@@ -358,12 +358,12 @@ func main() {
 
 	// IFSC service
 	if ko.Bool("ifsc.enabled") {
-		e, err := ifsc.New(ko.MustString("ifsc.ifsc_path"))
+		e, err := ifsc.New(ko.MustString("ifsc.data_path"))
 		if err != nil {
 			lo.Fatalf("error initializing ifsc service: %v", err)
 		}
 		h.register("ifsc", e, mux)
-		help = append(help, []string{"lookup bank details for IFSC code", "dig ABNA0000001.ifsc @%s"})
+		help = append(help, []string{"lookup (Indian) bank details by IFSC code", "dig ABNA0000001.ifsc @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

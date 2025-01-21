@@ -3,7 +3,6 @@ package ifsc
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -14,97 +13,49 @@ const (
 	ifscCodeLen = 11
 )
 
-type Branch struct {
+type branch struct {
 	Bank     string `json:"BANK"`
 	IFSC     string `json:"IFSC"`
 	MICR     string `json:"MICR"`
 	Branch   string `json:"BRANCH"`
 	Address  string `json:"ADDRESS"`
 	State    string `json:"STATE"`
-	Contact  string `json:"CONTACT"`
-	UPI      bool   `json:"UPI"`
-	RTGS     bool   `json:"RTGS"`
 	City     string `json:"CITY"`
 	Centre   string `json:"CENTRE"`
 	District string `json:"DISTRICT"`
-	NEFT     bool   `json:"NEFT"`
-	IMPS     bool   `json:"IMPS"`
-	SWIFT    string `json:"SWIFT"`
-	ISO3166  string `json:"ISO3166"`
-}
-
-type BranchDetails struct {
-	Bank     string
-	MICR     string
-	Branch   string
-	Address  string
-	State    string
-	Contact  string
-	UPI      bool
-	RTGS     bool
-	City     string
-	Centre   string
-	District string
-	NEFT     bool
-	IMPS     bool
-	SWIFT    string
-	ISO3166  string
 }
 
 type IFSC struct {
-	data map[string]BranchDetails
+	data map[string]branch
 }
 
 func New(dir string) (*IFSC, error) {
-	// Load IFSCs from disk
 	log.Printf("loading IFSC data from %s", dir)
 	files, err := os.ReadDir(dir)
 	if err != nil {
-		return nil, fmt.Errorf("error accessing IFSC directory: %w", err)
+		return nil, fmt.Errorf("error reading IFSC directory: %w", err)
 	}
 
-	var ifsc IFSC
-	ifsc.data = make(map[string]BranchDetails)
-
+	// Read individual per-bank IFSC files.
+	data := make(map[string]branch)
 	for _, file := range files {
-		var jsonFilePath = filepath.Join(dir, file.Name())
-		jsonFile, err := os.Open(jsonFilePath)
+		path := filepath.Join(dir, file.Name())
+		b, err := os.ReadFile(path)
 		if err != nil {
-			return nil, fmt.Errorf("error opening IFSC JSON file: %w", err)
-		}
-		defer jsonFile.Close()
-
-		byteValue, err := io.ReadAll(jsonFile)
-		if err != nil {
-			return nil, fmt.Errorf("error reading IFSC JSON file: %w", err)
+			return nil, fmt.Errorf("error opening IFSC JSON file: %s: %w", path, err)
 		}
 
-		var branches map[string]Branch
-		json.Unmarshal(byteValue, &branches)
+		var branches map[string]branch
+		if err := json.Unmarshal(b, &branches); err != nil {
+			return nil, fmt.Errorf("error unmarshalling file: %s: %v", path, err)
+		}
 
-		for _, v := range branches {
-			ifsc.data[v.IFSC] = BranchDetails{
-				Bank:     v.Bank,
-				MICR:     v.MICR,
-				Branch:   v.Branch,
-				Address:  v.Address,
-				State:    v.State,
-				Contact:  v.Contact,
-				UPI:      v.UPI,
-				RTGS:     v.RTGS,
-				City:     v.City,
-				Centre:   v.Centre,
-				District: v.District,
-				NEFT:     v.NEFT,
-				IMPS:     v.IMPS,
-				SWIFT:    v.SWIFT,
-				ISO3166:  v.ISO3166,
-			}
+		for _, b := range branches {
+			data[b.IFSC] = b
 		}
 	}
-	log.Printf("loaded IFSC data")
 
-	return &ifsc, nil
+	return &IFSC{data: data}, nil
 }
 
 func (i *IFSC) Query(q string) ([]string, error) {
@@ -120,21 +71,14 @@ func (i *IFSC) Query(q string) ([]string, error) {
 	value, ok := i.data[ifscCode]
 	if ok {
 		output = []string{
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "BANK: %s"`, ifscCode, value.Bank),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "MICR: %s"`, ifscCode, value.MICR),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "BRANCH: %s"`, ifscCode, value.Branch),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "ADDRESS: %s"`, ifscCode, value.Address),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "STATE: %s"`, ifscCode, value.State),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "CONTACT: %s"`, ifscCode, value.Contact),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "UPI: %t"`, ifscCode, value.UPI),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "RTGS: %t"`, ifscCode, value.RTGS),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "CITY: %s"`, ifscCode, value.City),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "CENTRE: %s"`, ifscCode, value.Centre),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "DISTRICT: %s"`, ifscCode, value.District),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "NEFT: %t"`, ifscCode, value.NEFT),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "IMPS: %t"`, ifscCode, value.IMPS),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "SWIFT: %s"`, ifscCode, value.SWIFT),
-			fmt.Sprintf(`%s.ifsc. 1 IN TXT "ISO3166: %s"`, ifscCode, value.ISO3166),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "Bank: %s"`, ifscCode, value.Bank),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "Micr: %s"`, ifscCode, value.MICR),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "Branch: %s"`, ifscCode, value.Branch),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "Address: %s"`, ifscCode, value.Address),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "City: %s"`, ifscCode, value.City),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "Centre: %s"`, ifscCode, value.Centre),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "District: %s"`, ifscCode, value.District),
+			fmt.Sprintf(`%s.ifsc. 1 IN TXT "State: %s"`, ifscCode, value.State),
 		}
 	} else {
 		output = []string{fmt.Sprintf(`%s.ifsc. 1 IN TXT "IFSC code %s not found"`, ifscCode, ifscCode)}

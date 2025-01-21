@@ -106,4 +106,4 @@ enabled = true
 
 # Run scripts/fetch-ifsc.sh data/ifsc to fetch the data from
 # https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
-ifsc_path = "data/ifsc"
+data_path = "data/ifsc"
