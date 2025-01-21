@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# change data path as required
-cd ../data
-mkdir -p ifsc
-cd ifsc
-mkdir -p by-bank
-rm -r by-bank
-curl -L -s $(curl -s https://api.github.com/repos/razorpay/ifsc/releases/latest | grep "browser_download_url" | grep "by-bank.tar.gz" | sed -E 's/.*"([^"]+)".*/\1/') -o by-bank.tar.gz
-tar -xzf by-bank.tar.gz
-rm by-bank.tar.gz
-mv by-bank/*.json .
-rm -r by-bank
+if [ -z "$1" ]; then
+    echo "Usage: $(basename $0) ./path/ifsc"
+    exit 1
+fi
+
+URL=$(curl -s https://api.github.com/repos/razorpay/ifsc/releases/latest | grep "browser_download_url" | grep "by-bank.tar.gz" | sed -E 's/.*"([^"]+)".*/\1/')
+
+echo "downloading $URL ==> $1"
+curl -L "$URL" | tar -xz --strip-components=1 -C "$1"
