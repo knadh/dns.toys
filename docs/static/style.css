@@ -1,7 +1,7 @@
 :root {
 	--primary: #166ab9;
 	--secondary: #222;
-	--light: #999;
+	--light: #777;
 }
 
 * {
@@ -53,9 +53,11 @@ figcaption {
 }
 
 code {
-	background: #f3f3f3;
-	padding: 3px;
+	padding: 2px 10px;
 	border-radius: 3px;
+	font-size: 0.875rem;
+	cursor: pointer;
+	color: var(--primary);
 }
 	code.block {
 		background: #f4f4f4;
@@ -90,9 +92,50 @@ code {
 	}
 
 .container {
-	max-width: 800px;
+	max-width: 1100px;
 	margin: 60px auto 0 auto;
 }
+
+table {
+	width: 100%;
+}
+table td {
+	vertical-align: top;
+	border-bottom: 1px solid #ddd;
+	padding: 15px 0;
+}
+	table.services tr td:first-child {
+		width: 50%;
+		padding-right: 30px;
+	}
+	table tr:last-child td {
+		border-bottom: none;
+	}
+	table th {
+		text-align: left;
+		font-size: 1.3rem;
+		padding-bottom: 15px;
+		border-bottom: 1px solid #ddd;
+	}
+	table th span {
+		font-size: 1rem;
+		display: inline-block;
+		color: var(--light);
+		margin-left: 15px;
+	}
+	table .name {
+		font-weight: bold;
+	}
+	table .desc {
+		color: var(--light);
+		font-size: 0.875rem;
+		line-height: 1.3rem;
+		display: block;
+	}
+	table code {
+		display: block;
+	}
+	
 
 .header {
 	text-align: center;
@@ -143,4 +186,27 @@ footer {
 	.intro {
 		text-align: center;
 	}
+}
+
+@media screen and (max-width: 500px) {
+    table, thead, tbody, tr, td {
+        display: block;
+    }
+    
+    td {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+	table tr td:first-child {
+		width: 100% !important;
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+	table tr td:last-child {
+		padding-bottom: 30px;
+	}
+    
+    thead {
+        display: none;
+    }
 }
