@@ -349,7 +349,7 @@ func main() {
 
 	// NanoID Generator
 	if ko.Bool("nanoid.enabled") {
-		n := nanoid.New(ko.Int("nanoid.max_results"), ko.Int("nanoid.max_length"))
+		n := nanoid.New(ko.MustInt("nanoid.max_results"), ko.MustInt("nanoid.max_length"))
 		h.register("nanoid", n, mux)
 
 		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})

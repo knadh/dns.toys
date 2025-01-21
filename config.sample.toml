@@ -95,3 +95,8 @@ enabled = true
 [excuse]
 enabled = true
 file = "data/excuses.txt"
+
+[nanoid]
+enabled = true
+max_length = 64
+max_results = 10
