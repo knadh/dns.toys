@@ -1,0 +1,96 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "1st Jan, Wednesday - New Year's Day"
+        ]
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [
+            "10th Feb, Monday - Korean New Year",
+            "11th Feb, Tuesday - Korean New Year Holiday"
+        ]
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": [
+            "1st Mar, Saturday - Independence Movement Day"
+        ]
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": []
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "5th May, Monday - Children's Day",
+            "15th May, Thursday - Teacher's Day"
+        ]
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": [
+            "6th Jun, Friday - Memorial Day"
+        ]
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": []
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": [
+            "15th Aug, Friday - Liberation Day"
+        ]
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": [
+            "15th Sep, Monday - Chuseok",
+            "16th Sep, Tuesday - Chuseok Holiday"
+        ]
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": [
+            "3rd Oct, Friday - National Foundation Day",
+            "9th Oct, Thursday - Hangul Day"
+        ]
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": []
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": [
+            "25th Dec, Thursday - Christmas Day"
+        ]
+    }
+}

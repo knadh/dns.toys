@@ -96,6 +96,10 @@ enabled = true
 enabled = true
 file = "data/excuses.txt"
 
+[holidays]
+enabled = true
+file = "data/holiday_data/holidays.%s.json"
+
 [nanoid]
 enabled = true
 max_length = 64

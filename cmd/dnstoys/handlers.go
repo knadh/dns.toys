@@ -125,7 +125,7 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 			m.Answer = append(m.Answer, rr)
 		// Handle ipv6.
 		case ip.To16() != nil:
-			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"",IP_TTL, ip.To16().String()))
+			rr, err := dns.NewRR(fmt.Sprintf("ip. %d TXT \"%s\"", IP_TTL, ip.To16().String()))
 			if err != nil {
 				lo.Printf("error preparing ip response: %v", err)
 				return
@@ -135,6 +135,74 @@ func (h *handlers) handleEchoIP(w dns.ResponseWriter, r *dns.Msg) {
 	}
 
 	w.WriteMsg(m)
+}
+
+func (h *handlers) registerWithTLDSupport(queryName string, s Service, customTLDs []string, mux *dns.ServeMux) func(w dns.ResponseWriter, r *dns.Msg) {
+	//Since the dns package deos an exact match of the suffix we will manually have to add the codes
+	country_codes := []string{".us", ".uk", ".ca", ".au", ".de", ".fr", ".in", ".jp", ".cn", ".br", ".ru", ".za", ".it", ".es", ".mx", ".kr", ".nl", ".se", ".ch", ".sg"}
+	var TLDs []string
+
+	if len(customTLDs) == 0 {
+		TLDs = country_codes
+	} else {
+		TLDs = customTLDs
+	}
+
+	f := func(w dns.ResponseWriter, r *dns.Msg) {
+		m := &dns.Msg{}
+		m.SetReply(r)
+		m.Compress = false
+
+		if r.Opcode != dns.OpcodeQuery {
+			w.WriteMsg(m)
+			return
+		}
+
+		if len(m.Question) > 5 {
+			respErr(errors.New("too many queries."), w, m)
+			return
+		}
+
+		// Execute the service on all the questions.
+		out := []dns.RR{}
+		for _, q := range m.Question {
+			if q.Qtype != dns.TypeTXT && q.Qtype != dns.TypeA {
+				continue
+			}
+
+			// Call the service with the incoming query.
+			// Strip the service from the query
+			//
+			// eg: kerala.holidays.in will return "kerala.in"
+			// or holidays.in. will return "in"
+			ans, err := s.Query(cleanQueryWithTLD(q.Name, queryName))
+			if err != nil {
+				respErr(err, w, m)
+				return
+			}
+
+			// Convert string responses to dns.RR{}.
+			o, err := makeResp(ans)
+			if err != nil {
+				log.Printf("error preparing response: %v", err)
+				respErr(errors.New("error preparing response."), w, m)
+				return
+			}
+
+			out = append(out, o...)
+		}
+
+		// Write the response.
+		m.Answer = out
+		w.WriteMsg(m)
+	}
+
+	h.services[queryName] = s
+
+	for _, v := range TLDs {
+		mux.HandleFunc(queryName+v+".", f)
+	}
+	return f
 }
 
 // handlePi returns values of pi relevant for the record type.
@@ -199,6 +267,27 @@ func respErr(err error, w dns.ResponseWriter, m *dns.Msg) {
 // from the given query string.
 func cleanQuery(q, trimSuffix string) string {
 	return reClean.ReplaceAllString(strings.TrimSuffix(q, trimSuffix), "")
+}
+
+// Strips the query and returns the argument and code
+func cleanQueryWithTLD(q, queryName string) string {
+	cleaned := reClean.ReplaceAllString(q, "")
+	splitQuery := strings.Split(cleaned, ".")
+
+	strippedQuery := ""
+
+	for _, val := range splitQuery[:len(splitQuery)-1] {
+		if val == queryName {
+			if strippedQuery != "" {
+				strippedQuery += "."
+			}
+			continue
+		}
+
+		strippedQuery += val
+	}
+
+	return strippedQuery
 }
 
 // makeResp converts a []string of DNS responses to []dns.RR.

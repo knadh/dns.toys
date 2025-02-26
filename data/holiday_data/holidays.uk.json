@@ -1,0 +1,147 @@
+{
+    "january": {
+        "month": ["january"],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day"
+        ],
+        "england_wales": [
+            "01st Jan, Wednesday - New Year's Day"
+        ],
+        "scotland": [
+            "01st Jan, Wednesday - New Year's Day",
+            "02nd Jan, Thursday - New Year's Day Holiday"
+        ],
+        "northern_ireland": [
+            "01st Jan, Wednesday - New Year's Day",
+            "02nd Jan, Thursday - New Year's Day Holiday"
+        ]
+    },
+    "february": {
+        "month": ["february"],
+        "national": [],
+        "england_wales": [],
+        "scotland": [],
+        "northern_ireland": []
+    },
+    "march": {
+        "month": ["march"],
+        "national": [],
+        "england_wales": [],
+        "scotland": [],
+        "northern_ireland": []
+    },
+    "april": {
+        "month": ["april"],
+        "national": [
+            "19th Apr, Friday - Good Friday"
+        ],
+        "england_wales": [
+            "19th Apr, Friday - Good Friday"
+        ],
+        "scotland": [
+            "19th Apr, Friday - Good Friday"
+        ],
+        "northern_ireland": [
+            "19th Apr, Friday - Good Friday"
+        ]
+    },
+    "may": {
+        "month": ["may"],
+        "national": [
+            "06th May, Monday - Early May Bank Holiday",
+            "27th May, Monday - Spring Bank Holiday"
+        ],
+        "england_wales": [
+            "06th May, Monday - Early May Bank Holiday",
+            "27th May, Monday - Spring Bank Holiday"
+        ],
+        "scotland": [
+            "06th May, Monday - Early May Bank Holiday"
+        ],
+        "northern_ireland": [
+            "06th May, Monday - Early May Bank Holiday",
+            "27th May, Monday - Spring Bank Holiday"
+        ]
+    },
+    "june": {
+        "month": ["june"],
+        "national": [],
+        "england_wales": [],
+        "scotland": [],
+        "northern_ireland": []
+    },
+    "july": {
+        "month": ["july"],
+        "national": [
+            "15th Jul, Monday - Battle of the Boyne (Northern Ireland only)"
+        ],
+        "england_wales": [],
+        "scotland": [],
+        "northern_ireland": [
+            "15th Jul, Monday - Battle of the Boyne"
+        ]
+    },
+    "august": {
+        "month": ["august"],
+        "national": [
+            "05th Aug, Monday - Summer Bank Holiday"
+        ],
+        "england_wales": [
+            "05th Aug, Monday - Summer Bank Holiday"
+        ],
+        "scotland": [
+            "05th Aug, Monday - Summer Bank Holiday"
+        ],
+        "northern_ireland": [
+            "05th Aug, Monday - Summer Bank Holiday"
+        ]
+    },
+    "september": {
+        "month": ["september"],
+        "national": [],
+        "england_wales": [],
+        "scotland": [],
+        "northern_ireland": []
+    },
+    "october": {
+        "month": ["october"],
+        "national": [
+            "28th Oct, Monday - Early Autumn Bank Holiday (Scotland only)"
+        ],
+        "england_wales": [],
+        "scotland": [
+            "28th Oct, Monday - Early Autumn Bank Holiday"
+        ],
+        "northern_ireland": []
+    },
+    "november": {
+        "month": ["november"],
+        "national": [
+            "05th Nov, Tuesday - Guy Fawkes Night"
+        ],
+        "england_wales": [
+            "05th Nov, Tuesday - Guy Fawkes Night"
+        ],
+        "scotland": [],
+        "northern_ireland": []
+    },
+    "december": {
+        "month": ["december"],
+        "national": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "england_wales": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "scotland": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "northern_ireland": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ]
+    }
+}

@@ -1,0 +1,256 @@
+{
+    "january": {
+        "month": ["january"],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "new-south-wales": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "victoria": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "queensland": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "south-australia": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "western-australia": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "tasmania": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "australian-capital-territory": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ],
+        "northern-territory": [
+            "01st Jan, Wednesday - New Year's Day",
+            "26th Jan, Sunday - Australia Day"
+        ]
+    },
+    "february": {
+        "month": ["february"],
+        "national": [],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "march": {
+        "month": ["march"],
+        "national": [
+            "02nd Mar, Monday - Labour Day (Western Australia)",
+            "09th Mar, Monday - Canberra Day (Australian Capital Territory)"
+        ],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [
+            "02nd Mar, Monday - Labour Day"
+        ],
+        "tasmania": [],
+        "australian-capital-territory": [
+            "09th Mar, Monday - Canberra Day"
+        ],
+        "northern-territory": []
+    },
+    "april": {
+        "month": ["april"],
+        "national": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "new-south-wales": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "victoria": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "queensland": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "south-australia": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "western-australia": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "tasmania": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "australian-capital-territory": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ],
+        "northern-territory": [
+            "19th Apr, Friday - Good Friday",
+            "22nd Apr, Monday - Easter Monday"
+        ]
+    },
+    "may": {
+        "month": ["may"],
+        "national": [
+            "06th May, Monday - Labour Day (Australian Capital Territory, New South Wales, South Australia)",
+            "13th May, Monday - Reconciliation Day (Australian Capital Territory)"
+        ],
+        "new-south-wales": [
+            "06th May, Monday - Labour Day"
+        ],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [
+            "06th May, Monday - Labour Day"
+        ],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [
+            "06th May, Monday - Labour Day",
+            "13th May, Monday - Reconciliation Day"
+        ],
+        "northern-territory": []
+    },
+    "june": {
+        "month": ["june"],
+        "national": [],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "july": {
+        "month": ["july"],
+        "national": [],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "august": {
+        "month": ["august"],
+        "national": [
+            "05th Aug, Monday - Bank Holiday (New South Wales, Queensland, South Australia)"
+        ],
+        "new-south-wales": [
+            "05th Aug, Monday - Bank Holiday"
+        ],
+        "victoria": [],
+        "queensland": [
+            "05th Aug, Monday - Bank Holiday"
+        ],
+        "south-australia": [
+            "05th Aug, Monday - Bank Holiday"
+        ],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "september": {
+        "month": ["september"],
+        "national": [],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "october": {
+        "month": ["october"],
+        "national": [],
+        "new-south-wales": [],
+        "victoria": [],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "november": {
+        "month": ["november"],
+        "national": [
+            "05th Nov, Tuesday - Melbourne Cup Day (Victoria only)"
+        ],
+        "new-south-wales": [],
+        "victoria": [
+            "05th Nov, Tuesday - Melbourne Cup Day"
+        ],
+        "queensland": [],
+        "south-australia": [],
+        "western-australia": [],
+        "tasmania": [],
+        "australian-capital-territory": [],
+        "northern-territory": []
+    },
+    "december": {
+        "month": ["december"],
+        "national": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "new-south-wales": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "victoria": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "queensland": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "south-australia": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "western-australia": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "tasmania": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "australian-capital-territory": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ],
+        "northern-territory": [
+            "25th Dec, Wednesday - Christmas Day",
+            "26th Dec, Thursday - Boxing Day"
+        ]
+    }
+}
