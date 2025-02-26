@@ -29,9 +29,6 @@
 			dns.toys is a DNS server that takes creative liberties with the DNS
 			protocol to offer handy utilities and services
 			that are easily accessible via the command line.
-		</p>
-
-		<p>
 			Copy and run the below commands to try it out.
 		</p>
 	</section>
@@ -248,44 +245,135 @@
         <p>dig 5.10.nanoid @dns.toys</p>
     </code>
     <p>Generate N NanoIDs with specified length.</p>
+	<section>
+		<table class="box services">
+			<thead>
+				<tr>
+					<th>Service</th>
+					<th>Usage<span>(Click to copy)</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span class="name">World time</span><br><span class="desc">Get current time for cities. Pass city names without spaces suffixed with .time. Optional two letter country codes.</span></td>
+					<td><code>dig mumbai.time @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Timezone conversion</span><br><span class="desc">Convert time between cities using format YYYY-MM-DDTHH:MM-$fromCity-$toCity</span></td>
+					<td><code>dig 2023-05-28T14:00-mumbai-paris/fr.time @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Weather</span><br><span class="desc">Get weather for cities. Pass city names without spaces. Optional country codes.</span></td>
+					<td><code>dig mumbai.weather @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Unit conversion</span><br><span class="desc">Convert between 70+ different units</span></td>
+					<td><code>dig 42km-mi.unit @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Currency conversion</span><br><span class="desc">Convert between currencies using daily rates</span></td>
+					<td><code>dig 100USD-INR.fx @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">IP echo</span><br><span class="desc">Show your IPv4 or IPv6 address</span></td>
+					<td><code>dig -4 ip @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Number to words</span><br><span class="desc">Convert numbers to English words</span></td>
+					<td><code>dig 987654321.words @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">CIDR range</span><br><span class="desc">Find first and last usable IP in subnet</span></td>
+					<td><code>dig 10.0.0.0/24.cidr @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Base conversion</span><br><span class="desc">Convert between number bases (hex, dec, oct, bin)</span></td>
+					<td><code>dig 100dec-hex.base @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Pi</span><br><span class="desc">Print digits of Pi</span></td>
+					<td><code>dig pi @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Dictionary</span><br><span class="desc">Get English word definitions (use dashes for spaces)</span></td>
+					<td><code>dig fun.dict @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Dice roll</span><br><span class="desc">Roll dice with specified number and sides</span></td>
+					<td><code>dig 3d20/2.dice @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Coin toss</span><br><span class="desc">Flip one or more coins</span></td>
+					<td><code>dig 2.coin @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Random number generation</span><br><span class="desc">Generate random number in a given range</span></td>
+					<td><code>dig 1-100.rand @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Epoch conversion</span><br><span class="desc">Convert Unix timestamp to readable date</span></td>
+					<td><code>dig 784783800.epoch @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Aerial distance</span><br><span class="desc">Calculate distance between lat-long pairs</span></td>
+					<td><code>dig 12.9352,77.6245/12.9698,77.7500.aerial @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">UUID generation</span><br><span class="desc">Generate UUIDs (v4)</span></td>
+					<td><code>dig 5.uuid @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Sudoku solver</span><br><span class="desc">Solve Sudoku puzzles (use 0 for empty cells)</span></td>
+					<td><code>dig 002840003...sudoku @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">Developer excuses</span><br><span class="desc">Get a random developer excuse</span></td>
+					<td><code>dig excuse @dns.toys</code></td>
+				</tr>
+        
+				<tr>
+					<td><span class="name">Holiday List</span><br><span class="desc">Get list of holidays from the current month</span></td>
+					<td><code>dig kerala.holidays.in or holidays.us @dns.toys</code></td>
+				</tr>
+        
+				<tr>
+					<td><span class="name">NanoID generation</span><br><span class="desc">Generate NanoIDs with specified length: $len.$num</span></td>
+					<td><code>dig 5.10.nanoid @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">IFSC lookup</span><br><span class="desc">Get bank (India) details for IFSC code</span></td>
+					<td><code>dig ABNA0000001.ifsc @dns.toys</code></td>
+				</tr>
+			</tbody>
+		</table>
 	</section>
 
 	<section>
-		<h1>Shortcut function</h1>
-		<div class="box">
-			<h3>Bash</h3>
-			<p>
-				Add this bash alias to your <code>~/.bashrc</code> file.
-				The <code>+</code> args show cleaner output from dig.
-			</p>
-			<code class="block">
-				<p>alias dy="dig +short @dns.toys"</p>
-			</code>
-
-			<h3>Fish</h3>
-			<p>
-				Add this to your fish config file.
-			</p>
-			<code class="block">
-				<p>alias dy="dig +noall +answer +additional $argv @dns.toys"</p>
-			</code>
-
-			<h3>Zsh</h3>
-			<p>
-				Add this zsh alias to your <code>~/.zshrc</code> file.
-				The <code>+</code> args show cleaner output from dig.
-			</p>
-			<code class="block">
-				<p>alias dy="dig +short @dns.toys"</p>
-			</code>
-
-			<p>Then, use the dy command as a shortcut.</p>
-			<code class="block">
-				<p>dy berlin.time</p>
-				<p>dy mumbai.weather</p>
-				<p>dy 100USD-INR.fx</p>
-			</code>
-		</div>
+		<h1>Shortcut functions</h1>
+		<p>Add a shortcut command <code>dy</code> which can be used like <code>dy mumbai.weather</code></p>
+		
+		<table class="box">
+			<thead>
+				<tr>
+					<th>Shell</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Bash</td>
+					<td>Add to ~/.bashrc <code>alias dy="dig +short @dns.toys"</code></td>
+				</tr>
+				<tr>
+					<td>Fish</td>
+					<td>Add to ~/.config/fish/config.fish <code>alias dy="dig +noall +answer +additional $argv @dns.toys"</code></td>
+				</tr>
+				<tr>
+					<td>Zsh</td>
+					<td>Add to ~/.zshrc <code>alias dy="dig +short @dns.toys"</code></td>
+				</tr>
+			</tbody>
+		</table>
 	</section>
 
 	<section>
@@ -304,6 +392,17 @@
 
 	<p><a href="https://nadh.in">Kailash Nadh</a> &copy; 2022</p>
 </footer>
+
+<script>
+	document.querySelectorAll('code').forEach(el => {
+	el.style.cursor = 'pointer';
+	el.onclick = () => navigator.clipboard.writeText(el.innerText)
+		.then(() => {
+		el.style.backgroundColor = '#ffbe2e';
+		setTimeout(() => el.style.backgroundColor = '', 500);
+		});
+	});
+</script>
 
 </body>
 </html>

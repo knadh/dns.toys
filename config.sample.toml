@@ -99,3 +99,15 @@ file = "data/excuses.txt"
 [holidays]
 enabled = true
 file = "data/holiday_data/holidays.%s.json"
+
+[nanoid]
+enabled = true
+max_length = 64
+max_results = 10
+
+[ifsc]
+enabled = true
+
+# Run scripts/fetch-ifsc.sh data/ifsc to fetch the data from
+# https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
+data_path = "data/ifsc"
