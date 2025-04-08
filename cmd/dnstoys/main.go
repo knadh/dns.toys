@@ -12,6 +12,7 @@ import (
 	"github.com/knadh/dns.toys/internal/geo"
 	"github.com/knadh/dns.toys/internal/ifsc"
 	"github.com/knadh/dns.toys/internal/services/aerial"
+	"github.com/knadh/dns.toys/internal/services/aqi"
 	"github.com/knadh/dns.toys/internal/services/base"
 	"github.com/knadh/dns.toys/internal/services/cidr"
 	"github.com/knadh/dns.toys/internal/services/coin"
@@ -364,6 +365,15 @@ func main() {
 		}
 		h.register("ifsc", e, mux)
 		help = append(help, []string{"lookup (Indian) bank details by IFSC code", "dig ABNA0000001.ifsc @%s"})
+	}
+
+	if ko.Bool("aqi.enabled") {
+		a := aqi.New(aqi.Opt{
+			ReqTimeout: ko.MustDuration("aqi.request_timeout"),
+		}, ge)
+		h.register("aqi", a, mux)
+
+		help = append(help, []string{"get air quality index for a city", "dig delhi.aqi @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
