@@ -159,7 +159,7 @@ func main() {
 	)
 
 	// Timezone service.
-	if ko.Bool("timezones.enabled") || ko.Bool("weather.enabled") {
+	if ko.Bool("timezones.enabled") || ko.Bool("weather.enabled") || ko.Bool("aqi.enabled") {
 		fPath := ko.MustString("timezones.geo_filepath")
 		lo.Printf("reading geo locations from %s", fPath)
 
@@ -367,11 +367,22 @@ func main() {
 		help = append(help, []string{"lookup (Indian) bank details by IFSC code", "dig ABNA0000001.ifsc @%s"})
 	}
 
+	//AQI service
 	if ko.Bool("aqi.enabled") {
 		a := aqi.New(aqi.Opt{
-			ReqTimeout: ko.MustDuration("aqi.request_timeout"),
+			MaxEntries:       ko.MustInt("aqi.max_entries"),
+			ForecastInterval: ko.MustDuration("aqi.forecast_interval"),
+			CacheTTL:         ko.MustDuration("aqi.cache_ttl"),
+			ReqTimeout:       ko.MustDuration("aqi.request_timeout"),
+			UserAgent:        ko.MustString("server.domain"),
 		}, ge)
 		h.register("aqi", a, mux)
+
+		if b := loadSnapshot("aqi"); b != nil {
+			if err := a.Load(b); err != nil {
+				lo.Printf("error reading aqi snapshot: %v", err)
+			}
+		}
 
 		help = append(help, []string{"get air quality index for a city", "dig delhi.aqi @%s"})
 	}
