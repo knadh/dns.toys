@@ -1,0 +1,177 @@
+{
+  "A": {
+    "common_name": "Vitamin A",
+    "scientific_name": "Retinol",
+    "sources": [
+      "Dark-colored fruits",
+      "Dark leafy vegetables",
+      "Egg yolks",
+      "Fortified milk and dairy products (cheese, yogurt, butter, and cream)",
+      "Liver, beef, and fish"
+    ]
+  },
+  "B1": {
+    "common_name": "Vitamin B1",
+    "scientific_name": "Thiamine",
+    "sources": [
+      "Dried milk",
+      "Egg",
+      "Enriched bread and flour",
+      "Lean meats",
+      "Legumes (dried beans)",
+      "Nuts and seeds",
+      "Organ meats",
+      "Peas",
+      "Whole grains"
+    ]
+  },
+  "B2": {
+    "common_name": "Vitamin B2",
+    "scientific_name": "Riboflavin",
+    "sources": [
+      "Dairy products",
+      "Eggs",
+      "Green leafy vegetables",
+      "Lean meats",
+      "Legumes",
+      "Milk",
+      "Nuts"
+    ]
+  },
+  "B3": {
+    "common_name": "Vitamin B3",
+    "scientific_name": "Niacin",
+    "sources": [
+      "Avocado",
+      "Eggs",
+      "Enriched breads and fortified cereals",
+      "Fish (tuna and salt-water fish)",
+      "Lean meats",
+      "Legumes",
+      "Nuts",
+      "Potato",
+      "Poultry"
+    ]
+  },
+  "B5": {
+    "common_name": "Vitamin B5",
+    "scientific_name": "Pantothenic Acid",
+    "sources": [
+      "Avocado",
+      "Eggs",
+      "Legumes and lentils",
+      "Milk",
+      "Mushroom",
+      "Organ meats",
+      "Poultry",
+      "White and sweet potatoes",
+      "Whole-grain cereals"
+    ]
+  },
+  "B6": {
+    "common_name": "Vitamin B6",
+    "scientific_name": "Pyridoxine",
+    "sources": [
+      "Avocado",
+      "Banana",
+      "Legumes (dried beans)",
+      "Meat",
+      "Nuts",
+      "Poultry",
+      "Whole grains (milling and processing removes a lot of this vitamin)"
+    ]
+  },
+  "B7": {
+    "common_name": "Vitamin B7",
+    "scientific_name": "Biotin",
+    "sources": [
+      "Chocolate",
+      "Cereal",
+      "Egg yolk",
+      "Legumes",
+      "Milk",
+      "Nuts",
+      "Organ meats (liver, kidney)",
+      "Pork",
+      "Yeast"
+    ]
+  },
+  "B9": {
+    "common_name": "Vitamin B9",
+    "scientific_name": "Folate or Folic Acid",
+    "sources": [
+      "Asparagus and broccoli",
+      "Beets",
+      "Brewer's yeast",
+      "Dried beans (cooked pinto, navy, kidney, and lima)",
+      "Fortified cereals",
+      "Lentils",
+      "Oranges and orange juice",
+      "Peanut butter",
+      "Wheat germ"
+    ]
+  },
+  "B12": {
+    "common_name": "Vitamin B12",
+    "scientific_name": "Cobalamin",
+    "sources": [
+      "Meat",
+      "Eggs",
+      "Fortified foods such as soymilk",
+      "Milk and milk products",
+      "Organ meats (liver and kidney)",
+      "Poultry",
+      "Shellfish"
+    ]
+  },
+  "C": {
+    "common_name": "Vitamin C",
+    "scientific_name": "Ascorbic Acid",
+    "sources": [
+      "Broccoli",
+      "Brussels sprouts",
+      "Cabbage",
+      "Cauliflower",
+      "Citrus fruits",
+      "Potatoes",
+      "Spinach",
+      "Strawberries",
+      "Tomatoes and tomato juice"
+    ]
+  },
+  "D": {
+    "common_name": "Vitamin D",
+    "scientific_name": "Calciferol (Cholecalciferol (D3) and Ergocalciferol (D2))",
+    "sources": [
+      "Fish (fatty fish such as salmon, mackerel, herring, and orange roughy",
+      "Fish liver oils (cod liver oil)",
+      "Fortified cereals",
+      "Fortified milk and dairy products (cheese, yogurt, butter, and cream)"
+    ]
+  },
+  "E": {
+    "common_name": "Vitamin E",
+    "scientific_name": "Tocopherol",
+    "sources": [
+      "Avocado",
+      "Dark green vegetables (spinach, broccoli, asparagus, and turnip greens)",
+      "Margarine (made from safflower, corn, and sunflower oil)",
+      "Oils (safflower, corn, and sunflower)",
+      "Papaya and mango",
+      "Seeds and nuts",
+      "Wheat germ and wheat germ oil"
+    ]
+  },
+  "K": {
+    "common_name": "Vitamin K",
+    "scientific_name": "Phylloquinone (K1), Menaquinones (K2), and Menadione (K3)",
+    "sources": [
+      "Cabbage",
+      "Cauliflower",
+      "Cereals",
+      "Dark green vegetables (broccoli, Brussels sprouts, and asparagus)",
+      "Dark leafy vegetables (spinach, kale, collards, and turnip greens)",
+      "Fish, liver, beef, and eggs"
+    ]
+  }
+}
