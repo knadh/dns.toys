@@ -107,3 +107,9 @@ enabled = true
 # Run scripts/fetch-ifsc.sh data/ifsc to fetch the data from
 # https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
 data_path = "data/ifsc"
+
+[vitamin]
+enabled = true
+
+# Data populated using: https://medlineplus.gov/ency/article/002399.htm
+file = "data/vitamins.json"

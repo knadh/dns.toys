@@ -27,6 +27,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/uuid"
+	"github.com/knadh/dns.toys/internal/services/vitamin"
 	"github.com/knadh/dns.toys/internal/services/weather"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/toml"
@@ -364,6 +365,17 @@ func main() {
 		}
 		h.register("ifsc", e, mux)
 		help = append(help, []string{"lookup (Indian) bank details by IFSC code", "dig ABNA0000001.ifsc @%s"})
+	}
+
+	// Vitamin service
+	if ko.Bool("vitamin.enabled") {
+		v, err := vitamin.New(ko.MustString("vitamin.file"))
+		if err != nil {
+			lo.Fatalf("Error initializing vitamin service: %v", err)
+		}
+		h.register("vitamin", v, mux)
+
+		help = append(help, []string{"get the common name, scientific name, and food sources for a vitamin", "dig b12.vitamin @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
