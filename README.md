@@ -43,6 +43,7 @@ dig 5.16.nanoid @dns.toys
 - Make sure you have a copy of the `cities15000.txt` file at the root of this directory (instructions are in the `config.sample.toml` file)
 - Make sure to download the `wordnet` from [Wordnet website](https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz).(more instructions are in the `config.sample.toml` file)
 - Extract the tarball and rename extracted the directory to `wordnet`
+- Make sure to fetch the IFSC data (instructions are in the `config.sample.toml` file).
 - Run `make build` to build the binary and then run `./dnstoys.bin`
 - Query against the locally running server
 ```shell
