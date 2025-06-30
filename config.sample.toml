@@ -113,3 +113,6 @@ enabled = true
 
 # Data populated using: https://medlineplus.gov/ency/article/002399.htm
 file = "data/vitamins.json"
+
+[digipin]
+enabled = true

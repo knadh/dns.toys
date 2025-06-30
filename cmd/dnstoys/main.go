@@ -17,6 +17,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/coin"
 	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
+	"github.com/knadh/dns.toys/internal/services/digipin"
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
@@ -376,6 +377,14 @@ func main() {
 		h.register("vitamin", v, mux)
 
 		help = append(help, []string{"get the common name, scientific name, and food sources for a vitamin", "dig b12.vitamin @%s"})
+	}
+
+	// Digipin service
+	if ko.Bool("digipin.enabled") {
+		d := digipin.New()
+		h.register("digipin", d, mux)
+
+		help = append(help, []string{"encode lat,lng to digipin or decode digipin to lat,lng", "dig 28.6139,77.2090.digipin @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
