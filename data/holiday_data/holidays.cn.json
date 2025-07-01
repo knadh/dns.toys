@@ -1,0 +1,90 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "1st Jan, Wednesday - New Year's Day"
+        ]
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [
+            "10th Feb, Monday - Chinese New Year (Spring Festival)"
+        ]
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": []
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": [
+            "5th Apr, Saturday - Qingming Festival (Tomb-Sweeping Day)"
+        ]
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "1st May, Thursday - Labour Day"
+        ]
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": [
+            "10th Jun, Monday - Dragon Boat Festival"
+        ]
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": []
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": []
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": [
+            "15th Sep, Monday - Mid-Autumn Festival"
+        ]
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": [
+            "1st Oct, Wednesday - National Day",
+            "2nd Oct, Thursday - National Day Holiday",
+            "3rd Oct, Friday - National Day Holiday"
+        ]
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": []
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": []
+    }
+}
