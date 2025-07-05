@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// DIGIPIN_GRID maps coordinates to alphanumeric characters
+// DIGIPIN_GRID maps coordinates to alphanumeric characters.
 var DIGIPIN_GRID = [4][4]string{
 	{"F", "C", "9", "8"},
 	{"J", "3", "2", "7"},
@@ -16,7 +16,7 @@ var DIGIPIN_GRID = [4][4]string{
 	{"L", "M", "P", "T"},
 }
 
-// Bounds for India Post's grid
+// Bounds for India Post's grid.
 const (
 	minLat = 2.5
 	maxLat = 38.5
@@ -28,8 +28,8 @@ const (
 type Digipin struct{}
 
 var (
-	reDigipinEncode = regexp.MustCompile(`^(-?\d+\.?\d*),(-?\d+\.?\d*)$`)
-	reDigipinDecode = regexp.MustCompile(`^([FC98J327K456LMPT-]+)$`)
+	reLatLong = regexp.MustCompile(`^(-?\d+\.?\d*),(-?\d+\.?\d*)$`)
+	reDigipin = regexp.MustCompile(`^([FC98J327K456LMPT-]+)$`)
 )
 
 // New returns a new instance of Digipin service.
@@ -41,30 +41,29 @@ func New() *Digipin {
 func (d *Digipin) Query(q string) ([]string, error) {
 	q = strings.ToUpper(q)
 
-	// Try to decode digipin to lat,lng
-	if matches := reDigipinDecode.FindStringSubmatch(q); matches != nil {
-		lat, lng, err := GetLatLngFromDigiPin(matches[1])
+	// Try to decode digipin to lat, long.
+	if matches := reDigipin.FindStringSubmatch(q); matches != nil {
+		lat, lng, err := getCoordsFromDigipin(matches[1])
 		if err != nil {
 			return nil, err
+
 		}
-		result := fmt.Sprintf("lat,lng = %.6f,%.6f", lat, lng)
-		r := fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, result)
-		return []string{r}, nil
+		result := fmt.Sprintf("%.6f,%.6f", lat, lng)
+		return []string{fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, result)}, nil
 	}
 
 	// Try to encode lat,lng to digipin
-	if matches := reDigipinEncode.FindStringSubmatch(q); matches != nil {
-		lat, lng, err := ParseCoordinates(fmt.Sprintf("%s,%s", matches[1], matches[2]))
+	if matches := reLatLong.FindStringSubmatch(q); matches != nil {
+		lat, lng, err := parseCoords(fmt.Sprintf("%s,%s", matches[1], matches[2]))
 		if err != nil {
 			return nil, err
 		}
 
-		digipin, err := GetDigiPin(lat, lng)
+		result, err := getDigipin(lat, lng)
 		if err != nil {
 			return nil, err
 		}
 
-		result := fmt.Sprintf("digipin = %s", digipin)
 		r := fmt.Sprintf(`%s %d TXT "%s"`, q, TTL, result)
 		return []string{r}, nil
 	}
@@ -77,8 +76,8 @@ func (d *Digipin) Dump() ([]byte, error) {
 	return nil, nil
 }
 
-// GetDigiPin encodes lat/lon into a 10-character DIGIPIN
-func GetDigiPin(lat, lon float64) (string, error) {
+// getDigipin encodes lat/lon into a 10-character DIGIPIN.
+func getDigipin(lat, lon float64) (string, error) {
 	if lat < minLat || lat > maxLat {
 		return "", errors.New("latitude out of range")
 	}
@@ -125,22 +124,24 @@ func GetDigiPin(lat, lon float64) (string, error) {
 	return digiPin.String(), nil
 }
 
-// GetLatLngFromDigiPin decodes a DIGIPIN string into lat/lon center
-func GetLatLngFromDigiPin(digiPin string) (float64, float64, error) {
+// getCoordsFromDigipin decodes a DIGIPIN string into lat/long center.
+func getCoordsFromDigipin(digiPin string) (float64, float64, error) {
 	pin := strings.ReplaceAll(digiPin, "-", "")
 	if len(pin) != 10 {
-		return 0, 0, errors.New("invalid DIGIPIN length")
+		return 0, 0, errors.New("invalid digipin format")
 	}
 
 	minLatLocal, maxLatLocal := minLat, maxLat
 	minLonLocal, maxLonLocal := minLon, maxLon
 
 	for i := 0; i < 10; i++ {
-		char := string(pin[i])
-		found := false
-		var row, col int
+		var (
+			char     = string(pin[i])
+			found    = false
+			row, col int
+		)
 
-		// Find char in DIGIPIN_GRID
+		// Find char in DIGIPIN_GRID.
 		for r := 0; r < 4; r++ {
 			for c := 0; c < 4; c++ {
 				if DIGIPIN_GRID[r][c] == char {
@@ -173,14 +174,14 @@ func GetLatLngFromDigiPin(digiPin string) (float64, float64, error) {
 		maxLonLocal = lon2
 	}
 
-	latitude := (minLatLocal + maxLatLocal) / 2
-	longitude := (minLonLocal + maxLonLocal) / 2
+	lat := (minLatLocal + maxLatLocal) / 2
+	long := (minLonLocal + maxLonLocal) / 2
 
-	return latitude, longitude, nil
+	return lat, long, nil
 }
 
-// ParseCoordinates parses coordinate string in format "lat,lng"
-func ParseCoordinates(coordStr string) (float64, float64, error) {
+// parseCoords parses coordinate string in format "lat,lng".
+func parseCoords(coordStr string) (float64, float64, error) {
 	parts := strings.Split(coordStr, ",")
 	if len(parts) != 2 {
 		return 0, 0, errors.New("coordinates must be in format lat,lng")
