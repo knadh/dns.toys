@@ -116,3 +116,8 @@ file = "data/vitamins.json"
 
 [digipin]
 enabled = true
+
+[sky]
+enabled = true
+n2yo_api_key = ""
+cache_ttl = "10s"

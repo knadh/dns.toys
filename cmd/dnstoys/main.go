@@ -24,6 +24,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
+	"github.com/knadh/dns.toys/internal/services/sky"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
@@ -385,6 +386,17 @@ func main() {
 		h.register("digipin", d, mux)
 
 		help = append(help, []string{"encode lat,lng to digipin or decode digipin to lat,lng", "dig 28.6139,77.2090.digipin @%s"})
+	}
+
+	// ISS / sky position tacker.
+	if ko.Bool("sky.enabled") {
+		d := sky.New(sky.Opt{
+			CacheTTL: ko.MustDuration("sky.cache_ttl"),
+			APIKey:   ko.MustString("sky.n2yo_api_key"),
+		})
+		h.register("sky", d, mux)
+
+		help = append(help, []string{"get the position of ISS", "dig iss.sky @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.
