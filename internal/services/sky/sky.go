@@ -104,8 +104,9 @@ func (w *Sky) Query(q string) ([]string, error) {
 		q, d.Data.Info.SatID, d.Data.Info.SatName, d.Data.Positions[0].SatLatitude, d.Data.Positions[0].SatLongitude,
 		d.Data.Positions[0].SatAltitude, d.Data.Positions[0].Azimuth,
 		d.Data.Positions[0].Elevation, d.Data.Positions[0].RA, time.Unix(d.Data.Positions[0].Timestamp, 0).Format(time.RFC3339))
+	l := fmt.Sprintf(`%s %d TXT "https://maps.google.com/?q=%v,%v"`, q, d.Data.Info.SatID, d.Data.Positions[0].SatLatitude, d.Data.Positions[0].SatLongitude)
 
-	return []string{r}, nil
+	return []string{r, l}, nil
 }
 
 // Dump produces a gob dump of the cached data.
