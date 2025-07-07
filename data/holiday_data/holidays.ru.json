@@ -1,0 +1,90 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "1st Jan, Wednesday - New Year's Day",
+            "7th Jan, Tuesday - Orthodox Christmas Day"
+        ]
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [
+            "23rd Feb, Sunday - Defender of the Fatherland Day"
+        ]
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": [
+            "8th Mar, Saturday - International Women's Day"
+        ]
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": []
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "1st May, Thursday - Spring and Labor Day",
+            "9th May, Friday - Victory Day"
+        ]
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": [
+            "12th Jun, Thursday - Russia Day"
+        ]
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": []
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": []
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": []
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": []
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": [
+            "4th Nov, Tuesday - Unity Day"
+        ]
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": [
+            "31st Dec, Wednesday - New Year's Eve"
+        ]
+    }
+}

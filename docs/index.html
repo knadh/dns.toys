@@ -33,6 +33,218 @@
 		</p>
 	</section>
 
+	<section class="box">
+		<h2>World time</h2>
+		<code class="block">
+			<p>dig mumbai.time @dns.toys</p>
+			<p>dig newyork.time @dns.toys</p>
+			<p>dig paris/fr.time @dns.toys</p>
+		</code>
+		<p>Pass city names without spaces suffixed with <code>.time</code>. Pass two letter country codes separated by slash optionally.</p>
+
+		<br />
+		<h3>Timezone conversion</h3>
+		<p>Pass YYYY-MM-DD<strong>T</strong>HH:MM-$fromCity-$toCity (two letter country codes separated by slash optionally).</p>
+
+		<code class="block">
+			<p>dig 2023-05-28T14:00-mumbai-paris/fr.time @dns.toys</p>
+		</code>
+	</section>
+
+	<section class="box">
+		<h2>Weather</h2>
+		<code class="block">
+			<p>dig mumbai.weather @dns.toys</p>
+			<p>dig newyork.weather @dns.toys</p>
+			<p>dig amsterdam/nl.weather @dns.toys</p>
+		</code>
+		<p>
+			Pass city names without spaces suffixed with <code>.weather</code>.
+			Pass two letter country codes optionally.
+			This service is powered by <a href="https://www.yr.no/en">yr.no</a>
+		</p>
+	</section>
+
+	<section class="box">
+		<h2>Unit conversion</h2>
+		<code class="block">
+			<p>dig 42km-mi.unit @dns.toys</p>
+			<p>dig 32GB-MB.unit @dns.toys</p>
+		</code>
+		<p>$Value$FromUnit-$ToUnit. To see all 70 available units,
+			<code>dig unit @dns.toys</code>
+		</p>
+	</section>
+
+	<section class="box">
+		<h2>Currency conversion (forex)</h2>
+		<code class="block">
+			<p>dig 100USD-INR.fx @dns.toys</p>
+			<p>dig 50CAD-AUD.fx @dns.toys</p>
+		</code>
+		<p>$Value$FromCurrency-$ToCurrency. Daily rates are from <a href="https://exchangerate.host">exchangerate.host</a>.</p>
+	</section>
+
+	<section class="box">
+		<h2>IP echo</h2>
+		<code class="block">
+			<p>dig -4 ip @dns.toys</p>
+		</code>
+		<p>Echo your IPv4 address.</p>
+		<code class="block">
+			<p>dig -6 ip @dns.toys</p>
+		</code>
+		<p>Echo your IPv6 address.</p>
+	</section>
+
+	<section class="box">
+		<h2>Number to words</h2>
+		<code class="block">
+			<p>dig 987654321.words @dns.toys</p>
+		</code>
+		<p>Convert numbers to English words.</p>
+	</section>
+
+	<section class="box">
+		<h2>Usable CIDR Range</h2>
+		<code class="block">
+			<p>dig 10.0.0.0/24.cidr @dns.toys</p>
+			<p>dig 2001:db8::/108.cidr @dns.toys</p>
+		</code>
+		<p>Parse CIDR notation to find out first and last usable IP address in the subnet.</p>
+	</section>
+
+	<section class="box">
+		<h2>Number base conversion</h2>
+		<code class="block">
+			<p>dig 100dec-hex.base @dns.toys</p>
+			<p>dig 755oct-bin.base @dns.toys</p>
+		</code>
+		<p>Converts a number from one base to another. Supported bases are hex, dec, oct and bin.</p>
+	</section>
+
+	<section class="box">
+		<h2>Pi</h2>
+		<code class="block">
+			<p>dig pi @dns.toys</p>
+			<p>dig pi -t txt @dns.toys</p>
+			<p>dig pi -t aaaa @dns.toys</p>
+		</code>
+		<p>Print digits of Pi. Yep.</p>
+	</section>
+
+	<section class="box">
+
+		<h2>English dictionary</h2>
+		<code class="block">
+			<p>dig fun.dict @dns.toys</p>
+			<p>dig big-time.dict @dns.toys</p>
+		</code>
+		<p>Get dictionary definitions for English words. Powered by <a href="https://wordnet.princeton.edu">WordNet®</a>. Replace spaces with dashes.</p>
+	</section>
+
+	<section class="box">
+		<h2>Rolling dice</h2>
+		<code class="block">
+			<p>dig 1d6.dice @dns.toys</p>
+			<p>dig 3d20/2.dice @dns.toys</p>
+		</code>
+		<p>The number of dice to roll, followed by <code>d</code>, followed by the number of sides for each dice, like in tabletop RPG games.</p>
+		<p>Optionally suffix by <code>/$number</code> to add it to the total.
+			For example, a DnD roll like 2d20+3 is written as 2d20/3.</p>
+	</section>
+
+	<section class="box">
+		<h2>Tossing coin</h2>
+		<code class="block">
+			<p>dig coin @dns.toys</p>
+			<p>dig 2.coin @dns.toys</p>
+		</code>
+		<p>Number of coins to toss.</p>
+	</section>
+
+	<section class="box">
+		<h2>Random number generation</h2>
+		<code class="block">
+			<p>dig 1-100.rand @dns.toys</p>
+			<p>dig 30-200.rand @dns.toys</p>
+		</code>
+		<p>Generate a random number in a specified range (inclusive of the range values).</p>
+	</section>
+
+	<section class="box">
+		<h2>Epoch/Unix timestamp conversion</h2>
+		<code class="block">
+			<p>dig 784783800.epoch @dns.toys</p>
+		</code>
+		<p>Convert an epoch/unix timestamp into a human readable date. Supports Unix timestamps in s, ms, µs and ns. </p>
+	</section>
+
+	<section class="box">
+		<h2>Calculate aerial distance</h2>
+		<code class="block">
+			<p>dig A12.9352,77.6245/12.9698,77.7500.aerial @dns.toys</p>
+		</code>
+		<p>Calculate aerial distance between a lat-long pair</p>
+	</section>
+
+	<section class="box">
+		<h2>Generate UUIDs</h2>
+		<code class="block">
+			<p>dig 5.uuid @dns.toys</p>
+		</code>
+		<p>Generate N UUIDs (v4).</p>
+	</section>
+
+	<section class="box">
+		<h2>Solve Sudoku</h2>
+		<code class="block">
+			<p>dig 002840003.076000000.100006050.030080000.007503200.000020010.080100004.000000730.700064500.sudoku @dns.toys</p>
+		</code>
+		<p>Solve Sudoku. send sudoku puzzle string in row major format, empty cells should have value 0 (v4).</p>
+	</section>
+
+	<section class="box">
+		<h2>Developer Excuse</h2>
+		<code class="block">
+			<p>dig excuse @dns.toys</p>
+		</code>
+		<p>Return a developer excuse.</p>
+	</section>
+
+	<section class="box">
+		<h2>List of public holidays in current month</h2>
+		<code class="block">
+			<p>dig maharashtra.holidays.in @dns.toys</p>
+			<p>dig wyoming.holidays.us @dns.toys</p>
+			<p>dig holidays.us @dns.toys</p>
+			<p>dig holidays.us @dns.toys</p>
+		</code>
+		<p>Return list public holidays in the current month</p>
+	</section>
+
+	<section class="box">
+		<h2>Generate NanoIDs</h2>
+		<code class="block">
+			<p>dig 5.10.nanoid @dns.toys</p>
+		</code>
+		<p>Generate N NanoIDs with specified length.</p>
+	</section>
+
+	<section class="box">
+		<h2>Help</h2>
+		<code class="block">
+			<p>dig help @dns.toys</p>
+		</code>
+		<p>Lists available services.</p>
+	</section>
+
+	<section class="box">
+    <h2>Generate NanoIDs</h2>
+    <code class="block">
+        <p>dig 5.10.nanoid @dns.toys</p>
+    </code>
+    <p>Generate N NanoIDs with specified length.</p>
 	<section>
 		<table class="box services">
 			<thead>
@@ -118,6 +330,12 @@
 					<td><span class="name">Developer excuses</span><br><span class="desc">Get a random developer excuse</span></td>
 					<td><code>dig excuse @dns.toys</code></td>
 				</tr>
+        
+				<tr>
+					<td><span class="name">Holiday List</span><br><span class="desc">Get list of holidays from the current month</span></td>
+					<td><code>dig kerala.holidays.in or holidays.us @dns.toys</code></td>
+				</tr>
+        
 				<tr>
 					<td><span class="name">NanoID generation</span><br><span class="desc">Generate NanoIDs with specified length: $len.$num</span></td>
 					<td><code>dig 5.10.nanoid @dns.toys</code></td>

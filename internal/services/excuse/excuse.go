@@ -39,6 +39,8 @@ func New(file string) (*Excuse, error) {
 
 func (e *Excuse) Query(q string) ([]string, error) {
 	result, err := e.randomExcuse()
+
+	//result, err := e.randomExcuse()
 	if err != nil {
 		return nil, fmt.Errorf("error fetching excuse: %w", err)
 	}

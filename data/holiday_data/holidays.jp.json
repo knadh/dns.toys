@@ -1,0 +1,99 @@
+{
+    "january": {
+        "month": [
+            "january"
+        ],
+        "national": [
+            "01st Jan, Wednesday - New Year's Day",
+            "02nd Jan, Thursday - New Year's Day Holiday",
+            "03rd Jan, Friday - New Year's Day Holiday"
+        ]
+    },
+    "february": {
+        "month": [
+            "february"
+        ],
+        "national": [
+            "11th Feb, Monday - National Foundation Day"
+        ]
+    },
+    "march": {
+        "month": [
+            "march"
+        ],
+        "national": [
+            "20th Mar, Thursday - Vernal Equinox Day"
+        ]
+    },
+    "april": {
+        "month": [
+            "april"
+        ],
+        "national": [
+            "29th Apr, Monday - Showa Day"
+        ]
+    },
+    "may": {
+        "month": [
+            "may"
+        ],
+        "national": [
+            "03rd May, Saturday - Constitution Memorial Day",
+            "04th May, Sunday - Greenery Day",
+            "05th May, Monday - Children's Day"
+        ]
+    },
+    "june": {
+        "month": [
+            "june"
+        ],
+        "national": []
+    },
+    "july": {
+        "month": [
+            "july"
+        ],
+        "national": [
+            "20th Jul, Sunday - Marine Day"
+        ]
+    },
+    "august": {
+        "month": [
+            "august"
+        ],
+        "national": []
+    },
+    "september": {
+        "month": [
+            "september"
+        ],
+        "national": [
+            "23rd Sep, Monday - Autumn Equinox Day"
+        ]
+    },
+    "october": {
+        "month": [
+            "october"
+        ],
+        "national": [
+            "14th Oct, Monday - Sports Day"
+        ]
+    },
+    "november": {
+        "month": [
+            "november"
+        ],
+        "national": [
+            "03rd Nov, Sunday - Culture Day",
+            "23rd Nov, Saturday - Labor Thanksgiving Day"
+        ]
+    },
+    "december": {
+        "month": [
+            "december"
+        ],
+        "national": [
+            "23rd Dec, Monday - Emperor's Birthday"
+        ]
+    }
+}

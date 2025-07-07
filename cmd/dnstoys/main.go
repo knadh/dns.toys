@@ -21,6 +21,7 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/holiday"
 	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
@@ -60,6 +61,7 @@ func initConfig() {
 		fmt.Println(f.FlagUsages())
 		os.Exit(0)
 	}
+
 	f.StringSlice("config", []string{"config.toml"}, "path to one or more TOML config files to load in order")
 	f.Bool("version", false, "show build version")
 	f.Parse(os.Args[1:])
@@ -351,11 +353,22 @@ func main() {
 		help = append(help, []string{"return a developer excuse", "dig excuse @%s"})
 	}
 
-	// NanoID Generator
+	// Public Holidays
+	if ko.Bool("holidays.enabled") {
+		hldy, err := holiday.New(ko.MustString("holidays.file"))
+		if err != nil {
+			lo.Fatalf("this is the error lmao: %v", err)
+		}
+
+		h.registerWithTLDSupport("holidays", hldy, nil, mux)
+		help = append(help, []string{"return public holidays of the current month", "dig goa.holidays.in or holidays.us @%s"})
+	}
+
+	//NanoID Generator
 	if ko.Bool("nanoid.enabled") {
 		n := nanoid.New(ko.MustInt("nanoid.max_results"), ko.MustInt("nanoid.max_length"))
 		h.register("nanoid", n, mux)
-
+		
 		help = append(help, []string{"generate random NanoIDs", "dig 2.10.nanoid @%s"})
 	}
 
