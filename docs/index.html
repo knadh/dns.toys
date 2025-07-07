@@ -136,7 +136,12 @@
 				</tr>
 				<tr>
 					<td><span class="name">ISS location</span><br /><span class="desc">Track the location of the ISS (International Space Station)</span></td>
-					<td><code>dig iss.sky @dns.toys</code></td>
+					<td>
+						<code>dig iss.sky @dns.toys</code>
+						<br />
+						To open Google maps with the current location of the ISS:<br />
+						<code><small>xdg-open $(dig iss.sky @dns.toys | grep -oP 'https://[^"]*')</small></code>
+					</td>
 				</tr>
 			</tbody>
 		</table>
