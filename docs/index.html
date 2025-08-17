@@ -126,6 +126,23 @@
 					<td><span class="name">IFSC lookup</span><br><span class="desc">Get bank (India) details for IFSC code</span></td>
 					<td><code>dig ABNA0000001.ifsc @dns.toys</code></td>
 				</tr>
+				<tr>
+					<td><span class="name">Vitamin info</span><br><span class="desc">Get the common name, scientific name, and food sources for a vitamin</span></td>
+					<td><code>dig a.vitamin @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">DIGIPIN</span><br /><span class="desc">Convert between lat, long and IndiaPost DIGPIN hash</span></td>
+					<td><code>dig 23.241312,79.553617.digipin @dns.toys</code><br /><code>dig 36L-9K9-9J57.digipin @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">ISS location</span><br /><span class="desc">Track the location of the ISS (International Space Station)</span></td>
+					<td>
+						<code>dig iss.sky @dns.toys</code>
+						<br />
+						To open Google maps with the current location of the ISS:<br />
+						<code><small>xdg-open $(dig iss.sky @dns.toys | grep -oP 'https://[^"]*')</small></code>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</section>

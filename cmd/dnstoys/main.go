@@ -18,16 +18,19 @@ import (
 	"github.com/knadh/dns.toys/internal/services/coin"
 	"github.com/knadh/dns.toys/internal/services/dice"
 	"github.com/knadh/dns.toys/internal/services/dict"
+	"github.com/knadh/dns.toys/internal/services/digipin"
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
 	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
 	"github.com/knadh/dns.toys/internal/services/random"
+	"github.com/knadh/dns.toys/internal/services/sky"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
 	"github.com/knadh/dns.toys/internal/services/timezones"
 	"github.com/knadh/dns.toys/internal/services/units"
 	"github.com/knadh/dns.toys/internal/services/uuid"
+	"github.com/knadh/dns.toys/internal/services/vitamin"
 	"github.com/knadh/dns.toys/internal/services/weather"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/toml"
@@ -385,6 +388,35 @@ func main() {
 		}
 
 		help = append(help, []string{"get air quality index for a city", "dig delhi.aqi @%s"})
+	}
+	// Vitamin service
+	if ko.Bool("vitamin.enabled") {
+		v, err := vitamin.New(ko.MustString("vitamin.file"))
+		if err != nil {
+			lo.Fatalf("Error initializing vitamin service: %v", err)
+		}
+		h.register("vitamin", v, mux)
+
+		help = append(help, []string{"get the common name, scientific name, and food sources for a vitamin", "dig b12.vitamin @%s"})
+	}
+
+	// Digipin service
+	if ko.Bool("digipin.enabled") {
+		d := digipin.New()
+		h.register("digipin", d, mux)
+
+		help = append(help, []string{"encode lat,lng to digipin or decode digipin to lat,lng", "dig 28.6139,77.2090.digipin @%s"})
+	}
+
+	// ISS / sky position tacker.
+	if ko.Bool("sky.enabled") {
+		d := sky.New(sky.Opt{
+			CacheTTL: ko.MustDuration("sky.cache_ttl"),
+			APIKey:   ko.MustString("sky.n2yo_api_key"),
+		})
+		h.register("sky", d, mux)
+
+		help = append(help, []string{"get the position of ISS", "dig iss.sky @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

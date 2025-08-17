@@ -125,3 +125,16 @@ request_timeout = "5s"
 snapshot_enabled = true
 snapshot_file = "data/aqi.snapshot"
 
+[vitamin]
+enabled = true
+
+# Data populated using: https://medlineplus.gov/ency/article/002399.htm
+file = "data/vitamins.json"
+
+[digipin]
+enabled = true
+
+[sky]
+enabled = true
+n2yo_api_key = ""
+cache_ttl = "10s"
