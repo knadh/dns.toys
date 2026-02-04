@@ -103,10 +103,27 @@ max_results = 10
 
 [ifsc]
 enabled = true
-
 # Run scripts/fetch-ifsc.sh data/ifsc to fetch the data from
 # https://github.com/razorpay/ifsc/releases/download/latest/by-bank.tar.gz
 data_path = "data/ifsc"
+
+[aqi]
+enabled = true
+
+# Min time between each forecast entry in hours. Min is 30 minutes.
+forecast_interval = "2h"
+
+# Max forecasts to store.
+max_entries = 5
+
+cache_ttl = "2h"
+
+# Useragent for the open-meteo.com API
+useragent = "github.com/knadh/dns.toys"
+
+request_timeout = "5s"
+snapshot_enabled = true
+snapshot_file = "data/aqi.snapshot"
 
 [vitamin]
 enabled = true
