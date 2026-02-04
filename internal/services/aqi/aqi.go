@@ -117,7 +117,7 @@ func (a *AQI) Query(q string) ([]string, error) {
 		}
 
 		for _, f := range data.Forecasts {
-			r := fmt.Sprintf("%s %d TXT \"%s (%s)\" \"PM10: %.1f\" \"PM2.5: %.1f\" \"%s\"",
+			r := fmt.Sprintf("%s %d TXT \"%s (%s)\" \"PM10 = %.1f\" \"PM2.5 = %.1f\" \"%s\"",
 				q, TTL, l.Name, l.Country, f.PM10, f.PM2_5, f.Time.In(zone).Format("15:04, Mon"))
 			out = append(out, r)
 		}

@@ -118,7 +118,7 @@ max_entries = 5
 
 cache_ttl = "2h"
 
-# Useragent for the yr.no API
+# Useragent for the open-meteo.com API
 useragent = "github.com/knadh/dns.toys"
 
 request_timeout = "5s"
