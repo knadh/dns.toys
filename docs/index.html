@@ -43,7 +43,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><span class="name">World time</span><br><span class="desc">Get current time for cities. Pass city names without spaces suffixed with .time. Optional two letter country codes.</span></td>
+					<td><span class="name">World time</span><br><span class="desc">Get current time for cities. Pass city names without spaces suffixed with .time. Optional two letter country codes: mumbai/in.time</span></td>
 					<td><code>dig mumbai.time @dns.toys</code></td>
 				</tr>
 				<tr>
@@ -51,8 +51,12 @@
 					<td><code>dig 2023-05-28T14:00-mumbai-paris/fr.time @dns.toys</code></td>
 				</tr>
 				<tr>
-					<td><span class="name">Weather</span><br><span class="desc">Get weather for cities. Pass city names without spaces. Optional country codes.</span></td>
+					<td><span class="name">Weather</span><br><span class="desc">Get weather for cities. Pass city names without spaces. Optional country codes: mumbai/in.weather</span></td>
 					<td><code>dig mumbai.weather @dns.toys</code></td>
+				</tr>
+				<tr>
+					<td><span class="name">AQI (Air Quality Index)</span><br><span class="desc">Get AQI PM2.5 and PM10 air quality data for cities. Pass city names without spaces. Optional country codes: bangkok/th.sqi</span></td>
+					<td><code>dig bangkok.aqi @dns.toys</code></td>
 				</tr>
 				<tr>
 					<td><span class="name">Unit conversion</span><br><span class="desc">Convert between 70+ different units</span></td>
