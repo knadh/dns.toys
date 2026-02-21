@@ -36,6 +36,10 @@ func (n *Random) Query(q string) ([]string, error) {
 		return nil, errors.New("invalid random query.")
 	}
 
+	if max < min {
+		return nil, errors.New("max must be >= min.")
+	}
+
 	v := min + rand.Intn(max-min+1)
 
 	s := fmt.Sprintf("%s 1 TXT \"%d\"", q, v)

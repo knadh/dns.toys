@@ -138,3 +138,12 @@ enabled = true
 enabled = true
 n2yo_api_key = ""
 cache_ttl = "10s"
+
+[pass]
+enabled = true
+
+[hash]
+enabled = true
+
+[roman]
+enabled = true

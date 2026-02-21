@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"math/rand"
 	"os"
 	"os/signal"
 	"syscall"
@@ -22,9 +21,12 @@ import (
 	"github.com/knadh/dns.toys/internal/services/epoch"
 	"github.com/knadh/dns.toys/internal/services/excuse"
 	"github.com/knadh/dns.toys/internal/services/fx"
+	"github.com/knadh/dns.toys/internal/services/hash"
 	"github.com/knadh/dns.toys/internal/services/nanoid"
 	"github.com/knadh/dns.toys/internal/services/num2words"
+	"github.com/knadh/dns.toys/internal/services/pass"
 	"github.com/knadh/dns.toys/internal/services/random"
+	"github.com/knadh/dns.toys/internal/services/roman"
 	"github.com/knadh/dns.toys/internal/services/sky"
 	"github.com/knadh/dns.toys/internal/services/sudoku"
 	"github.com/knadh/dns.toys/internal/services/timezones"
@@ -84,7 +86,7 @@ func initConfig() {
 }
 
 func saveSnapshot(h *handlers) {
-	interruptSignal := make(chan os.Signal)
+	interruptSignal := make(chan os.Signal, 1)
 	signal.Notify(interruptSignal,
 		syscall.SIGTERM,
 		syscall.SIGHUP,
@@ -293,9 +295,6 @@ func main() {
 
 	// Random number generator.
 	if ko.Bool("rand.enabled") {
-		// seed the RNG:
-		rand.Seed(time.Now().Unix())
-
 		n := random.New()
 		h.register("rand", n, mux)
 
@@ -417,6 +416,30 @@ func main() {
 		h.register("sky", d, mux)
 
 		help = append(help, []string{"get the position of ISS", "dig iss.sky @%s"})
+	}
+
+	// Password generator.
+	if ko.Bool("pass.enabled") {
+		p := pass.New()
+		h.register("pass", p, mux)
+
+		help = append(help, []string{"generate a random password", "dig 16.pass @%s"})
+	}
+
+	// Hash calculator.
+	if ko.Bool("hash.enabled") {
+		hh := hash.New()
+		h.register("hash", hh, mux)
+
+		help = append(help, []string{"compute hash of a string", "dig sha256/hello.hash @%s"})
+	}
+
+	// Roman numeral converter.
+	if ko.Bool("roman.enabled") {
+		rm := roman.New()
+		h.register("roman", rm, mux)
+
+		help = append(help, []string{"convert between Arabic and Roman numerals", "dig 2024.roman @%s"})
 	}
 
 	// Prepare the static help response for the `help` query.

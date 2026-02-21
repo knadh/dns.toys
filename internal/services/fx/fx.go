@@ -151,8 +151,8 @@ func (fx *FX) Dump() ([]byte, error) {
 func (fx *FX) Load(b []byte) error {
 	buf := bytes.NewBuffer(b)
 
-	fx.mut.RLock()
-	defer fx.mut.RUnlock()
+	fx.mut.Lock()
+	defer fx.mut.Unlock()
 
 	err := gob.NewDecoder(buf).Decode(&fx.data)
 	return err
@@ -168,6 +168,7 @@ func (fx *FX) load(url string) (data, error) {
 	if err != nil {
 		return data{}, err
 	}
+	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
 		return data{}, fmt.Errorf("request failed: %v", resp.StatusCode)

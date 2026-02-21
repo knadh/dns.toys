@@ -187,8 +187,8 @@ func (w *Weather) Dump() ([]byte, error) {
 func (w *Weather) Load(b []byte) error {
 	buf := bytes.NewBuffer(b)
 
-	w.mut.RLock()
-	defer w.mut.RUnlock()
+	w.mut.Lock()
+	defer w.mut.Unlock()
 
 	err := gob.NewDecoder(buf).Decode(&w.data)
 	return err

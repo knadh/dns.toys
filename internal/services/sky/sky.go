@@ -100,6 +100,10 @@ func (w *Sky) Query(q string) ([]string, error) {
 		return nil, err
 	}
 
+	if len(d.Data.Positions) == 0 {
+		return nil, errors.New("no position data available for ISS.")
+	}
+
 	r := fmt.Sprintf(`%s %d TXT "%s" "lat=%v" "lon=%v" "altitude=%vKM" "azimuth=%v" "elevation=%v" "ra=%v" "time=%s"`,
 		q, d.Data.Info.SatID, d.Data.Info.SatName, d.Data.Positions[0].SatLatitude, d.Data.Positions[0].SatLongitude,
 		d.Data.Positions[0].SatAltitude, d.Data.Positions[0].Azimuth,
