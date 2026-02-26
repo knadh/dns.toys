@@ -38,6 +38,20 @@ dig 5.16.nanoid @dns.toys
 
 ## Running locally
 
+### Docker
+
+```sh
+docker run name dnstoys --restart unless-stopped -p 5354:5354/tcp -p 5354:5354/udp
+```
+
+Or using docker compose: 
+
+```sh
+docker compose up
+```
+
+### From source
+
 - Clone the repo
 - Copy `config.sample.toml` to `config.toml` and edit the config
 - Make sure you have a copy of the `cities15000.txt` file at the root of this directory (instructions are in the `config.sample.toml` file)

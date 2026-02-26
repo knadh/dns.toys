@@ -1,0 +1,11 @@
+name: dns.toys
+services:
+  dnstoys:
+    build: .
+    container_name: dnstoys
+    restart: unless-stopped
+    ports:
+      - "5354:5354/tcp"
+      - "5354:5354/udp"
+    environment:
+      TZ: UTC
