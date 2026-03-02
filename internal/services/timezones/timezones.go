@@ -76,7 +76,7 @@ func (t *Timezones) convert(q string, m []string) ([]string, error) {
 
 	toLocs := t.geo.Query(toGeo)
 	if len(toLocs) == 0 {
-		return nil, errors.New("unknown `from` city.")
+		return nil, errors.New("unknown `to` city.")
 	}
 
 	var out []string

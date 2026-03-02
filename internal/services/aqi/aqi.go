@@ -147,8 +147,8 @@ func (a *AQI) Dump() ([]byte, error) {
 func (a *AQI) Load(b []byte) error {
 	buf := bytes.NewBuffer(b)
 
-	a.mut.RLock()
-	defer a.mut.RUnlock()
+	a.mut.Lock()
+	defer a.mut.Unlock()
 
 	err := gob.NewDecoder(buf).Decode(&a.data)
 	return err

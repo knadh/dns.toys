@@ -178,7 +178,6 @@ func (h *handlers) handleHelp(w dns.ResponseWriter, r *dns.Msg) {
 
 func (h *handlers) handleDefault(w dns.ResponseWriter, m *dns.Msg) {
 	respErr(fmt.Errorf(`unknown query. try: dig help @%s`, h.domain), w, m)
-	w.WriteMsg(m)
 }
 
 // respErr writes an error message to a DNS response.
